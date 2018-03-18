@@ -1,0 +1,2 @@
+﻿@using Bionet4.Data.Properties
+@Html.DropDownList("", new SelectList(TimeZoneInfo.GetSystemTimeZones(), "DisplayName", "DisplayName", ViewData.TemplateInfo.FormattedModelValue.ToString()), string.Format("< {0} >", Resources.SelectTimeZone), new { @class = "form-control" })

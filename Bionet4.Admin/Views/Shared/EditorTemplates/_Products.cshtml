@@ -1,0 +1,16 @@
+﻿@using Bionet4.Admin.Helpers
+@using Bionet4.Data.Models
+
+@{
+    List<int> selectedProducts = ViewData.TemplateInfo.FormattedModelValue as List<int>;
+}
+
+<ul>
+    @foreach (Product product in UIHelper.GetProducts())
+    {
+        <li>
+            <input type="checkbox" name="ProductsTcmUri" value="@product.Id" id="@product.Id" @{if (selectedProducts != null && selectedProducts.Contains(product.Id)) { <text> checked='checked' </text>  } } />
+            <label for="@product.Id">@product.Title</label>
+        </li>
+    }
+</ul>
