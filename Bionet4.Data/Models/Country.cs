@@ -1,6 +1,10 @@
-﻿using Bionet4.Admin.Attributes;
-using Bionet4.Data.Contracts;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Script.Serialization;
+using System.Xml.Serialization;
+using Bionet4.Admin.Attributes;
+using Bionet4.Data.Contracts;
 
 namespace Bionet4.Data.Models
 {
@@ -11,5 +15,6 @@ namespace Bionet4.Data.Models
 
         [IncludeList()]
         public string Name { get; set; }
+
     }
 }

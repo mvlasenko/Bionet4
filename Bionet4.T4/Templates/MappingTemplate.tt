@@ -1,0 +1,53 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System.Data.Entity.ModelConfiguration;
+
+namespace <#= RootNamespace #>.Data.Models.Mapping
+{
+    public class <#= Model.Singular #>Map : EntityTypeConfiguration<<#= Model.Singular #>>
+    {
+        public <#= Model.Singular #>Map()
+        {
+            // Primary Key
+            this.HasKey(t => t.Id);
+
+            // Properties
+
+<#
+    foreach(Model.FieldInfo field in Model.Fields) {
+#>
+            this.Property(t => t.<#= field.Name #>)
+                .IsRequired()<#= (field.Type == "string" ? ".HasMaxLength(512)" : "") #>;
+
+<#
+    }
+#>
+            // Table & Column Mappings
+
+            this.ToTable("<#= Model.Plural #>");
+            this.Property(t => t.Id).HasColumnName("Id");
+<#
+    foreach(Model.FieldInfo field in Model.Fields) {
+#>
+            this.Property(t => t.<#= field.Name #>).HasColumnName("<#= field.Name #>");
+<#
+    }
+#>
+
+            // Relationships
+<#
+        if(Model.CollectionModel != null) {
+#>
+            this.HasMany(e => e.<#= Model.CollectionModel.Plural #>)
+                .WithOptional(e => e.<#= Model.Singular #>)
+                .WillCascadeOnDelete(false);
+
+<#
+        }
+#>
+        }
+    }
+}

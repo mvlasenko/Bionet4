@@ -1,4 +1,4 @@
-﻿using Bionet4.Data.Contracts;
+using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
 
 namespace Bionet4.Admin.Controllers
@@ -13,4 +13,3 @@ namespace Bionet4.Admin.Controllers
         }
     }
 }
-

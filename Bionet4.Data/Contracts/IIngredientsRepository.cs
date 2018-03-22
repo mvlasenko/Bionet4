@@ -1,4 +1,4 @@
-﻿using Bionet4.Data.Models;
+using Bionet4.Data.Models;
 
 namespace Bionet4.Data.Contracts
 {
