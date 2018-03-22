@@ -1,10 +1,10 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
-using Bionet4.Data.Properties;
 
 namespace Bionet4.Data.Models
 {
@@ -16,22 +16,16 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Title { get; set; }
 
-        [IncludeList()]
-        public string Description { get; set; }
-
-        [Display(Name = "ImagePath", ResourceType = typeof(Resources))]
         [IncludeList("Image")]
+        [Display(Name = "Image")]
         public string ImagePath { get; set; }
 
-        [Display(Name = "CategoryId", ResourceType = typeof(Resources))]
-        [UIHint("_Category")]
-        public int? CategoryId { get; set; }
+        [Display(Name = "Category")]
+        public int CategoryId { get; set; }
 
         [ScaffoldColumn(false)]
-        [IncludeList("Category Name")]
-        //[ScriptIgnore(ApplyToOverrides = true)]
-        //[XmlIgnore]
-        public string CategoryName
+        [IncludeList("Category")]
+        public string CategoryTitle
         {
             get
             {
@@ -46,5 +40,6 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual Category Category { get; set; }
+
     }
 }

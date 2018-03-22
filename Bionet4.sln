@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet4.Data", "Bionet4.Data\Bionet4.Data.csproj", "{DD339941-CFF1-4F6F-9E61-7EDB29C9344F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet4.Admin", "Bionet4.Admin\Bionet4.Admin.csproj", "{2CB6D833-CCE9-4E5F-9F89-06AB45664C71}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bionet4.T4", "Bionet4.T4\Bionet4.T4.csproj", "{CED14257-276B-4E9C-8B89-C056B806F697}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2CB6D833-CCE9-4E5F-9F89-06AB45664C71}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CB6D833-CCE9-4E5F-9F89-06AB45664C71}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CB6D833-CCE9-4E5F-9F89-06AB45664C71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CED14257-276B-4E9C-8B89-C056B806F697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CED14257-276B-4E9C-8B89-C056B806F697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CED14257-276B-4E9C-8B89-C056B806F697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CED14257-276B-4E9C-8B89-C056B806F697}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

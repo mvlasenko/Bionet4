@@ -1,0 +1,92 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Script.Serialization;
+using System.Xml.Serialization;
+using <#= RootNamespace #>.Admin.Attributes;
+using <#= RootNamespace #>.Data.Contracts;
+
+namespace <#= RootNamespace #>.Data.Models
+{
+    public class <#= Model.Singular #> : IEntity<int>
+    {
+<#
+        if(Model.CollectionModel != null) {
+#>
+        public <#= Model.Singular #>()
+        {
+            this.<#= Model.CollectionModel.Plural #> = new List<<#= Model.CollectionModel.Singular #>>();
+        }
+
+<#
+        }
+#>
+        [ScaffoldColumn(false)]
+        public int Id { get; set; }
+
+<#
+    foreach(Model.FieldInfo field in Model.Fields) {
+        if(field.IncludeList == "true" && !string.IsNullOrEmpty(field.FriendlyName)) {
+#>
+        [IncludeList("<#= field.FriendlyName #>")]
+<#
+        }
+        else if(field.IncludeList == "true") {
+#>
+        [IncludeList()]
+<#
+        }
+        if(field.IncludeForm == "false") {
+#>
+        [ScaffoldColumn(false)]
+<#
+        }
+        if(!string.IsNullOrEmpty(field.FriendlyName)) {
+#>
+        [Display(Name = "<#= field.FriendlyName #>")]
+<#
+        }
+#>
+        public <#= field.Type #> <#= field.Name #> { get; set; }
+
+<#
+        if(!string.IsNullOrEmpty(field.FkSingular)) {
+#>
+        [ScaffoldColumn(false)]
+        [IncludeList("<#= field.FkSingular #>")]
+        public string <#= field.FkSingular #>Title
+        {
+            get
+            {
+                if (this.<#= field.FkSingular #> == null)
+                    return String.Empty;
+
+                return string.Format("{0}", this.<#= field.FkSingular #>.Title);
+            }
+        }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual <#= field.FkSingular #> <#= field.FkSingular #> { get; set; }
+
+<#
+        }
+    }
+        if(Model.CollectionModel != null) {
+#>
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual ICollection<<#= Model.CollectionModel.Singular #>> <#= Model.CollectionModel.Plural #> { get; set; }
+
+<#
+        }
+#>
+    }
+}

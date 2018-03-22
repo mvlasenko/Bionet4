@@ -1,4 +1,4 @@
-﻿using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Bionet4.Data.Models.Mapping
 {
@@ -12,32 +12,23 @@ namespace Bionet4.Data.Models.Mapping
             // Properties
 
             this.Property(t => t.Title)
-                .IsRequired()
-                .HasMaxLength(512);
-
-            this.Property(t => t.Description)
-                .IsRequired()
-                .HasMaxLength(512);
+                .IsRequired().HasMaxLength(512);
 
             this.Property(t => t.ImagePath)
-                .IsRequired()
-                .HasMaxLength(512);
+                .IsRequired().HasMaxLength(512);
+
+            this.Property(t => t.CategoryId)
+                .IsRequired();
 
             // Table & Column Mappings
 
             this.ToTable("Products");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Title).HasColumnName("Title");
-            this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.ImagePath).HasColumnName("ImagePath");
             this.Property(t => t.CategoryId).HasColumnName("CategoryId");
 
             // Relationships
-
-            this.HasOptional(t => t.Category)
-                .WithMany(t => t.Products)
-                .HasForeignKey(d => d.CategoryId);
-
         }
     }
 }
