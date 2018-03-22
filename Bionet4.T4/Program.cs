@@ -17,6 +17,7 @@ namespace Bionet4.T4
             string path = Path.Combine(dir, "data.xml");
 
             string dataProjectDir = dir.Replace(".T4", ".Data");
+            string webProjectDir = dir.Replace(".T4", ".Admin");
 
             DatabaseInfo databaseInfo = new DatabaseInfo();
 
@@ -30,6 +31,8 @@ namespace Bionet4.T4
             {
                 //preparing FK collection names
                 model.CollectionModel = databaseInfo.Models.FirstOrDefault(m => m.Fields.Any(f => f.FkSingular == model.Singular));
+
+                //data project
 
                 ModelTemplate modelTemplate = new ModelTemplate();
                 modelTemplate.Model = model;
@@ -49,11 +52,44 @@ namespace Bionet4.T4
                 string mapContent = mapTemplate.TransformText();
                 File.WriteAllText(Path.Combine(dataProjectDir, "Models\\Mapping", model.Singular + "Map.cs"), mapContent);
 
+                ContractTemplate contractTemplate = new ContractTemplate();
+                contractTemplate.Model = model;
+                contractTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string contractContent = contractTemplate.TransformText();
+                File.WriteAllText(Path.Combine(dataProjectDir, "Contracts", "I" + model.Plural + "Repository.cs"), contractContent);
 
+                //web project
 
+                ModelBinderTemplate modelBinderTemplate = new ModelBinderTemplate();
+                modelBinderTemplate.Model = model;
+                modelBinderTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string modelBinderContent = modelBinderTemplate.TransformText();
+                File.WriteAllText(Path.Combine(webProjectDir, "ModelBinding", model.Plural + "FilterModelBinder.cs"), modelBinderContent);
 
+                ControllerTemplate controllerTemplate = new ControllerTemplate();
+                controllerTemplate.Model = model;
+                controllerTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string controllerContent = controllerTemplate.TransformText();
+                File.WriteAllText(Path.Combine(webProjectDir, "Controllers", model.Plural + "Controller.cs"), controllerContent);
+
+                ApiControllerTemplate apiControllerTemplate = new ApiControllerTemplate();
+                apiControllerTemplate.Model = model;
+                apiControllerTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string apiControllerContent = apiControllerTemplate.TransformText();
+                File.WriteAllText(Path.Combine(webProjectDir, "Controllers\\Api", model.Plural + "Controller.cs"), apiControllerContent);
             }
 
+            RegisterModelBindersTemplate registerModelBindersTemplate = new RegisterModelBindersTemplate();
+            registerModelBindersTemplate.Models = databaseInfo.Models;
+            registerModelBindersTemplate.RootNamespace = databaseInfo.RootNamespace;
+            string registerModelBindersContent = registerModelBindersTemplate.TransformText();
+            File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "ModelBindersConfig.cs"), registerModelBindersContent);
+
+            RegisterUnityTemplate registerUnityTemplate = new RegisterUnityTemplate();
+            registerUnityTemplate.RootNamespace = databaseInfo.RootNamespace;
+            registerUnityTemplate.Models = databaseInfo.Models;
+            string registerUnityContent = registerUnityTemplate.TransformText();
+            File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "UnityConfig.custom.cs"), registerUnityContent);
 
 
 

@@ -1,4 +1,4 @@
-﻿using System.Web.Mvc;
+using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
 
