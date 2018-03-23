@@ -14,13 +14,16 @@ namespace Bionet4.Data.Models
         public int Id { get; set; }
 
         [IncludeList()]
-        public string Title { get; set; }
+        public string HeadLetter { get; set; }
 
         [IncludeList()]
-        public string Amount { get; set; }
+        public string Name { get; set; }
 
-        [IncludeList()]
-        public string Measure { get; set; }
+        public string Description { get; set; }
+
+        [IncludeList("Image")]
+        [Display(Name = "Image")]
+        public string ImageURL { get; set; }
 
     }
 }

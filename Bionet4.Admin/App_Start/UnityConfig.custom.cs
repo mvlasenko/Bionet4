@@ -11,11 +11,29 @@ namespace Bionet4.Admin
         {
             container.RegisterType<IDbContextFactory, DbContextFactory>();
 
-            container.RegisterType<IProductsRepository, ProductsRepository>();
-            container.RegisterType<ICategoriesRepository, CategoriesRepository>();
-            container.RegisterType<ICountriesRepository, CountriesRepository>();
-            container.RegisterType<ILanguagesRepository, LanguagesRepository>();
+            container.RegisterType<IAgentsRepository, AgentsRepository>();
+            container.RegisterType<IAlbumDetailsRepository, AlbumDetailsRepository>();
+            container.RegisterType<IAlbumsRepository, AlbumsRepository>();
+            container.RegisterType<IApplicationsRepository, ApplicationsRepository>();
+            container.RegisterType<IArticleRepository, ArticleRepository>();
+            container.RegisterType<IBottomBannersRepository, BottomBannersRepository>();
+            container.RegisterType<ICertificatesRepository, CertificatesRepository>();
+            container.RegisterType<IEventsRepository, EventsRepository>();
+            container.RegisterType<IFAQRepository, FAQRepository>();
             container.RegisterType<IIngredientsRepository, IngredientsRepository>();
+            container.RegisterType<ILogosRepository, LogosRepository>();
+            container.RegisterType<IOrderItemsRepository, OrderItemsRepository>();
+            container.RegisterType<IOrdersRepository, OrdersRepository>();
+            container.RegisterType<ICategoriesRepository, CategoriesRepository>();
+            container.RegisterType<IProductsRepository, ProductsRepository>();
+            container.RegisterType<IProductsForOrderRepository, ProductsForOrderRepository>();
+            container.RegisterType<IRajonsRepository, RajonsRepository>();
+            container.RegisterType<IRegionsRepository, RegionsRepository>();
+            container.RegisterType<ICountriesRepository, CountriesRepository>();
+            container.RegisterType<ISlidersRepository, SlidersRepository>();
+            container.RegisterType<IUnitsRepository, UnitsRepository>();
+            container.RegisterType<IVariablesRepository, VariablesRepository>();
+            container.RegisterType<IVideosRepository, VideosRepository>();
 
         }
     }

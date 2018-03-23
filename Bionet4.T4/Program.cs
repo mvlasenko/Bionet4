@@ -30,7 +30,7 @@ namespace Bionet4.T4
             foreach (ModelInfo model in databaseInfo.Models)
             {
                 //preparing FK collection names
-                model.CollectionModel = databaseInfo.Models.FirstOrDefault(m => m.Fields.Any(f => f.FkSingular == model.Singular));
+                model.CollectionModel = databaseInfo.Models.Where(m => m.Fields.Any(f => f.FkSingular == model.Singular)).ToList();
 
                 //data project
 
@@ -40,17 +40,17 @@ namespace Bionet4.T4
                 string modelContent = modelTemplate.TransformText();
                 File.WriteAllText(Path.Combine(dataProjectDir, "Models", model.Singular + ".cs"), modelContent);
 
-                RepositoryTemplate repositoryTemplate = new RepositoryTemplate();
-                repositoryTemplate.Model = model;
-                repositoryTemplate.RootNamespace = databaseInfo.RootNamespace;
-                string repositoryContent = repositoryTemplate.TransformText();
-                File.WriteAllText(Path.Combine(dataProjectDir, "Repository", model.Plural + "Repository.cs"), repositoryContent);
-
                 MappingTemplate mapTemplate = new MappingTemplate();
                 mapTemplate.Model = model;
                 mapTemplate.RootNamespace = databaseInfo.RootNamespace;
                 string mapContent = mapTemplate.TransformText();
                 File.WriteAllText(Path.Combine(dataProjectDir, "Models\\Mapping", model.Singular + "Map.cs"), mapContent);
+
+                RepositoryTemplate repositoryTemplate = new RepositoryTemplate();
+                repositoryTemplate.Model = model;
+                repositoryTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string repositoryContent = repositoryTemplate.TransformText();
+                File.WriteAllText(Path.Combine(dataProjectDir, "Repository", model.Plural + "Repository.cs"), repositoryContent);
 
                 ContractTemplate contractTemplate = new ContractTemplate();
                 contractTemplate.Model = model;
@@ -79,6 +79,12 @@ namespace Bionet4.T4
                 File.WriteAllText(Path.Combine(webProjectDir, "Controllers\\Api", model.Plural + "Controller.cs"), apiControllerContent);
             }
 
+            ContextTemplate contextTemplate = new ContextTemplate();
+            contextTemplate.RootNamespace = databaseInfo.RootNamespace;
+            contextTemplate.Models = databaseInfo.Models;
+            string contextContent = contextTemplate.TransformText();
+            File.WriteAllText(Path.Combine(dataProjectDir, "Models", databaseInfo.RootNamespace + "Context.cs"), contextContent);
+
             RegisterModelBindersTemplate registerModelBindersTemplate = new RegisterModelBindersTemplate();
             registerModelBindersTemplate.Models = databaseInfo.Models;
             registerModelBindersTemplate.RootNamespace = databaseInfo.RootNamespace;
@@ -90,6 +96,11 @@ namespace Bionet4.T4
             registerUnityTemplate.Models = databaseInfo.Models;
             string registerUnityContent = registerUnityTemplate.TransformText();
             File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "UnityConfig.custom.cs"), registerUnityContent);
+
+            MiscTemplate miscTemplate = new MiscTemplate();
+            miscTemplate.Models = databaseInfo.Models;
+            string miscContent = miscTemplate.TransformText();
+            File.WriteAllText(Path.Combine(webProjectDir, "Misc.txt"), miscContent);
 
 
 

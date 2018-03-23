@@ -10,6 +10,12 @@ namespace Bionet4.T4.Model
         [XmlAttribute("type")]
         public string Type { get; set; }
 
+        [XmlAttribute("length")]
+        public string Length { get; set; }
+
+        [XmlAttribute("required")]
+        public bool Required { get; set; }
+
         [XmlAttribute("friendly_name")]
         public string FriendlyName { get; set; }
 

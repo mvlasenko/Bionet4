@@ -70,11 +70,56 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agents.
+        /// </summary>
+        public static string Agents {
+            get {
+                return ResourceManager.GetString("Agents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AlbumDetails.
+        /// </summary>
+        public static string AlbumDetails {
+            get {
+                return ResourceManager.GetString("AlbumDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Albums.
+        /// </summary>
+        public static string Albums {
+            get {
+                return ResourceManager.GetString("Albums", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applications.
+        /// </summary>
+        public static string Applications {
+            get {
+                return ResourceManager.GetString("Applications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bionet - Admin.
         /// </summary>
         public static string AppName {
             get {
                 return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Article.
+        /// </summary>
+        public static string Article {
+            get {
+                return ResourceManager.GetString("Article", resourceCulture);
             }
         }
         
@@ -88,6 +133,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BottomBanners.
+        /// </summary>
+        public static string BottomBanners {
+            get {
+                return ResourceManager.GetString("BottomBanners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string Categories {
@@ -97,11 +151,11 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Category.
+        ///   Looks up a localized string similar to Certificates.
         /// </summary>
-        public static string CategoryId {
+        public static string Certificates {
             get {
-                return ResourceManager.GetString("CategoryId", resourceCulture);
+                return ResourceManager.GetString("Certificates", resourceCulture);
             }
         }
         
@@ -223,11 +277,20 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Image.
+        ///   Looks up a localized string similar to Events.
         /// </summary>
-        public static string ImagePath {
+        public static string Events {
             get {
-                return ResourceManager.GetString("ImagePath", resourceCulture);
+                return ResourceManager.GetString("Events", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FAQ.
+        /// </summary>
+        public static string FAQ {
+            get {
+                return ResourceManager.GetString("FAQ", resourceCulture);
             }
         }
         
@@ -241,11 +304,29 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Languages.
+        ///   Looks up a localized string similar to Logos.
         /// </summary>
-        public static string Languages {
+        public static string Logos {
             get {
-                return ResourceManager.GetString("Languages", resourceCulture);
+                return ResourceManager.GetString("Logos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OrderItems.
+        /// </summary>
+        public static string OrderItems {
+            get {
+                return ResourceManager.GetString("OrderItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orders.
+        /// </summary>
+        public static string Orders {
+            get {
+                return ResourceManager.GetString("Orders", resourceCulture);
             }
         }
         
@@ -259,11 +340,92 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ProductsForOrder.
+        /// </summary>
+        public static string ProductsForOrder {
+            get {
+                return ResourceManager.GetString("ProductsForOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rajons.
+        /// </summary>
+        public static string Rajons {
+            get {
+                return ResourceManager.GetString("Rajons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regions.
+        /// </summary>
+        public static string Regions {
+            get {
+                return ResourceManager.GetString("Regions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Agent.
+        /// </summary>
+        public static string SelectAgent {
+            get {
+                return ResourceManager.GetString("SelectAgent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Album.
+        /// </summary>
+        public static string SelectAlbum {
+            get {
+                return ResourceManager.GetString("SelectAlbum", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select AlbumDetail.
+        /// </summary>
+        public static string SelectAlbumDetail {
+            get {
+                return ResourceManager.GetString("SelectAlbumDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Application.
+        /// </summary>
+        public static string SelectApplication {
+            get {
+                return ResourceManager.GetString("SelectApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Article.
+        /// </summary>
+        public static string SelectArticle {
+            get {
+                return ResourceManager.GetString("SelectArticle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select BottomBanner.
+        /// </summary>
+        public static string SelectBottomBanner {
+            get {
+                return ResourceManager.GetString("SelectBottomBanner", resourceCulture);
             }
         }
         
@@ -277,11 +439,74 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Certificate.
+        /// </summary>
+        public static string SelectCertificate {
+            get {
+                return ResourceManager.GetString("SelectCertificate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Country.
         /// </summary>
         public static string SelectCountry {
             get {
                 return ResourceManager.GetString("SelectCountry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Event.
+        /// </summary>
+        public static string SelectEvent {
+            get {
+                return ResourceManager.GetString("SelectEvent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select FAQ.
+        /// </summary>
+        public static string SelectFAQ {
+            get {
+                return ResourceManager.GetString("SelectFAQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Ingredient.
+        /// </summary>
+        public static string SelectIngredient {
+            get {
+                return ResourceManager.GetString("SelectIngredient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Logo.
+        /// </summary>
+        public static string SelectLogo {
+            get {
+                return ResourceManager.GetString("SelectLogo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Order.
+        /// </summary>
+        public static string SelectOrder {
+            get {
+                return ResourceManager.GetString("SelectOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select OrderItem.
+        /// </summary>
+        public static string SelectOrderItem {
+            get {
+                return ResourceManager.GetString("SelectOrderItem", resourceCulture);
             }
         }
         
@@ -295,11 +520,110 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select ProductForOrder.
+        /// </summary>
+        public static string SelectProductForOrder {
+            get {
+                return ResourceManager.GetString("SelectProductForOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Rajon.
+        /// </summary>
+        public static string SelectRajon {
+            get {
+                return ResourceManager.GetString("SelectRajon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Region.
+        /// </summary>
+        public static string SelectRegion {
+            get {
+                return ResourceManager.GetString("SelectRegion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Slider.
+        /// </summary>
+        public static string SelectSlider {
+            get {
+                return ResourceManager.GetString("SelectSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Time Zone.
         /// </summary>
         public static string SelectTimeZone {
             get {
                 return ResourceManager.GetString("SelectTimeZone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Unit.
+        /// </summary>
+        public static string SelectUnit {
+            get {
+                return ResourceManager.GetString("SelectUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Variable.
+        /// </summary>
+        public static string SelectVariable {
+            get {
+                return ResourceManager.GetString("SelectVariable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Video.
+        /// </summary>
+        public static string SelectVideo {
+            get {
+                return ResourceManager.GetString("SelectVideo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sliders.
+        /// </summary>
+        public static string Sliders {
+            get {
+                return ResourceManager.GetString("Sliders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Units.
+        /// </summary>
+        public static string Units {
+            get {
+                return ResourceManager.GetString("Units", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variables.
+        /// </summary>
+        public static string Variables {
+            get {
+                return ResourceManager.GetString("Variables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Videos.
+        /// </summary>
+        public static string Videos {
+            get {
+                return ResourceManager.GetString("Videos", resourceCulture);
             }
         }
     }

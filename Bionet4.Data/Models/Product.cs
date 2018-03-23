@@ -10,29 +10,67 @@ namespace Bionet4.Data.Models
 {
     public class Product : IEntity<int>
     {
+        public Product()
+        {
+            this.OrderItems = new List<OrderItem>();
+        }
+
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
         [IncludeList()]
-        public string Title { get; set; }
+        public string Name { get; set; }
+
+        public string Description { get; set; }
+
+        public string ShortDescription { get; set; }
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImagePath { get; set; }
+        public string ImageURL { get; set; }
+
+        [IncludeList()]
+        public decimal Price { get; set; }
+
+        public string Code { get; set; }
+
+        [Display(Name = "Unit")]
+        public int? UnitId { get; set; }
+
+        [ScaffoldColumn(false)]
+        [IncludeList("Unit")]
+        public string UnitName
+        {
+            get
+            {
+                if (this.Unit == null)
+                    return String.Empty;
+
+                return string.Format("{0}", this.Unit.Name);
+            }
+        }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual Unit Unit { get; set; }
+
+        [Display(Name = "Parent Product")]
+        public int ParentProductId { get; set; }
 
         [Display(Name = "Category")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         [ScaffoldColumn(false)]
         [IncludeList("Category")]
-        public string CategoryTitle
+        public string CategoryName
         {
             get
             {
                 if (this.Category == null)
                     return String.Empty;
 
-                return string.Format("{0}", this.Category.Title);
+                return string.Format("{0}", this.Category.Name);
             }
         }
 
@@ -40,6 +78,19 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual Category Category { get; set; }
+
+        [IncludeList("Created")]
+        [Display(Name = "Created")]
+        public DateTime CreatedDateTime { get; set; }
+
+        [IncludeList()]
+        [ScaffoldColumn(false)]
+        public int? SeqID { get; set; }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
 
     }
 }

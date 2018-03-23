@@ -16,15 +16,21 @@ namespace <#= RootNamespace #>.Data.Models
     public class <#= Model.Singular #> : IEntity<int>
     {
 <#
-        if(Model.CollectionModel != null) {
+    if(Model.CollectionModel != null && Model.CollectionModel.Any()) {
 #>
         public <#= Model.Singular #>()
         {
-            this.<#= Model.CollectionModel.Plural #> = new List<<#= Model.CollectionModel.Singular #>>();
+<#
+		foreach(Model.ModelInfo model in Model.CollectionModel) {
+#>
+            this.<#= model.Plural #> = new List<<#= model.Singular #>>();
+<#
+        }
+#>
         }
 
 <#
-        }
+	}
 #>
         [ScaffoldColumn(false)]
         public int Id { get; set; }
@@ -59,14 +65,14 @@ namespace <#= RootNamespace #>.Data.Models
 #>
         [ScaffoldColumn(false)]
         [IncludeList("<#= field.FkSingular #>")]
-        public string <#= field.FkSingular #>Title
+        public string <#= field.FkSingular #>Name
         {
             get
             {
                 if (this.<#= field.FkSingular #> == null)
                     return String.Empty;
 
-                return string.Format("{0}", this.<#= field.FkSingular #>.Title);
+                return string.Format("{0}", this.<#= field.FkSingular #>.Name);
             }
         }
 
@@ -78,15 +84,17 @@ namespace <#= RootNamespace #>.Data.Models
 <#
         }
     }
-        if(Model.CollectionModel != null) {
+    if(Model.CollectionModel != null && Model.CollectionModel.Any()) {
+		foreach(Model.ModelInfo model in Model.CollectionModel) {
 #>
         [ScaffoldColumn(false)]
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
-        public virtual ICollection<<#= Model.CollectionModel.Singular #>> <#= Model.CollectionModel.Plural #> { get; set; }
+        public virtual ICollection<<#= model.Singular #>> <#= model.Plural #> { get; set; }
 
 <#
         }
+    }
 #>
     }
 }

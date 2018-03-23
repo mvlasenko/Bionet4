@@ -19,8 +19,7 @@ namespace <#= RootNamespace #>.Data.Models.Mapping
 <#
     foreach(Model.FieldInfo field in Model.Fields) {
 #>
-            this.Property(t => t.<#= field.Name #>)
-                .IsRequired()<#= (field.Type == "string" ? ".HasMaxLength(512)" : "") #>;
+            this.Property(t => t.<#= field.Name #>)<#= field.Required ? ".IsRequired()" : "" #><#= (field.Type == "string" ? ".HasMaxLength(" + (string.IsNullOrEmpty(field.Length) ? "255" : field.Length) +  ")" : "") #>;
 
 <#
     }
@@ -39,14 +38,27 @@ namespace <#= RootNamespace #>.Data.Models.Mapping
 
             // Relationships
 <#
-        if(Model.CollectionModel != null) {
+    foreach(Model.FieldInfo field in Model.Fields) {
+        if(!string.IsNullOrEmpty(field.FkSingular)) {
 #>
-            this.HasMany(e => e.<#= Model.CollectionModel.Plural #>)
+            this.Has<#= (field.Type == "int" ? "Required" : "Optional") #>(t => t.<#= field.FkSingular #>)
+                .WithMany(t => t.<#= Model.Plural #>)
+                .HasForeignKey(d => d.<#= field.Name #>);
+
+<#
+        }
+    }
+
+    if(Model.CollectionModel != null && Model.CollectionModel.Any()) {
+		foreach(Model.ModelInfo model in Model.CollectionModel) {
+#>
+            this.HasMany(e => e.<#= model.Plural #>)
                 .WithOptional(e => e.<#= Model.Singular #>)
                 .WillCascadeOnDelete(false);
 
 <#
         }
+	}
 #>
         }
     }

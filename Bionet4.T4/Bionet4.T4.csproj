@@ -48,6 +48,12 @@
       <DependentUpon>ApiControllerTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\ApiControllerTemplate.custom.cs" />
+    <Compile Include="Templates\ContextTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\ContextTemplate.custom.cs" />
     <Compile Include="Templates\ContractTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -71,6 +77,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Templates\MappingTemplate.custom.cs" />
+    <Compile Include="Templates\MiscTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MiscTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\MiscTemplate.custom.cs" />
     <Compile Include="Templates\ModelBinderTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -114,6 +126,10 @@
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ApiControllerTemplate.cs</LastGenOutput>
     </Content>
+    <Content Include="Templates\ContextTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ContextTemplate.cs</LastGenOutput>
+    </Content>
     <Content Include="Templates\ContractTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ContractTemplate.cs</LastGenOutput>
@@ -125,6 +141,10 @@
     <Content Include="Templates\MappingTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>MappingTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\MiscTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MiscTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="Templates\ModelBinderTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

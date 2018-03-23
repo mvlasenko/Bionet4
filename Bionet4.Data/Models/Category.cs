@@ -19,13 +19,20 @@ namespace Bionet4.Data.Models
         public int Id { get; set; }
 
         [IncludeList()]
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         public string Description { get; set; }
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImagePath { get; set; }
+        public string ImageURL { get; set; }
+
+        [Display(Name = "Parent Category")]
+        public int ParentCategoryId { get; set; }
+
+        [IncludeList()]
+        [ScaffoldColumn(false)]
+        public int? SeqID { get; set; }
 
         [ScaffoldColumn(false)]
         [ScriptIgnore(ApplyToOverrides = true)]

@@ -126,12 +126,6 @@
   <data name="BackToList" xml:space="preserve">
     <value>Back to List</value>
   </data>
-  <data name="Categories" xml:space="preserve">
-    <value>Categories</value>
-  </data>
-  <data name="CategoryId" xml:space="preserve">
-    <value>Category</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -143,9 +137,6 @@
   </data>
   <data name="Copyright" xml:space="preserve">
     <value>Bionet. All rights reserved.</value>
-  </data>
-  <data name="Countries" xml:space="preserve">
-    <value>Countries</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Create</value>
@@ -171,31 +162,148 @@
   <data name="Elements" xml:space="preserve">
     <value>Elements</value>
   </data>
-  <data name="ImagePath" xml:space="preserve">
-    <value>Image</value>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SelectTimeZone" xml:space="preserve">
+    <value>Select Time Zone</value>
+  </data>
+  <data name="SelectAgent" xml:space="preserve">
+    <value>Select Agent</value>
+  </data>
+  <data name="Agents" xml:space="preserve">
+    <value>Agents</value>
+  </data>
+  <data name="SelectAlbumDetail" xml:space="preserve">
+    <value>Select AlbumDetail</value>
+  </data>
+  <data name="AlbumDetails" xml:space="preserve">
+    <value>AlbumDetails</value>
+  </data>
+  <data name="SelectAlbum" xml:space="preserve">
+    <value>Select Album</value>
+  </data>
+  <data name="Albums" xml:space="preserve">
+    <value>Albums</value>
+  </data>
+  <data name="SelectApplication" xml:space="preserve">
+    <value>Select Application</value>
+  </data>
+  <data name="Applications" xml:space="preserve">
+    <value>Applications</value>
+  </data>
+  <data name="SelectArticle" xml:space="preserve">
+    <value>Select Article</value>
+  </data>
+  <data name="Article" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="SelectBottomBanner" xml:space="preserve">
+    <value>Select BottomBanner</value>
+  </data>
+  <data name="BottomBanners" xml:space="preserve">
+    <value>BottomBanners</value>
+  </data>
+  <data name="SelectCertificate" xml:space="preserve">
+    <value>Select Certificate</value>
+  </data>
+  <data name="Certificates" xml:space="preserve">
+    <value>Certificates</value>
+  </data>
+  <data name="SelectEvent" xml:space="preserve">
+    <value>Select Event</value>
+  </data>
+  <data name="Events" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="SelectFAQ" xml:space="preserve">
+    <value>Select FAQ</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="SelectIngredient" xml:space="preserve">
+    <value>Select Ingredient</value>
   </data>
   <data name="Ingredients" xml:space="preserve">
     <value>Ingredients</value>
   </data>
-  <data name="Languages" xml:space="preserve">
-    <value>Languages</value>
+  <data name="SelectLogo" xml:space="preserve">
+    <value>Select Logo</value>
   </data>
-  <data name="Products" xml:space="preserve">
-    <value>Products</value>
+  <data name="Logos" xml:space="preserve">
+    <value>Logos</value>
   </data>
-  <data name="Save" xml:space="preserve">
-    <value>Save</value>
+  <data name="SelectOrderItem" xml:space="preserve">
+    <value>Select OrderItem</value>
+  </data>
+  <data name="OrderItems" xml:space="preserve">
+    <value>OrderItems</value>
+  </data>
+  <data name="SelectOrder" xml:space="preserve">
+    <value>Select Order</value>
+  </data>
+  <data name="Orders" xml:space="preserve">
+    <value>Orders</value>
   </data>
   <data name="SelectCategory" xml:space="preserve">
     <value>Select Category</value>
   </data>
-  <data name="SelectCountry" xml:space="preserve">
-    <value>Select Country</value>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
   </data>
   <data name="SelectProduct" xml:space="preserve">
     <value>Select Product</value>
   </data>
-  <data name="SelectTimeZone" xml:space="preserve">
-    <value>Select Time Zone</value>
+  <data name="Products" xml:space="preserve">
+    <value>Products</value>
+  </data>
+  <data name="SelectProductForOrder" xml:space="preserve">
+    <value>Select ProductForOrder</value>
+  </data>
+  <data name="ProductsForOrder" xml:space="preserve">
+    <value>ProductsForOrder</value>
+  </data>
+  <data name="SelectRajon" xml:space="preserve">
+    <value>Select Rajon</value>
+  </data>
+  <data name="Rajons" xml:space="preserve">
+    <value>Rajons</value>
+  </data>
+  <data name="SelectRegion" xml:space="preserve">
+    <value>Select Region</value>
+  </data>
+  <data name="Regions" xml:space="preserve">
+    <value>Regions</value>
+  </data>
+  <data name="SelectCountry" xml:space="preserve">
+    <value>Select Country</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="SelectSlider" xml:space="preserve">
+    <value>Select Slider</value>
+  </data>
+  <data name="Sliders" xml:space="preserve">
+    <value>Sliders</value>
+  </data>
+  <data name="SelectUnit" xml:space="preserve">
+    <value>Select Unit</value>
+  </data>
+  <data name="Units" xml:space="preserve">
+    <value>Units</value>
+  </data>
+  <data name="SelectVariable" xml:space="preserve">
+    <value>Select Variable</value>
+  </data>
+  <data name="Variables" xml:space="preserve">
+    <value>Variables</value>
+  </data>
+  <data name="SelectVideo" xml:space="preserve">
+    <value>Select Video</value>
+  </data>
+  <data name="Videos" xml:space="preserve">
+    <value>Videos</value>
   </data>
 </root>

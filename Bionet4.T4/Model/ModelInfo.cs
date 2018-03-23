@@ -15,6 +15,6 @@ namespace Bionet4.T4.Model
         public List<FieldInfo> Fields { get; set; }
 
         [XmlIgnore]
-        public ModelInfo CollectionModel { get; set; }
+        public List<ModelInfo> CollectionModel { get; set; }
     }
 }

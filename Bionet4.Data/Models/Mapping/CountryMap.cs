@@ -11,16 +11,26 @@ namespace Bionet4.Data.Models.Mapping
 
             // Properties
 
-            this.Property(t => t.Name)
-                .IsRequired().HasMaxLength(512);
+            this.Property(t => t.Name).HasMaxLength(255);
+
+            this.Property(t => t.Code).HasMaxLength(50);
 
             // Table & Column Mappings
 
             this.ToTable("Countries");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Name).HasColumnName("Name");
+            this.Property(t => t.Code).HasColumnName("Code");
 
             // Relationships
+            this.HasMany(e => e.Applications)
+                .WithRequired(e => e.Country)
+                .WillCascadeOnDelete(false);
+
+            this.HasMany(e => e.Regions)
+                .WithRequired(e => e.Country)
+                .WillCascadeOnDelete(false);
+
         }
     }
 }

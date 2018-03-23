@@ -1,0 +1,32 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#
+    foreach (Model.ModelInfo model in Models) {
+#>
+                            <li>@Html.ActionLink(Resources.<#= model.Plural #>, "Index", "<#= model.Plural #>")</li>
+<#
+    }
+
+    foreach (Model.ModelInfo model in Models) {
+#>
+  <data name="Select<#= model.Singular #>" xml:space="preserve">
+    <value>Select <#= model.Singular #></value>
+  </data>
+  <data name="<#= model.Plural #>" xml:space="preserve">
+    <value><#= model.Plural #></value>
+  </data>
+<#
+    }
+    foreach (Model.ModelInfo model in Models) {
+#>
+        public static List<<#= model.Singular #>> Get<#= model.Plural #>()
+        {
+            I<#= model.Plural #>Repository repository = DependencyResolver.Current.GetService<I<#= model.Plural #>Repository>();
+            return repository.GetList().ToList();
+        }
+<#
+    }
+#>
