@@ -14,6 +14,10 @@ namespace Bionet4
             container.RegisterType<IDbContextFactory, DbContextFactory>();
 
             container.RegisterType<IAgentsRepository, AgentsRepository>();
+            container.RegisterType<IRolesRepository, RolesRepository>();
+            container.RegisterType<IUserRolesRepository, UserRolesRepository>();
+            container.RegisterType<IUserLoginsRepository, UserLoginsRepository>();
+            container.RegisterType<IUserClaimsRepository, UserClaimsRepository>();
             container.RegisterType<IAlbumDetailsRepository, AlbumDetailsRepository>();
             container.RegisterType<IAlbumsRepository, AlbumsRepository>();
             container.RegisterType<IApplicationsRepository, ApplicationsRepository>();
@@ -36,10 +40,10 @@ namespace Bionet4
             container.RegisterType<IUnitsRepository, UnitsRepository>();
             container.RegisterType<IVariablesRepository, VariablesRepository>();
             container.RegisterType<IVideosRepository, VideosRepository>();
+            container.RegisterType<IImagesRepository, ImagesRepository>();
 
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<ManageController>(new InjectionConstructor());
-
         }
     }
 }

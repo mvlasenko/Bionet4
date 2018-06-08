@@ -14,6 +14,7 @@ namespace Bionet4.Data.Models
         public int Id { get; set; }
 
         [Display(Name = "Order")]
+        [UIHint("_Order")]
         public int OrderId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -22,6 +23,7 @@ namespace Bionet4.Data.Models
         public virtual Order Order { get; set; }
 
         [Display(Name = "Product")]
+        [UIHint("_Product")]
         public int ProductId { get; set; }
 
         [ScaffoldColumn(false)]

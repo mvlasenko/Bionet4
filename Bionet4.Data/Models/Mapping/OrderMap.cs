@@ -44,7 +44,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.HasMany(e => e.OrderItems)
                 .WithRequired(e => e.Order)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
         }
     }

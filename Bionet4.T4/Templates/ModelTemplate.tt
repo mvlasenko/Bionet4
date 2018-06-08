@@ -57,6 +57,11 @@ namespace <#= RootNamespace #>.Data.Models
         [Display(Name = "<#= field.FriendlyName #>")]
 <#
         }
+        if(!string.IsNullOrEmpty(field.FkSingular)) {
+#>
+        [UIHint("_<#= field.FkSingular #>")]
+<#
+        }
 #>
         public <#= field.Type #> <#= field.Name #> { get; set; }
 

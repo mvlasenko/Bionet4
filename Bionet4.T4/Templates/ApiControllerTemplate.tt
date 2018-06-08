@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using <#= RootNamespace #>.Data.Contracts;
 using <#= RootNamespace #>.Data.Models;
 
-namespace <#= RootNamespace #>.Admin.Controllers.Api
+namespace <#= RootNamespace #>.Controllers.Api
 {
     public class <#= Model.Plural #>Controller : ApiController<<#= Model.Singular #>, int>
     {

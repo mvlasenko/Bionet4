@@ -37,6 +37,11 @@ namespace Bionet4.Data.Models
 
         public string Description { get; set; }
 
+        [IncludeList("Image")]
+        [Display(Name = "Image")]
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
+
         public int AgentID { get; set; }
 
         public int ParentID { get; set; }
@@ -62,5 +67,6 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual ICollection<Order> Orders { get; set; }
+
     }
 }

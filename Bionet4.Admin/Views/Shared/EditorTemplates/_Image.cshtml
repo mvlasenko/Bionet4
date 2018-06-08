@@ -1,0 +1,47 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    var name = ViewData.ModelMetadata.PropertyName;
+    var val = ViewData.ModelMetadata.Model;
+}
+<div id="imageDrop" class="dropzone"></div>
+@Html.Hidden("", val)
+
+<script>
+
+    var options = Dropzone.options.imageDrop = {
+        url: '@Url.Action("FileUpload")',
+        paramName: "file",
+        maxFiles: 1,
+        acceptedFiles: "image/*",
+
+        init: function (file) {
+
+            imageDrop = this;
+
+            if ($("#@name").val()) {
+                var mockFile = { name: "@val", size: 12345 };
+                this.emit("addedfile", mockFile);
+                this.createThumbnailFromUrl(mockFile, "/img/@val");
+                this.files[0] = mockFile;
+            };
+
+            this.on("addedfile", function (files) {
+                if (this.files[1] != null) {
+                    this.removeFile(this.files[0]);
+                }
+            });
+        },
+
+        success: function (file, response) {
+
+            //console.log(file);
+            //console.log(response);
+
+            $("#@name").val(response.id);
+        }
+
+    };
+
+    $("div#imageDrop").dropzone(options);
+
+</script>

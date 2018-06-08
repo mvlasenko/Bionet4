@@ -11,9 +11,11 @@ namespace Bionet4.Data.Models.Mapping
 
             // Properties
 
+            this.Property(t => t.VideoID).HasMaxLength(255);
+
             this.Property(t => t.Name).HasMaxLength(255);
 
-            this.Property(t => t.VideoURL).HasMaxLength(255);
+            this.Property(t => t.Binary);
 
             this.Property(t => t.CreatedDateTime).IsRequired();
 
@@ -23,8 +25,9 @@ namespace Bionet4.Data.Models.Mapping
 
             this.ToTable("Videos");
             this.Property(t => t.Id).HasColumnName("Id");
+            this.Property(t => t.VideoID).HasColumnName("VideoID");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.VideoURL).HasColumnName("VideoURL");
+            this.Property(t => t.Binary).HasColumnName("Binary");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 

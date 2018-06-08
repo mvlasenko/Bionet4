@@ -174,6 +174,30 @@
   <data name="Agents" xml:space="preserve">
     <value>Agents</value>
   </data>
+  <data name="SelectRole" xml:space="preserve">
+    <value>Select Role</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Roles</value>
+  </data>
+  <data name="SelectUserRole" xml:space="preserve">
+    <value>Select UserRole</value>
+  </data>
+  <data name="UserRoles" xml:space="preserve">
+    <value>UserRoles</value>
+  </data>
+  <data name="SelectUserLogin" xml:space="preserve">
+    <value>Select UserLogin</value>
+  </data>
+  <data name="UserLogins" xml:space="preserve">
+    <value>UserLogins</value>
+  </data>
+  <data name="SelectUserClaim" xml:space="preserve">
+    <value>Select UserClaim</value>
+  </data>
+  <data name="UserClaims" xml:space="preserve">
+    <value>UserClaims</value>
+  </data>
   <data name="SelectAlbumDetail" xml:space="preserve">
     <value>Select AlbumDetail</value>
   </data>
@@ -305,5 +329,11 @@
   </data>
   <data name="Videos" xml:space="preserve">
     <value>Videos</value>
+  </data>
+  <data name="SelectImage" xml:space="preserve">
+    <value>Select Image</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>Images</value>
   </data>
 </root>

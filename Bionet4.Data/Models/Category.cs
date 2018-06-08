@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
@@ -25,7 +24,8 @@ namespace Bionet4.Data.Models
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImageURL { get; set; }
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
 
         [Display(Name = "Parent Category")]
         public int ParentCategoryId { get; set; }

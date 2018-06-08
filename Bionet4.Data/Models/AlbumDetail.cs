@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
@@ -14,6 +13,7 @@ namespace Bionet4.Data.Models
         public int Id { get; set; }
 
         [Display(Name = "Album")]
+        [UIHint("_Album")]
         public int AlbumId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -39,7 +39,8 @@ namespace Bionet4.Data.Models
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImageURL { get; set; }
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
 
         [IncludeList("Created")]
         [Display(Name = "Created")]

@@ -25,6 +25,7 @@ namespace Bionet4.Data.Models
         public string Code { get; set; }
 
         [Display(Name = "Country")]
+        [UIHint("_Country")]
         public int CountryId { get; set; }
 
         [ScaffoldColumn(false)]

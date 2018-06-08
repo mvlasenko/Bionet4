@@ -1,3 +1,4 @@
+using System;
 using System.Web.Mvc;
 using Bionet4.Admin.ModelBinding;
 using Bionet4.Data.Contracts;
@@ -10,6 +11,10 @@ namespace Bionet4.Admin
         public static void RegisterModelBinders(ModelBinderDictionary binders)
         {
             binders[typeof(IFilter<Agent, string>)] = new AgentsFilterModelBinder();
+            binders[typeof(IFilter<Role, string>)] = new RolesFilterModelBinder();
+            binders[typeof(IFilter<UserRole, int>)] = new UserRolesFilterModelBinder();
+            binders[typeof(IFilter<UserLogin, int>)] = new UserLoginsFilterModelBinder();
+            binders[typeof(IFilter<UserClaim, int>)] = new UserClaimsFilterModelBinder();
             binders[typeof(IFilter<AlbumDetail, int>)] = new AlbumDetailsFilterModelBinder();
             binders[typeof(IFilter<Album, int>)] = new AlbumsFilterModelBinder();
             binders[typeof(IFilter<Application, int>)] = new ApplicationsFilterModelBinder();
@@ -32,6 +37,7 @@ namespace Bionet4.Admin
             binders[typeof(IFilter<Unit, int>)] = new UnitsFilterModelBinder();
             binders[typeof(IFilter<Variable, int>)] = new VariablesFilterModelBinder();
             binders[typeof(IFilter<Video, int>)] = new VideosFilterModelBinder();
+            binders[typeof(IFilter<Image, Guid>)] = new ImagesFilterModelBinder();
         }
     }
 }

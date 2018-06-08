@@ -15,7 +15,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Name).IsRequired().HasMaxLength(255);
 
-            this.Property(t => t.ImageURL).HasMaxLength(255);
+            this.Property(t => t.ImageID).HasMaxLength(255);
 
             this.Property(t => t.CreatedDateTime).IsRequired();
 
@@ -27,7 +27,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.AlbumId).HasColumnName("AlbumId");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.ImageURL).HasColumnName("ImageURL");
+            this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 

@@ -1,3 +1,3 @@
-﻿@using Bionet4.Admin.Helpers
+@using Bionet4.Admin.Helpers
 @using Bionet4.Data.Properties
 @Html.DropDownList("", new SelectList(UIHelper.GetCountries(), "Id", "Name", ViewData.TemplateInfo.FormattedModelValue.ToString()), string.Format("< {0} >", Resources.SelectCountry), new { @class = "form-control" })

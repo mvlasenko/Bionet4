@@ -295,6 +295,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Images.
+        /// </summary>
+        public static string Images {
+            get {
+                return ResourceManager.GetString("Images", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ingredients.
         /// </summary>
         public static string Ingredients {
@@ -363,6 +372,15 @@ namespace Bionet4.Data.Properties {
         public static string Regions {
             get {
                 return ResourceManager.GetString("Regions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roles.
+        /// </summary>
+        public static string Roles {
+            get {
+                return ResourceManager.GetString("Roles", resourceCulture);
             }
         }
         
@@ -475,6 +493,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Image.
+        /// </summary>
+        public static string SelectImage {
+            get {
+                return ResourceManager.GetString("SelectImage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Ingredient.
         /// </summary>
         public static string SelectIngredient {
@@ -547,6 +574,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Role.
+        /// </summary>
+        public static string SelectRole {
+            get {
+                return ResourceManager.GetString("SelectRole", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Slider.
         /// </summary>
         public static string SelectSlider {
@@ -570,6 +606,33 @@ namespace Bionet4.Data.Properties {
         public static string SelectUnit {
             get {
                 return ResourceManager.GetString("SelectUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select UserClaim.
+        /// </summary>
+        public static string SelectUserClaim {
+            get {
+                return ResourceManager.GetString("SelectUserClaim", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select UserLogin.
+        /// </summary>
+        public static string SelectUserLogin {
+            get {
+                return ResourceManager.GetString("SelectUserLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select UserRole.
+        /// </summary>
+        public static string SelectUserRole {
+            get {
+                return ResourceManager.GetString("SelectUserRole", resourceCulture);
             }
         }
         
@@ -606,6 +669,33 @@ namespace Bionet4.Data.Properties {
         public static string Units {
             get {
                 return ResourceManager.GetString("Units", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserClaims.
+        /// </summary>
+        public static string UserClaims {
+            get {
+                return ResourceManager.GetString("UserClaims", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserLogins.
+        /// </summary>
+        public static string UserLogins {
+            get {
+                return ResourceManager.GetString("UserLogins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserRoles.
+        /// </summary>
+        public static string UserRoles {
+            get {
+                return ResourceManager.GetString("UserRoles", resourceCulture);
             }
         }
         

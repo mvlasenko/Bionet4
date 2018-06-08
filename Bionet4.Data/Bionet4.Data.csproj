@@ -93,6 +93,7 @@
     <Compile Include="Contracts\IEventsRepository.cs" />
     <Compile Include="Contracts\IFAQRepository.cs" />
     <Compile Include="Contracts\IFilter.cs" />
+    <Compile Include="Contracts\IImagesRepository.cs" />
     <Compile Include="Contracts\IIngredientsRepository.cs" />
     <Compile Include="Contracts\ILogosRepository.cs" />
     <Compile Include="Contracts\IOrderItemsRepository.cs" />
@@ -105,8 +106,12 @@
     <Compile Include="Contracts\IRajonsRepository.cs" />
     <Compile Include="Contracts\IRegionsRepository.cs" />
     <Compile Include="Contracts\IRepository.cs" />
+    <Compile Include="Contracts\IRolesRepository.cs" />
     <Compile Include="Contracts\ISlidersRepository.cs" />
     <Compile Include="Contracts\IUnitsRepository.cs" />
+    <Compile Include="Contracts\IUserClaimsRepository.cs" />
+    <Compile Include="Contracts\IUserLoginsRepository.cs" />
+    <Compile Include="Contracts\IUserRolesRepository.cs" />
     <Compile Include="Contracts\IVariablesRepository.cs" />
     <Compile Include="Contracts\IVideosRepository.cs" />
     <Compile Include="Models\Agent.cs" />
@@ -121,6 +126,7 @@
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Filters\Filter.cs" />
+    <Compile Include="Models\Image.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Logo.cs" />
     <Compile Include="Models\Mapping\AgentMap.cs" />
@@ -132,6 +138,7 @@
     <Compile Include="Models\Mapping\CertificateMap.cs" />
     <Compile Include="Models\Mapping\EventMap.cs" />
     <Compile Include="Models\Mapping\FAQMap.cs" />
+    <Compile Include="Models\Mapping\ImageMap.cs" />
     <Compile Include="Models\Mapping\IngredientMap.cs" />
     <Compile Include="Models\Mapping\CountryMap.cs" />
     <Compile Include="Models\Mapping\CategoryMap.cs" />
@@ -142,8 +149,12 @@
     <Compile Include="Models\Mapping\ProductMap.cs" />
     <Compile Include="Models\Mapping\RajonMap.cs" />
     <Compile Include="Models\Mapping\RegionMap.cs" />
+    <Compile Include="Models\Mapping\RoleMap.cs" />
     <Compile Include="Models\Mapping\SliderMap.cs" />
     <Compile Include="Models\Mapping\UnitMap.cs" />
+    <Compile Include="Models\Mapping\UserClaimMap.cs" />
+    <Compile Include="Models\Mapping\UserLoginMap.cs" />
+    <Compile Include="Models\Mapping\UserRoleMap.cs" />
     <Compile Include="Models\Mapping\VariableMap.cs" />
     <Compile Include="Models\Mapping\VideoMap.cs" />
     <Compile Include="Models\Order.cs" />
@@ -153,8 +164,12 @@
     <Compile Include="Models\ProductForOrder.cs" />
     <Compile Include="Models\Rajon.cs" />
     <Compile Include="Models\Region.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Unit.cs" />
+    <Compile Include="Models\UserClaim.cs" />
+    <Compile Include="Models\UserLogin.cs" />
+    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Models\Variable.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,6 +190,7 @@
     <Compile Include="Repository\DbContextFactory.cs" />
     <Compile Include="Repository\EventsRepository.cs" />
     <Compile Include="Repository\FAQRepository.cs" />
+    <Compile Include="Repository\ImagesRepository.cs" />
     <Compile Include="Repository\IngredientsRepository.cs" />
     <Compile Include="Repository\LogosRepository.cs" />
     <Compile Include="Repository\OrderItemsRepository.cs" />
@@ -184,8 +200,12 @@
     <Compile Include="Repository\RajonsRepository.cs" />
     <Compile Include="Repository\RegionsRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
+    <Compile Include="Repository\RolesRepository.cs" />
     <Compile Include="Repository\SlidersRepository.cs" />
     <Compile Include="Repository\UnitsRepository.cs" />
+    <Compile Include="Repository\UserClaimsRepository.cs" />
+    <Compile Include="Repository\UserLoginsRepository.cs" />
+    <Compile Include="Repository\UserRolesRepository.cs" />
     <Compile Include="Repository\VariablesRepository.cs" />
     <Compile Include="Repository\VideosRepository.cs" />
   </ItemGroup>

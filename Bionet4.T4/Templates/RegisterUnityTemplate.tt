@@ -8,7 +8,7 @@ using <#= RootNamespace #>.Data.Contracts;
 using <#= RootNamespace #>.Data.Repository;
 using Unity;
 
-namespace <#= RootNamespace #>.Admin
+namespace <#= RootNamespace #>
 {
     public static partial class UnityConfig
     {

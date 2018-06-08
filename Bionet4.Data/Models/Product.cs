@@ -27,7 +27,8 @@ namespace Bionet4.Data.Models
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImageURL { get; set; }
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
 
         [IncludeList()]
         public decimal Price { get; set; }
@@ -35,6 +36,7 @@ namespace Bionet4.Data.Models
         public string Code { get; set; }
 
         [Display(Name = "Unit")]
+        [UIHint("_Unit")]
         public int? UnitId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -59,6 +61,7 @@ namespace Bionet4.Data.Models
         public int ParentProductId { get; set; }
 
         [Display(Name = "Category")]
+        [UIHint("_Category")]
         public int? CategoryId { get; set; }
 
         [ScaffoldColumn(false)]

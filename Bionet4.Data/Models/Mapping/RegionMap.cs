@@ -36,7 +36,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.HasMany(e => e.Rajons)
                 .WithRequired(e => e.Region)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
         }
     }

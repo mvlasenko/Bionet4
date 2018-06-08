@@ -27,7 +27,8 @@ namespace Bionet4.Data.Models
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
-        public string ImageURL { get; set; }
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
 
         [IncludeList("Created")]
         [Display(Name = "Created")]

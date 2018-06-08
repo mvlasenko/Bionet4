@@ -6,6 +6,13 @@ namespace Bionet4.Data.Models.Mapping
     {
         public AgentMap()
         {
+
+            //identity properties
+            this.Property(u => u.PasswordHash).HasMaxLength(500);
+            this.Property(u => u.PhoneNumber).HasMaxLength(50);
+            //todo
+
+
             // Primary Key
             this.HasKey(t => t.Id);
 
@@ -18,6 +25,8 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Name).HasMaxLength(255);
 
             this.Property(t => t.Description).HasMaxLength(1023);
+
+            this.Property(t => t.ImageID).HasMaxLength(255);
 
             this.Property(t => t.AgentID);
 
@@ -43,6 +52,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Code).HasColumnName("Code");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Description).HasColumnName("Description");
+            this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.AgentID).HasColumnName("AgentID");
             this.Property(t => t.ParentID).HasColumnName("ParentID");
             this.Property(t => t.Level).HasColumnName("Level");
@@ -55,7 +65,7 @@ namespace Bionet4.Data.Models.Mapping
             // Relationships
             this.HasMany(e => e.Orders)
                 .WithRequired(e => e.Agent)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
         }
     }

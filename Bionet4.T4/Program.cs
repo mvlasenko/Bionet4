@@ -18,6 +18,7 @@ namespace Bionet4.T4
 
             string dataProjectDir = dir.Replace(".T4", ".Data");
             string webProjectDir = dir.Replace(".T4", ".Admin");
+            string clientProjectDir = dir.Replace(".T4", "");
 
             DatabaseInfo databaseInfo = new DatabaseInfo();
 
@@ -72,11 +73,19 @@ namespace Bionet4.T4
                 string controllerContent = controllerTemplate.TransformText();
                 File.WriteAllText(Path.Combine(webProjectDir, "Controllers", model.Plural + "Controller.cs"), controllerContent);
 
-                ApiControllerTemplate apiControllerTemplate = new ApiControllerTemplate();
-                apiControllerTemplate.Model = model;
-                apiControllerTemplate.RootNamespace = databaseInfo.RootNamespace;
-                string apiControllerContent = apiControllerTemplate.TransformText();
-                File.WriteAllText(Path.Combine(webProjectDir, "Controllers\\Api", model.Plural + "Controller.cs"), apiControllerContent);
+                EditorTemplate editorTemplate = new EditorTemplate();
+                editorTemplate.Model = model;
+                editorTemplate.RootNamespace = databaseInfo.RootNamespace;
+                string editorContent = editorTemplate.TransformText();
+                File.WriteAllText(Path.Combine(webProjectDir, "Views\\Shared\\EditorTemplates", "_" + model.Singular + ".cshtml"), editorContent);
+
+                ////client web project
+
+                //ApiControllerTemplate apiControllerTemplate = new ApiControllerTemplate();
+                //apiControllerTemplate.Model = model;
+                //apiControllerTemplate.RootNamespace = databaseInfo.RootNamespace;
+                //string apiControllerContent = apiControllerTemplate.TransformText();
+                //File.WriteAllText(Path.Combine(clientProjectDir, "Controllers\\Api", model.Plural + "Controller.cs"), apiControllerContent);
             }
 
             ContextTemplate contextTemplate = new ContextTemplate();
@@ -91,42 +100,22 @@ namespace Bionet4.T4
             string registerModelBindersContent = registerModelBindersTemplate.TransformText();
             File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "ModelBindersConfig.cs"), registerModelBindersContent);
 
-            RegisterUnityTemplate registerUnityTemplate = new RegisterUnityTemplate();
-            registerUnityTemplate.RootNamespace = databaseInfo.RootNamespace;
-            registerUnityTemplate.Models = databaseInfo.Models;
-            string registerUnityContent = registerUnityTemplate.TransformText();
-            File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "UnityConfig.custom.cs"), registerUnityContent);
+            RegisterUnityTemplate registerUnityTemplate1 = new RegisterUnityTemplate();
+            registerUnityTemplate1.RootNamespace = databaseInfo.RootNamespace + ".Admin";
+            registerUnityTemplate1.Models = databaseInfo.Models;
+            string registerUnityContent1 = registerUnityTemplate1.TransformText();
+            File.WriteAllText(Path.Combine(webProjectDir, "App_Start", "UnityConfig.custom.cs"), registerUnityContent1);
+
+            RegisterUnityTemplate registerUnityTemplate2 = new RegisterUnityTemplate();
+            registerUnityTemplate2.RootNamespace = databaseInfo.RootNamespace;
+            registerUnityTemplate2.Models = databaseInfo.Models;
+            string registerUnityContent2 = registerUnityTemplate2.TransformText();
+            File.WriteAllText(Path.Combine(clientProjectDir, "App_Start", "UnityConfig.custom.cs"), registerUnityContent2);
 
             MiscTemplate miscTemplate = new MiscTemplate();
             miscTemplate.Models = databaseInfo.Models;
             string miscContent = miscTemplate.TransformText();
             File.WriteAllText(Path.Combine(webProjectDir, "Misc.txt"), miscContent);
-
-
-
-            //DatabaseInfo databaseInfo = new DatabaseInfo();
-            //databaseInfo.RootNamespace = "Bionet4";
-
-            //ModelInfo modelInfo = new ModelInfo();
-            //modelInfo.Singular = "Product";
-            //modelInfo.Plural = "Products";
-
-            //modelInfo.Fields = new List<Model.FieldInfo>();
-            //modelInfo.Fields.Add(new Model.FieldInfo { Name = "Title", Type = "string", IncludeList = true });
-            //modelInfo.Fields.Add(new Model.FieldInfo { Name = "ImagePath", Type = "string", IncludeList = true });
-            //modelInfo.Fields.Add(new Model.FieldInfo { Name = "CategoryId", Type = "int", FriendlyName = "Category", FkSingular = "Category" });
-
-            //databaseInfo.Models = new List<ModelInfo>();
-            //databaseInfo.Models.Add(modelInfo);
-
-            //string text = "";
-            //var serializer = new XmlSerializer(databaseInfo.GetType());
-            //using (StringWriter textWriter = new StringWriter())
-            //{
-            //    serializer.Serialize(textWriter, databaseInfo);
-            //    text = textWriter.ToString();
-            //}
-            //Console.Write(text);
 
         }
     }

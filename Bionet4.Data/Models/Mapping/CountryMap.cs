@@ -25,11 +25,11 @@ namespace Bionet4.Data.Models.Mapping
             // Relationships
             this.HasMany(e => e.Applications)
                 .WithRequired(e => e.Country)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             this.HasMany(e => e.Regions)
                 .WithRequired(e => e.Country)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
         }
     }

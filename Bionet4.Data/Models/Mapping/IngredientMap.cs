@@ -17,7 +17,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Description).HasMaxLength(4000);
 
-            this.Property(t => t.ImageURL).HasMaxLength(255);
+            this.Property(t => t.ImageID).HasMaxLength(255);
 
             // Table & Column Mappings
 
@@ -26,7 +26,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.HeadLetter).HasColumnName("HeadLetter");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Description).HasColumnName("Description");
-            this.Property(t => t.ImageURL).HasColumnName("ImageURL");
+            this.Property(t => t.ImageID).HasColumnName("ImageID");
 
             // Relationships
         }

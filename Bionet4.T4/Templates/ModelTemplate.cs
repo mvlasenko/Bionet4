@@ -174,27 +174,44 @@ namespace Bionet4.T4.Templates
             #line 58 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
 
         }
+        if(!string.IsNullOrEmpty(field.FkSingular)) {
+
+            
+            #line default
+            #line hidden
+            this.Write("        [UIHint(\"_");
+            
+            #line 62 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
+            
+            #line default
+            #line hidden
+            this.Write("\")]\r\n");
+            
+            #line 63 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+
+        }
 
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 61 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 66 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Type));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 61 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 66 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.Name));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n\r\n");
             
-            #line 63 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 68 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
 
         if(!string.IsNullOrEmpty(field.FkSingular)) {
 
@@ -203,21 +220,21 @@ namespace Bionet4.T4.Templates
             #line hidden
             this.Write("        [ScaffoldColumn(false)]\r\n        [IncludeList(\"");
             
-            #line 67 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 72 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
             #line hidden
             this.Write("\")]\r\n        public string ");
             
-            #line 68 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 73 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
             #line hidden
             this.Write("Name\r\n        {\r\n            get\r\n            {\r\n                if (this.");
             
-            #line 72 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 77 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
@@ -225,7 +242,7 @@ namespace Bionet4.T4.Templates
             this.Write(" == null)\r\n                    return String.Empty;\r\n\r\n                return str" +
                     "ing.Format(\"{0}\", this.");
             
-            #line 75 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 80 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
@@ -234,21 +251,21 @@ namespace Bionet4.T4.Templates
                     "riptIgnore(ApplyToOverrides = true)]\r\n        [XmlIgnore]\r\n        public virtua" +
                     "l ");
             
-            #line 82 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 87 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 82 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 87 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(field.FkSingular));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n\r\n");
             
-            #line 84 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 89 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
 
         }
     }
@@ -261,21 +278,21 @@ namespace Bionet4.T4.Templates
             this.Write("        [ScaffoldColumn(false)]\r\n        [ScriptIgnore(ApplyToOverrides = true)]\r" +
                     "\n        [XmlIgnore]\r\n        public virtual ICollection<");
             
-            #line 93 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 98 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Singular));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 93 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 98 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(model.Plural));
             
             #line default
             #line hidden
             this.Write(" { get; set; }\r\n\r\n");
             
-            #line 95 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
+            #line 100 "C:\Projects\Bionet4\Bionet4.T4\Templates\ModelTemplate.tt"
 
         }
     }

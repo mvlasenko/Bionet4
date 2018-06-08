@@ -66,6 +66,12 @@
       <DependentUpon>ControllerTemplate.tt</DependentUpon>
     </Compile>
     <Compile Include="Templates\ControllerTemplate.custom.cs" />
+    <Compile Include="Templates\EditorTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\EditorTemplate.custom.cs" />
     <Compile Include="Templates\MappingTemplate.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +143,10 @@
     <Content Include="Templates\ControllerTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
       <LastGenOutput>ControllerTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="Templates\EditorTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>EditorTemplate.cs</LastGenOutput>
     </Content>
     <Content Include="Templates\MappingTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>

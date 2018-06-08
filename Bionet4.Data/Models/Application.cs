@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
@@ -28,6 +27,7 @@ namespace Bionet4.Data.Models
         public DateTime BirthDate { get; set; }
 
         [Display(Name = "Country")]
+        [UIHint("_Country")]
         public int CountryId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -49,6 +49,7 @@ namespace Bionet4.Data.Models
         public virtual Country Country { get; set; }
 
         [Display(Name = "Region")]
+        [UIHint("_Region")]
         public int? RegionId { get; set; }
 
         [ScaffoldColumn(false)]
@@ -70,6 +71,7 @@ namespace Bionet4.Data.Models
         public virtual Region Region { get; set; }
 
         [Display(Name = "Rajon")]
+        [UIHint("_Rajon")]
         public int? RajonId { get; set; }
 
         [ScaffoldColumn(false)]

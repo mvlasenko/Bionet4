@@ -211,6 +211,7 @@
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
+    <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\LogosController.cs" />
     <Compile Include="Controllers\OrderItemsController.cs" />
@@ -221,8 +222,12 @@
     <Compile Include="Controllers\ProductsForOrderController.cs" />
     <Compile Include="Controllers\RajonsController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SlidersController.cs" />
     <Compile Include="Controllers\UnitsController.cs" />
+    <Compile Include="Controllers\UserClaimsController.cs" />
+    <Compile Include="Controllers\UserLoginsController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Controllers\VariablesController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +243,7 @@
     <Compile Include="ModelBinding\CertificatesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\EventsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\FAQFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\ImagesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\IngredientsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\LogosFilterModelBinder.cs" />
     <Compile Include="ModelBinding\OrderItemsFilterModelBinder.cs" />
@@ -249,8 +255,12 @@
     <Compile Include="ModelBinding\ProductsForOrderFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RajonsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RegionsFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\RolesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\SlidersFilterModelBinder.cs" />
     <Compile Include="ModelBinding\UnitsFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\UserClaimsFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\UserLoginsFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\UserRolesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VariablesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VideosFilterModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -428,6 +438,25 @@
     <Content Include="Views\Shared\EditorTemplates\_Products.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_TimeZone.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Category.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Unit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Variable.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Slider.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Region.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Rajon.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_ProductForOrder.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_OrderItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Order.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Logo.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Ingredient.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_FAQ.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Event.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Certificate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Agent.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Album.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_AlbumDetail.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Article.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_BottomBanner.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">
