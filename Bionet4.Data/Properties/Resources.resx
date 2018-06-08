@@ -174,12 +174,6 @@
   <data name="Agents" xml:space="preserve">
     <value>Agents</value>
   </data>
-  <data name="SelectRole" xml:space="preserve">
-    <value>Select Role</value>
-  </data>
-  <data name="Roles" xml:space="preserve">
-    <value>Roles</value>
-  </data>
   <data name="SelectAlbumDetail" xml:space="preserve">
     <value>Select Album Details</value>
   </data>

@@ -222,7 +222,6 @@
     <Compile Include="Controllers\ProductsForOrderController.cs" />
     <Compile Include="Controllers\RajonsController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
-    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SlidersController.cs" />
     <Compile Include="Controllers\UnitsController.cs" />
     <Compile Include="Controllers\VariablesController.cs" />
@@ -252,7 +251,6 @@
     <Compile Include="ModelBinding\ProductsForOrderFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RajonsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RegionsFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\RolesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\SlidersFilterModelBinder.cs" />
     <Compile Include="ModelBinding\UnitsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VariablesFilterModelBinder.cs" />

@@ -14,7 +14,6 @@ namespace Bionet4
             container.RegisterType<IDbContextFactory, DbContextFactory>();
 
             container.RegisterType<IAgentsRepository, AgentsRepository>();
-            container.RegisterType<IRolesRepository, RolesRepository>();
             container.RegisterType<IAlbumDetailsRepository, AlbumDetailsRepository>();
             container.RegisterType<IAlbumsRepository, AlbumsRepository>();
             container.RegisterType<IApplicationsRepository, ApplicationsRepository>();

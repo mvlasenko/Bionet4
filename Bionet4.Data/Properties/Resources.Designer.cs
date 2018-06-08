@@ -376,15 +376,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Roles.
-        /// </summary>
-        public static string Roles {
-            get {
-                return ResourceManager.GetString("Roles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
@@ -570,15 +561,6 @@ namespace Bionet4.Data.Properties {
         public static string SelectRegion {
             get {
                 return ResourceManager.GetString("SelectRegion", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select Role.
-        /// </summary>
-        public static string SelectRole {
-            get {
-                return ResourceManager.GetString("SelectRole", resourceCulture);
             }
         }
         

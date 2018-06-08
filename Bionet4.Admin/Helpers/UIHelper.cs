@@ -18,12 +18,6 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<Role> GetRoles()
-        {
-            IRolesRepository repository = DependencyResolver.Current.GetService<IRolesRepository>();
-            return repository.GetList().ToList();
-        }
-
         public static List<AlbumDetail> GetAlbumDetails()
         {
             IAlbumDetailsRepository repository = DependencyResolver.Current.GetService<IAlbumDetailsRepository>();

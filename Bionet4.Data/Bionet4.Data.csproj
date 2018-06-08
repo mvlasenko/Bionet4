@@ -106,7 +106,6 @@
     <Compile Include="Contracts\IRajonsRepository.cs" />
     <Compile Include="Contracts\IRegionsRepository.cs" />
     <Compile Include="Contracts\IRepository.cs" />
-    <Compile Include="Contracts\IRolesRepository.cs" />
     <Compile Include="Contracts\ISlidersRepository.cs" />
     <Compile Include="Contracts\IUnitsRepository.cs" />
     <Compile Include="Contracts\IVariablesRepository.cs" />
@@ -146,7 +145,6 @@
     <Compile Include="Models\Mapping\ProductMap.cs" />
     <Compile Include="Models\Mapping\RajonMap.cs" />
     <Compile Include="Models\Mapping\RegionMap.cs" />
-    <Compile Include="Models\Mapping\RoleMap.cs" />
     <Compile Include="Models\Mapping\SliderMap.cs" />
     <Compile Include="Models\Mapping\UnitMap.cs" />
     <Compile Include="Models\Mapping\VariableMap.cs" />
@@ -158,12 +156,8 @@
     <Compile Include="Models\ProductForOrder.cs" />
     <Compile Include="Models\Rajon.cs" />
     <Compile Include="Models\Region.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\Unit.cs" />
-    <Compile Include="Models\UserClaim.cs" />
-    <Compile Include="Models\UserLogin.cs" />
-    <Compile Include="Models\UserRole.cs" />
     <Compile Include="Models\Variable.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,7 +188,6 @@
     <Compile Include="Repository\RajonsRepository.cs" />
     <Compile Include="Repository\RegionsRepository.cs" />
     <Compile Include="Repository\RepositoryBase.cs" />
-    <Compile Include="Repository\RolesRepository.cs" />
     <Compile Include="Repository\SlidersRepository.cs" />
     <Compile Include="Repository\UnitsRepository.cs" />
     <Compile Include="Repository\VariablesRepository.cs" />
