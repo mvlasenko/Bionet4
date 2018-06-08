@@ -13,9 +13,6 @@ namespace Bionet4.Admin
 
             container.RegisterType<IAgentsRepository, AgentsRepository>();
             container.RegisterType<IRolesRepository, RolesRepository>();
-            container.RegisterType<IUserRolesRepository, UserRolesRepository>();
-            container.RegisterType<IUserLoginsRepository, UserLoginsRepository>();
-            container.RegisterType<IUserClaimsRepository, UserClaimsRepository>();
             container.RegisterType<IAlbumDetailsRepository, AlbumDetailsRepository>();
             container.RegisterType<IAlbumsRepository, AlbumsRepository>();
             container.RegisterType<IApplicationsRepository, ApplicationsRepository>();

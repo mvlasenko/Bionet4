@@ -180,29 +180,11 @@
   <data name="Roles" xml:space="preserve">
     <value>Roles</value>
   </data>
-  <data name="SelectUserRole" xml:space="preserve">
-    <value>Select UserRole</value>
-  </data>
-  <data name="UserRoles" xml:space="preserve">
-    <value>UserRoles</value>
-  </data>
-  <data name="SelectUserLogin" xml:space="preserve">
-    <value>Select UserLogin</value>
-  </data>
-  <data name="UserLogins" xml:space="preserve">
-    <value>UserLogins</value>
-  </data>
-  <data name="SelectUserClaim" xml:space="preserve">
-    <value>Select UserClaim</value>
-  </data>
-  <data name="UserClaims" xml:space="preserve">
-    <value>UserClaims</value>
-  </data>
   <data name="SelectAlbumDetail" xml:space="preserve">
-    <value>Select AlbumDetail</value>
+    <value>Select Album Details</value>
   </data>
   <data name="AlbumDetails" xml:space="preserve">
-    <value>AlbumDetails</value>
+    <value>Album Details</value>
   </data>
   <data name="SelectAlbum" xml:space="preserve">
     <value>Select Album</value>
@@ -223,7 +205,7 @@
     <value>Article</value>
   </data>
   <data name="SelectBottomBanner" xml:space="preserve">
-    <value>Select BottomBanner</value>
+    <value>Select Bottom Banner</value>
   </data>
   <data name="BottomBanners" xml:space="preserve">
     <value>BottomBanners</value>
@@ -283,10 +265,10 @@
     <value>Products</value>
   </data>
   <data name="SelectProductForOrder" xml:space="preserve">
-    <value>Select ProductForOrder</value>
+    <value>Select Product</value>
   </data>
   <data name="ProductsForOrder" xml:space="preserve">
-    <value>ProductsForOrder</value>
+    <value>Products</value>
   </data>
   <data name="SelectRajon" xml:space="preserve">
     <value>Select Rajon</value>

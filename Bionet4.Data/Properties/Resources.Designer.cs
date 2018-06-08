@@ -79,7 +79,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AlbumDetails.
+        ///   Looks up a localized string similar to Album Details.
         /// </summary>
         public static string AlbumDetails {
             get {
@@ -349,7 +349,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ProductsForOrder.
+        ///   Looks up a localized string similar to Products.
         /// </summary>
         public static string ProductsForOrder {
             get {
@@ -412,7 +412,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select AlbumDetail.
+        ///   Looks up a localized string similar to Select Album Details.
         /// </summary>
         public static string SelectAlbumDetail {
             get {
@@ -439,7 +439,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select BottomBanner.
+        ///   Looks up a localized string similar to Select Bottom Banner.
         /// </summary>
         public static string SelectBottomBanner {
             get {
@@ -547,7 +547,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select ProductForOrder.
+        ///   Looks up a localized string similar to Select Product.
         /// </summary>
         public static string SelectProductForOrder {
             get {
@@ -610,33 +610,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select UserClaim.
-        /// </summary>
-        public static string SelectUserClaim {
-            get {
-                return ResourceManager.GetString("SelectUserClaim", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select UserLogin.
-        /// </summary>
-        public static string SelectUserLogin {
-            get {
-                return ResourceManager.GetString("SelectUserLogin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select UserRole.
-        /// </summary>
-        public static string SelectUserRole {
-            get {
-                return ResourceManager.GetString("SelectUserRole", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Variable.
         /// </summary>
         public static string SelectVariable {
@@ -669,33 +642,6 @@ namespace Bionet4.Data.Properties {
         public static string Units {
             get {
                 return ResourceManager.GetString("Units", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserClaims.
-        /// </summary>
-        public static string UserClaims {
-            get {
-                return ResourceManager.GetString("UserClaims", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserLogins.
-        /// </summary>
-        public static string UserLogins {
-            get {
-                return ResourceManager.GetString("UserLogins", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserRoles.
-        /// </summary>
-        public static string UserRoles {
-            get {
-                return ResourceManager.GetString("UserRoles", resourceCulture);
             }
         }
         

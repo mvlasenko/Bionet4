@@ -6,12 +6,19 @@ namespace Bionet4.Data.Models.Mapping
     {
         public AgentMap()
         {
-
             //identity properties
-            this.Property(u => u.PasswordHash).HasMaxLength(500);
-            this.Property(u => u.PhoneNumber).HasMaxLength(50);
-            //todo
 
+            this.Property(t => t.Email).HasColumnName("Email");
+            this.Property(t => t.EmailConfirmed).HasColumnName("EmailConfirmed");
+            this.Property(t => t.PasswordHash).HasColumnName("PasswordHash");
+            this.Property(t => t.SecurityStamp).HasColumnName("SecurityStamp");
+            this.Property(t => t.PhoneNumber).HasColumnName("PhoneNumber");
+            this.Property(t => t.PhoneNumberConfirmed).HasColumnName("PhoneNumberConfirmed");
+            this.Property(t => t.TwoFactorEnabled).HasColumnName("TwoFactorEnabled");
+            this.Property(t => t.LockoutEndDateUtc).HasColumnName("LockoutEndDateUtc");
+            this.Property(t => t.LockoutEnabled).HasColumnName("LockoutEnabled");
+            this.Property(t => t.AccessFailedCount).HasColumnName("AccessFailedCount");
+            this.Property(t => t.UserName).HasColumnName("UserName");
 
             // Primary Key
             this.HasKey(t => t.Id);

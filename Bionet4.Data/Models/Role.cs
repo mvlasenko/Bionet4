@@ -5,6 +5,6 @@ namespace Bionet4.Data.Models
 {
     public class Role : IdentityRole, IEntity<string>
     {
-        
+
     }
 }

@@ -24,24 +24,6 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<UserRole> GetUserRoles()
-        {
-            IUserRolesRepository repository = DependencyResolver.Current.GetService<IUserRolesRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<UserLogin> GetUserLogins()
-        {
-            IUserLoginsRepository repository = DependencyResolver.Current.GetService<IUserLoginsRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<UserClaim> GetUserClaims()
-        {
-            IUserClaimsRepository repository = DependencyResolver.Current.GetService<IUserClaimsRepository>();
-            return repository.GetList().ToList();
-        }
-
         public static List<AlbumDetail> GetAlbumDetails()
         {
             IAlbumDetailsRepository repository = DependencyResolver.Current.GetService<IAlbumDetailsRepository>();

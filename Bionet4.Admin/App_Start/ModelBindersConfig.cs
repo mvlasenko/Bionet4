@@ -12,9 +12,6 @@ namespace Bionet4.Admin
         {
             binders[typeof(IFilter<Agent, string>)] = new AgentsFilterModelBinder();
             binders[typeof(IFilter<Role, string>)] = new RolesFilterModelBinder();
-            binders[typeof(IFilter<UserRole, int>)] = new UserRolesFilterModelBinder();
-            binders[typeof(IFilter<UserLogin, int>)] = new UserLoginsFilterModelBinder();
-            binders[typeof(IFilter<UserClaim, int>)] = new UserClaimsFilterModelBinder();
             binders[typeof(IFilter<AlbumDetail, int>)] = new AlbumDetailsFilterModelBinder();
             binders[typeof(IFilter<Album, int>)] = new AlbumsFilterModelBinder();
             binders[typeof(IFilter<Application, int>)] = new ApplicationsFilterModelBinder();

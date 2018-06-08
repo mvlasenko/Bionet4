@@ -225,9 +225,6 @@
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SlidersController.cs" />
     <Compile Include="Controllers\UnitsController.cs" />
-    <Compile Include="Controllers\UserClaimsController.cs" />
-    <Compile Include="Controllers\UserLoginsController.cs" />
-    <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Controllers\VariablesController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -258,9 +255,6 @@
     <Compile Include="ModelBinding\RolesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\SlidersFilterModelBinder.cs" />
     <Compile Include="ModelBinding\UnitsFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\UserClaimsFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\UserLoginsFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\UserRolesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VariablesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VideosFilterModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
