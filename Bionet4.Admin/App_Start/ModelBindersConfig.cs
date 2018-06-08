@@ -9,7 +9,7 @@ namespace Bionet4.Admin
     {
         public static void RegisterModelBinders(ModelBinderDictionary binders)
         {
-            binders[typeof(IFilter<Agent, int>)] = new AgentsFilterModelBinder();
+            binders[typeof(IFilter<Agent, string>)] = new AgentsFilterModelBinder();
             binders[typeof(IFilter<AlbumDetail, int>)] = new AlbumDetailsFilterModelBinder();
             binders[typeof(IFilter<Album, int>)] = new AlbumsFilterModelBinder();
             binders[typeof(IFilter<Application, int>)] = new ApplicationsFilterModelBinder();
