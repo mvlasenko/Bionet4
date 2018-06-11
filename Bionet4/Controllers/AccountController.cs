@@ -9,7 +9,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Bionet4.Models;
-using Bionet4.Data.Models;
 
 namespace Bionet4.Controllers
 {
@@ -152,7 +151,7 @@ namespace Bionet4.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Agent { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -368,7 +367,7 @@ namespace Bionet4.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new Agent { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

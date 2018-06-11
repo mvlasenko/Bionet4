@@ -3,7 +3,7 @@ using Bionet4.Data.Models;
 
 namespace Bionet4.Admin.Controllers
 {
-    public class AgentsController : ApplicationController<Agent, string>
+    public class AgentsController : ApplicationController<Agent, int>
     {
         private IAgentsRepository repository;
 

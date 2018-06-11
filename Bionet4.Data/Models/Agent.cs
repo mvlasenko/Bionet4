@@ -3,29 +3,20 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
 namespace Bionet4.Data.Models
 {
-    public class Agent : IdentityUser, IEntity<string>
+    public class Agent : IEntity<int>
     {
         public Agent()
         {
             this.Orders = new List<Order>();
         }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Agent> manager)
-        {
-            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            // Add custom user claims here
-            return userIdentity;
-        }
+        [ScaffoldColumn(false)]
+        public int Id { get; set; }
 
         public int UserID { get; set; }
 

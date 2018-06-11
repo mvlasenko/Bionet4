@@ -20,7 +20,7 @@ namespace Bionet4.Data.Models
 
         [Display(Name = "Agent")]
         [UIHint("_Agent")]
-        public string AgentId { get; set; }
+        public int AgentId { get; set; }
 
         [ScaffoldColumn(false)]
         [IncludeList("Agent")]
