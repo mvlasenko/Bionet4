@@ -53,154 +53,172 @@
 
 @section scripts {
 
+    @Styles.Render("~/Content/datetimepicker")
+    @Scripts.Render("~/bundles/datetimepicker")
+
+    @Styles.Render("~/Content/dropzone")
+    @Scripts.Render("~/bundles/dropzone")
+
     @Scripts.Render("~/bundles/jqueryval")
 
 <script type="text/javascript">
 
-        function InitModal() {
-            $('.edit-item').click(function() {
-                var url = "@Url.Content("~/")@controller/UpdatePartial";
+    function InitModal() {
+        $('.edit-item').click(function() {
+            var url = "@Url.Content("~/")@controller/UpdatePartial";
+            var id = $(this).attr('data-id');
+            $.get(url + '/' + id, function(data) {
+                $('#modal-content').html(data);
+
+                $('#modal').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal');
+
+                AddAsterisk();
+            });
+        });
+
+        $('.create-item').click(function() {
+            var url = "@Url.Content("~/")@controller/CreatePartial";
+            $.get(url, function(data) {
+                $('#modal-content').html(data);
+
+                $('#modal').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal');
+
+                AddAsterisk();
+            });
+        });
+
+        $('.delete-item').click(function () {
+
+            if (confirm('@Resources.DeleteConfirm'))
+            {
+                var url = "@Url.Content("~/")@controller/DestroyPartial";
                 var id = $(this).attr('data-id');
                 $.get(url + '/' + id, function(data) {
-                    $('#modal-content').html(data);
 
-                    $('#modal').modal('show');
-                    jQuery.validator.unobtrusive.parse('#frmModal');
+                    totalCount = data.totalCount;
 
-                    AddAsterisk();
-                });
-            });
-
-            $('.create-item').click(function() {
-                var url = "@Url.Content("~/")@controller/CreatePartial";
-                $.get(url, function(data) {
-                    $('#modal-content').html(data);
-
-                    $('#modal').modal('show');
-                    jQuery.validator.unobtrusive.parse('#frmModal');
-
-                    AddAsterisk();
-                });
-            });
-
-            $('.delete-item').click(function () {
-
-                if (confirm('@Resources.DeleteConfirm'))
-                {
-                    var url = "@Url.Content("~/")@controller/DestroyPartial";
-                    var id = $(this).attr('data-id');
-                    $.get(url + '/' + id, function(data) {
-
-                        totalCount = data.totalCount;
-
-                        var pageSize = @Model.PageSize;
-                        var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
-                        if (pageIndex <= currentPageIndex)
-                        {
-                            currentPageIndex = pageIndex;
-                            InitPager(currentPageIndex);
-                        }
-                        
-                        RefreshGrid(currentPageIndex);
-
-                    });
-                }
-            });
-        }
-
-        function InitPager(pageIndex) {
-
-            var pageSize = @Model.PageSize;
-
-            $('#pager').empty();
-
-            for (i = 1; i <= (totalCount - 1) / pageSize + 1; i++)
-            {
-                $('#pager').append('<button class="btn btn-primary page-item ' + (i == pageIndex ? "disabled" : "") + '" style="margin: 4px;" data-id="' + i +'">' + i + '</button>');
-            }
-
-            $('.page-item').click(function () {
-                currentPageIndex = $(this).attr('data-id');
-
-                $('.page-item').removeClass("disabled");
-                $(this).addClass("disabled");
-
-                RefreshGrid(currentPageIndex);
-            });
-        }
-
-        function RefreshGrid(pageIndex) {
-            $('#loader').modal('show');
-            var url = "@Url.Content("~/")@controller/GetPagedList/" + pageIndex;
-            $.ajax({
-                type: 'GET',
-                dataType: 'Json',
-                url: url,
-                success: function(data) {
-
-                    $('table#grid TBODY').empty();
-
-                    $.each(data, function (idx, item) {
-                        var row = "<tr>";
-
-                    @foreach (string propName in ViewBag.ListFields)
+                    var pageSize = @Model.PageSize;
+                    var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
+                    if (pageIndex <= currentPageIndex)
                     {
-                        @Html.Raw("row += '<td>' + (item." + propName + " || '') + '</td>';");
+                        currentPageIndex = pageIndex;
+                        InitPager(currentPageIndex);
                     }
-                        row += "<td align='right'><button class='btn btn-primary edit-item' data-id='" + item.Id + "'>@Resources.Edit</button> <button class='btn btn-primary delete-item' data-id='" + item.Id + "'>@Resources.Delete</button></td>";
-                        row += "</tr>";
 
-                        $('table#grid TBODY').append(row);
-                    });
+                    RefreshGrid(currentPageIndex);
 
-                    $('#loader').modal('hide');
-
-                    InitModal();
-                },
-                processData: false,
-                async: true
-            });
-        }
-
-        function AddAsterisk() {
-            $('input[type=text]').each(function() {
-                var req = $(this).attr('data-val-required');
-                if (undefined != req) {
-                    var label = $('label[for="' + $(this).attr('id') + '"]');
-                    var text = label.text();
-                    if (text.length > 0 && text.indexOf('*') === -1) {
-                        label.append('<span style="color:red"> *</span>');
-                    }
-                }
-            });
-        }
-
-        function onCreateSuccess(data) {
-
-            totalCount = data.totalCount;
-
-            var pageSize = @Model.PageSize;
-            var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
-            if (pageIndex != currentPageIndex)
-            {
-                currentPageIndex = pageIndex;
-                InitPager(currentPageIndex);
+                });
             }
+        });
+    }
 
-            RefreshGrid(currentPageIndex);
+    function InitPager(pageIndex) {
+
+        var pageSize = @Model.PageSize;
+
+        $('#pager').empty();
+
+        for (i = 1; i <= (totalCount - 1) / pageSize + 1; i++)
+        {
+            $('#pager').append('<button class="btn btn-primary page-item ' + (i == pageIndex ? "disabled" : "") + '" style="margin: 4px;" data-id="' + i +'">' + i + '</button>');
         }
 
-        var totalCount = @Model.TotalCount ;
-        var currentPageIndex = 1;
+        $('.page-item').click(function () {
+            currentPageIndex = $(this).attr('data-id');
 
-        $(document).ready(function() {
-
-            InitModal();
-
-            InitPager(currentPageIndex);
+            $('.page-item').removeClass("disabled");
+            $(this).addClass("disabled");
 
             RefreshGrid(currentPageIndex);
         });
+    }
+
+    function RefreshGrid(pageIndex) {
+        $('#loader').modal('show');
+        var url = "@Url.Content("~/")@controller/GetPagedList/" + pageIndex;
+        $.ajax({
+            type: 'GET',
+            dataType: 'Json',
+            url: url,
+            success: function(data) {
+
+                $('table#grid TBODY').empty();
+
+                $.each(data, function (idx, item) {
+                    var row = "<tr>";
+
+                var val = '';
+                @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.ListFields)
+                {
+                    if (prop.UIHint == "_Image")
+                    {
+                        @Html.Raw("row += '<td><img src=/admin/Images/Image/' + item." + prop.Name + " + ' width=100 height=100 /></td>';\n");
+                    }
+                    else if(prop.Type == "DateTime")
+                    {
+                        @Html.Raw("row += '<td>' + ((new Date(parseInt(item." + prop.Name + ".substr(6)))).toLocaleString()) + '</td>';\n");
+                    }
+                    else
+                    {
+                        @Html.Raw("row += '<td>' + (item." + prop.Name + " || '') + '</td>';\n");
+                    }
+                }
+                    row += "<td align='right'><button class='btn btn-primary edit-item' data-id='" + item.Id + "'>@Resources.Edit</button> <button class='btn btn-primary delete-item' data-id='" + item.Id + "'>@Resources.Delete</button></td>";
+                    row += "</tr>";
+
+                    $('table#grid TBODY').append(row);
+                });
+
+                $('#loader').modal('hide');
+
+                InitModal();
+            },
+            processData: false,
+            async: true
+        });
+    }
+
+    function AddAsterisk() {
+        $('input[type=text]').each(function() {
+            var req = $(this).attr('data-val-required');
+            if (undefined != req) {
+                var label = $('label[for="' + $(this).attr('id') + '"]');
+                var text = label.text();
+                if (text.length > 0 && text.indexOf('*') === -1) {
+                    label.append('<span style="color:red"> *</span>');
+                }
+            }
+        });
+    }
+
+    function onCreateSuccess(data) {
+
+        totalCount = data.totalCount;
+
+        var pageSize = @Model.PageSize;
+        var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
+        if (pageIndex != currentPageIndex)
+        {
+            currentPageIndex = pageIndex;
+            InitPager(currentPageIndex);
+        }
+
+        RefreshGrid(currentPageIndex);
+    }
+
+    var totalCount = @Model.TotalCount ;
+    var currentPageIndex = 1;
+
+    $(document).ready(function() {
+
+        InitModal();
+
+        InitPager(currentPageIndex);
+
+        RefreshGrid(currentPageIndex);
+    });
 
 </script>
 }

@@ -179,30 +179,6 @@
     <Compile Include="Controllers\AgentsController.cs" />
     <Compile Include="Controllers\AlbumDetailsController.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
-    <Compile Include="Controllers\Api\AgentsController.cs" />
-    <Compile Include="Controllers\Api\AlbumDetailsController.cs" />
-    <Compile Include="Controllers\Api\AlbumsController.cs" />
-    <Compile Include="Controllers\Api\ApiController.cs" />
-    <Compile Include="Controllers\Api\ApplicationsController.cs" />
-    <Compile Include="Controllers\Api\ArticleController.cs" />
-    <Compile Include="Controllers\Api\BottomBannersController.cs" />
-    <Compile Include="Controllers\Api\CategoriesController.cs" />
-    <Compile Include="Controllers\Api\CertificatesController.cs" />
-    <Compile Include="Controllers\Api\CountriesController.cs" />
-    <Compile Include="Controllers\Api\EventsController.cs" />
-    <Compile Include="Controllers\Api\FAQController.cs" />
-    <Compile Include="Controllers\Api\IngredientsController.cs" />
-    <Compile Include="Controllers\Api\LogosController.cs" />
-    <Compile Include="Controllers\Api\OrderItemsController.cs" />
-    <Compile Include="Controllers\Api\OrdersController.cs" />
-    <Compile Include="Controllers\Api\ProductsController.cs" />
-    <Compile Include="Controllers\Api\ProductsForOrderController.cs" />
-    <Compile Include="Controllers\Api\RajonsController.cs" />
-    <Compile Include="Controllers\Api\RegionsController.cs" />
-    <Compile Include="Controllers\Api\SlidersController.cs" />
-    <Compile Include="Controllers\Api\UnitsController.cs" />
-    <Compile Include="Controllers\Api\VariablesController.cs" />
-    <Compile Include="Controllers\Api\VideosController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -213,6 +189,7 @@
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\LogosController.cs" />
     <Compile Include="Controllers\OrderItemsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -255,7 +232,9 @@
     <Compile Include="ModelBinding\UnitsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VariablesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VideosFilterModelBinder.cs" />
+    <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\FieldInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-datetimepicker.css" />
@@ -386,6 +365,14 @@
     <Content Include="Scripts\ckeditor\skins\moono\images\refresh.png" />
     <Content Include="Scripts\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="Scripts\ckeditor\styles.js" />
+    <Content Include="Scripts\dropzone\basic.css" />
+    <Content Include="Scripts\dropzone\basic.min.css" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.js" />
+    <Content Include="Scripts\dropzone\dropzone-amd-module.min.js" />
+    <Content Include="Scripts\dropzone\dropzone.css" />
+    <Content Include="Scripts\dropzone\dropzone.js" />
+    <Content Include="Scripts\dropzone\dropzone.min.css" />
+    <Content Include="Scripts\dropzone\dropzone.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -449,6 +436,7 @@
     <Content Include="Views\Shared\EditorTemplates\_Article.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_BottomBanner.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Image.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

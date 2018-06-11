@@ -1,6 +1,9 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using System.Web.Mvc;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
@@ -8,6 +11,7 @@ using Bionet4.Data.Models.Filters;
 
 namespace Bionet4.Admin.Controllers
 {
+    [Authorize(Users="admin")]
     public abstract class ApplicationController<T, TKey> : Controller where T : class, IEntity<TKey>, new()
     {
         private readonly IRepository<T, TKey> repository;
@@ -22,7 +26,7 @@ namespace Bionet4.Admin.Controllers
         {
             IPagedCollection model = this.LoadCollection(filter);
 
-            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => prop.Name).ToList();
+            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name, Type = prop.PropertyType.Name, UIHint = prop.GetCustomAttributes().Any(x => x is UIHintAttribute) ? ((UIHintAttribute)prop.GetCustomAttributes().First(x => x is UIHintAttribute)).UIHint : "" }).ToList();
             ViewBag.ListFieldHeaders = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => ((IncludeListAttribute)prop.GetCustomAttributes().First(x => x is IncludeListAttribute)).IncludeListTitle ?? prop.Name).ToList();
 
             return View("Index", model);
@@ -193,6 +197,42 @@ namespace Bionet4.Admin.Controllers
 
             var list = repository.GetPagedList(filter);
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public virtual ActionResult FileUpload(HttpPostedFileBase file)
+        {
+            try
+            {
+                IImagesRepository imagesRepository = DependencyResolver.Current.GetService<IImagesRepository>();
+
+                var memStream = new MemoryStream();
+                file.InputStream.CopyTo(memStream);
+
+                byte[] fileData = memStream.ToArray();
+
+                //get existing
+                Data.Models.Image newImage = imagesRepository.GetList().FirstOrDefault(x => x.Name == file.FileName && x.Binary.Length == fileData.Length);
+                //get from database
+                if (newImage == null)
+                    newImage = imagesRepository.Insert(new Data.Models.Image { Binary = fileData, Name = file.FileName, CreatedDateTime = DateTime.Now });
+
+                return Json(new
+                {
+                    success = true,
+                    response = "File uploaded.",
+                    id = newImage.Id.ToString(),
+                    fileName = file.FileName
+                });
+            }
+            catch (Exception exception)
+            {
+                return Json(new
+                {
+                    success = false,
+                    response = exception.Message
+                });
+            }
         }
 
         #region helpers
