@@ -1,18 +1,16 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
 namespace Bionet4.Data.Models
 {
-    public class Video : IEntity<int>
+    public class Video : IEntity<Guid>
     {
         [ScaffoldColumn(false)]
-        public int Id { get; set; }
-
-        [IncludeList("Video")]
-        [Display(Name = "Video")]
-        public string VideoID { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public Guid Id { get; set; }
 
         [IncludeList()]
         public string Name { get; set; }

@@ -32,7 +32,7 @@ namespace Bionet4.Admin
             binders[typeof(IFilter<Slider, int>)] = new SlidersFilterModelBinder();
             binders[typeof(IFilter<Unit, int>)] = new UnitsFilterModelBinder();
             binders[typeof(IFilter<Variable, int>)] = new VariablesFilterModelBinder();
-            binders[typeof(IFilter<Video, int>)] = new VideosFilterModelBinder();
+            binders[typeof(IFilter<Video, Guid>)] = new VideosFilterModelBinder();
             binders[typeof(IFilter<Image, Guid>)] = new ImagesFilterModelBinder();
         }
     }

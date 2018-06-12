@@ -10,25 +10,12 @@ namespace Bionet4.Admin
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapHttpRoute(
-                name: "ActionApiPost",
-                routeTemplate: "api/AddIngredient",
-                defaults: new { controller = "Ingredients", action = "AddIngredient" }
-            );
-
-            routes.MapHttpRoute(
-                name: "ActionApi",
-                routeTemplate: "api/{controller}/{action}/{id}",
-                defaults: new { action = "Get", id = RouteParameter.Optional }
-            );
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
                 namespaces: new string[] { "Bionet4.Admin.Controllers" }
             );
-
         }
     }
 }

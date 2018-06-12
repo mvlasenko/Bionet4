@@ -50,6 +50,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -110,6 +111,7 @@
     <Compile Include="Contracts\IUnitsRepository.cs" />
     <Compile Include="Contracts\IVariablesRepository.cs" />
     <Compile Include="Contracts\IVideosRepository.cs" />
+    <Compile Include="Helpers\ImageHelper.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumDetail.cs" />
