@@ -14,6 +14,14 @@ namespace Bionet4.Admin.Controllers
             this.repository = repository;
         }
 
+        public override ActionResult CreatePartial()
+        {
+            Event entity = new Event();
+            entity.EventDateTime = DateTime.Now;
+
+            return PartialView("_CreatePartial", entity);
+        }
+
         public override ActionResult CreatePartial(Event entity)
         {
             entity.CreatedDateTime = DateTime.Now;

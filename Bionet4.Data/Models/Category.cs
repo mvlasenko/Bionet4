@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -20,6 +21,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
         [IncludeList("Image")]
@@ -30,8 +32,8 @@ namespace Bionet4.Data.Models
         [Display(Name = "Parent Category")]
         public int ParentCategoryId { get; set; }
 
-        [IncludeList()]
-        [ScaffoldColumn(false)]
+        [IncludeList("")]
+        [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
 
         [ScaffoldColumn(false)]

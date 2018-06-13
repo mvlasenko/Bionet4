@@ -17,8 +17,6 @@ namespace Bionet4.Data.Models
 
         public byte[] Binary { get; set; }
 
-        [IncludeList("Created")]
-        [Display(Name = "Created")]
         public DateTime CreatedDateTime { get; set; }
     }
 }

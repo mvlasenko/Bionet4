@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -26,6 +27,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
         [IncludeList("Image")]
@@ -43,7 +45,10 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public int Percent { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Begin")]
+        [Display(Name = "Begin")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [UIHint("_DatePicker")]
         public DateTime? BeginDate { get; set; }
 
         [IncludeList()]
@@ -51,7 +56,8 @@ namespace Bionet4.Data.Models
 
         public string Address { get; set; }
 
-        [Display(Name = "Updated")]
+        [IncludeList("Updated")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime? UpdatedDateTime { get; set; }
 
         [ScaffoldColumn(false)]

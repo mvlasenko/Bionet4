@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -23,7 +24,10 @@ namespace Bionet4.Data.Models
 
         public int Gender { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Birth Date")]
+        [Display(Name = "Birth Date")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [UIHint("_DatePicker")]
         public DateTime BirthDate { get; set; }
 
         [Display(Name = "Country")]
@@ -115,7 +119,7 @@ namespace Bionet4.Data.Models
         public string Number { get; set; }
 
         [IncludeList("Created")]
-        [Display(Name = "Created")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
         public int CreatedByUserID { get; set; }

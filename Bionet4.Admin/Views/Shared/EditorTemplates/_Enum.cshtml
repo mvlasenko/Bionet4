@@ -1,14 +1,16 @@
-﻿@using Bionet4.Data.Properties
+﻿@using Stolarus2.Data.Properties
 
 @{
+    Type enumType = ViewData.ModelMetadata.ModelType;
+    Type underlyingEnumType = Nullable.GetUnderlyingType(enumType);
 
-    var values = Enum.GetValues(ViewData.ModelMetadata.ModelType).Cast<object>()
-                     .Select(v => new SelectListItem
-                     {
-                         Selected = v.Equals(Model),
-                         Text = v.ToString(),
-                         Value = v.ToString()
-                     });
+    var values = Enum.GetValues(underlyingEnumType ?? enumType).Cast<Enum>()
+        .Select(v => new SelectListItem
+        {
+            Selected = v.Equals(Model),
+            Text = v.ToString(),
+            Value = v.ToString()
+        });
 }
 
 @Html.DropDownList("", values, string.Format("< {0} >", Resources.SelectItem), new { @class = "form-control" })

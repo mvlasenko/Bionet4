@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
@@ -13,22 +14,27 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Date")]
+        [Display(Name = "Date and Time")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
+        [UIHint("_DateTimePicker")]
         public DateTime? EventDateTime { get; set; }
 
         [IncludeList()]
         public string City { get; set; }
 
+        [UIHint("MultilineText")]
         public string ShortDescription { get; set; }
 
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
         [IncludeList("Created")]
-        [Display(Name = "Created")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
-        [IncludeList()]
-        [ScaffoldColumn(false)]
+        [IncludeList("")]
+        [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
 
     }

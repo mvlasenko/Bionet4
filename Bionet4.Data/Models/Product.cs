@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -21,6 +22,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
         public string ShortDescription { get; set; }
@@ -83,11 +85,11 @@ namespace Bionet4.Data.Models
         public virtual Category Category { get; set; }
 
         [IncludeList("Created")]
-        [Display(Name = "Created")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
-        [IncludeList()]
-        [ScaffoldColumn(false)]
+        [IncludeList("")]
+        [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
 
         [ScaffoldColumn(false)]

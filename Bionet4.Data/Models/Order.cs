@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -49,13 +50,14 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public decimal Discount { get; set; }
 
+        [UIHint("MultilineText")]
         public string Body { get; set; }
 
         [IncludeList()]
         public bool IsViewed { get; set; }
 
         [IncludeList("Created")]
-        [Display(Name = "Created")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
         [ScaffoldColumn(false)]

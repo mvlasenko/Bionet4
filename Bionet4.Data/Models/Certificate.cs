@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
@@ -17,8 +18,8 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
-        [IncludeList()]
-        [ScaffoldColumn(false)]
+        [IncludeList("")]
+        [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
 
     }

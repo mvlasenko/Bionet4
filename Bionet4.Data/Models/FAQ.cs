@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
@@ -23,20 +24,21 @@ namespace Bionet4.Data.Models
         public string Answer { get; set; }
 
         [IncludeList("Created")]
-        [Display(Name = "Created")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
         public int CreatedByUserID { get; set; }
 
-        [Display(Name = "Modified")]
+        [IncludeList("Modified")]
+        [HiddenInput(DisplayValue = false)]
         public DateTime ModifiedDateTime { get; set; }
 
         public int ModifiedByUserID { get; set; }
 
         public bool IsApproved { get; set; }
 
-        [IncludeList()]
-        [ScaffoldColumn(false)]
+        [IncludeList("")]
+        [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
 
     }

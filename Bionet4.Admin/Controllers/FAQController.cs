@@ -19,5 +19,11 @@ namespace Bionet4.Admin.Controllers
             entity.CreatedDateTime = DateTime.Now;
             return base.CreatePartial(entity);
         }
+
+        public override ActionResult UpdatePartial(int id, FAQ entity)
+        {
+            entity.ModifiedDateTime = DateTime.Now;
+            return base.UpdatePartial(id, entity);
+        }
     }
 }

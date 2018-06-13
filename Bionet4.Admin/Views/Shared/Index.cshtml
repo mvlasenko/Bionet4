@@ -1,5 +1,6 @@
 ﻿@using Bionet4.Data.Properties
 @using Bionet4.Data.Contracts
+@using Bionet4.Admin.Helpers
 
 @model IPagedCollection
 
@@ -21,10 +22,10 @@
 
         <thead>
             <tr>
-            @foreach (string propName in ViewBag.ListFieldHeaders)
-            {
-                <th>@propName</th>
-            }
+                @foreach (string propName in ViewBag.ListFieldHeaders)
+                {
+                    <th>@propName</th>
+                }
                 <th></th>
             </tr>
         </thead>
@@ -61,7 +62,7 @@
 
     @Scripts.Render("~/bundles/jqueryval")
 
-<script type="text/javascript">
+    <script type="text/javascript">
 
     function InitModal() {
         $('.edit-item').click(function() {
@@ -74,6 +75,7 @@
                 jQuery.validator.unobtrusive.parse('#frmModal');
 
                 AddAsterisk();
+                InitDatePicker();
             });
         });
 
@@ -86,6 +88,7 @@
                 jQuery.validator.unobtrusive.parse('#frmModal');
 
                 AddAsterisk();
+                InitDatePicker();
             });
         });
 
@@ -208,6 +211,17 @@
         RefreshGrid(currentPageIndex);
     }
 
+    function InitDatePicker() {
+
+        $('.datetimepicker').datetimepicker({
+            format: '@UIHelper.GetDateTimeFormat()'
+        });
+
+        $('.datepicker').datetimepicker({
+            format: '@UIHelper.GetDateFormat()'
+        });
+    }
+
     var totalCount = @Model.TotalCount ;
     var currentPageIndex = 1;
 
@@ -220,5 +234,5 @@
         RefreshGrid(currentPageIndex);
     });
 
-</script>
+    </script>
 }

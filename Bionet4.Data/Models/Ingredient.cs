@@ -19,6 +19,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [UIHint("MultilineText")]
         public string Description { get; set; }
 
         [IncludeList("Image")]
