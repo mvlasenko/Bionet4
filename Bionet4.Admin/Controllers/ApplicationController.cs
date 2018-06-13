@@ -11,7 +11,7 @@ using Bionet4.Data.Models.Filters;
 
 namespace Bionet4.Admin.Controllers
 {
-    [Authorize(Users="admin")]
+    [Authorize]
     public abstract class ApplicationController<T, TKey> : Controller where T : class, IEntity<TKey>, new()
     {
         private readonly IRepository<T, TKey> repository;

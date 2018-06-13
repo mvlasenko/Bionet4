@@ -6,20 +6,18 @@ namespace Bionet4.Admin.Controllers
 {
     public class LoginController : Controller
     {
-        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
-        [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(LoginUser user, string ReturnUrl)
+        public ActionResult Login(LoginUser user, string returnUrl)
         {
             if (this.IsValid(user))
             {
                 FormsAuthentication.SetAuthCookie(user.Login, true);
-                return Redirect(ReturnUrl);
+                return Redirect(returnUrl);
             }
             else
             {

@@ -17,7 +17,7 @@
     <AssemblyName>Bionet4.Admin</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -26,7 +26,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -53,6 +52,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MarkdownDeep, Version=1.5.4615.26275, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MarkdownDeep.Full.1.5\lib\.NetFramework 3.5\MarkdownDeep.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.1\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
     </Reference>
@@ -62,7 +64,6 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.0\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
@@ -74,14 +75,17 @@
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
@@ -123,7 +127,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="Unity.Abstractions, Version=3.1.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.Abstractions.3.1.0\lib\net45\Unity.Abstractions.dll</HintPath>
     </Reference>
@@ -186,6 +189,7 @@
     <Compile Include="Controllers\ApplicationsController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BottomBannersController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CertificatesController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
@@ -197,7 +201,6 @@
     <Compile Include="Controllers\OrderItemsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsForOrderController.cs" />
     <Compile Include="Controllers\RajonsController.cs" />
@@ -216,7 +219,9 @@
     <Compile Include="ModelBinding\ApplicationsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\ArticleFilterModelBinder.cs" />
     <Compile Include="ModelBinding\BottomBannersFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\CategoriesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\CertificatesFilterModelBinder.cs" />
+    <Compile Include="ModelBinding\CountriesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\EventsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\FAQFilterModelBinder.cs" />
     <Compile Include="ModelBinding\ImagesFilterModelBinder.cs" />
@@ -225,8 +230,6 @@
     <Compile Include="ModelBinding\OrderItemsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\OrdersFilterModelBinder.cs" />
     <Compile Include="ModelBinding\ProductsFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\CountriesFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\CategoriesFilterModelBinder.cs" />
     <Compile Include="ModelBinding\FilterModelBinderBase.cs" />
     <Compile Include="ModelBinding\ProductsForOrderFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RajonsFilterModelBinder.cs" />
@@ -255,9 +258,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
+    <Content Include="Scripts\ckeditor\config.js" />
     <Content Include="Scripts\ckeditor\contents.css" />
     <Content Include="Scripts\ckeditor\lang\af.js" />
     <Content Include="Scripts\ckeditor\lang\ar.js" />
@@ -366,8 +369,8 @@
     <Content Include="Scripts\ckeditor\package.json" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\ckeditor\config.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
     <Content Include="Scripts\dropzone\basic.css" />
     <Content Include="Scripts\dropzone\basic.min.css" />
@@ -412,35 +415,34 @@
     <Content Include="Views\Shared\EditorTemplates\Object.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Country.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_DatePicker.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_DateTimePicker.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Integer.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Languages.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Product.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Products.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_TimeZone.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Category.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Unit.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Variable.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Slider.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Region.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Rajon.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_ProductForOrder.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_OrderItem.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Order.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Logo.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Ingredient.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_FAQ.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Event.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Article.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Certificate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Image.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Enum.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Agent.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Album.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_AlbumDetail.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Article.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_BottomBanner.cshtml" />
-    <Content Include="Views\Shared\EditorTemplates\_Image.cshtml" />
-    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Category.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Country.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Event.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_FAQ.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Ingredient.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Integer.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Logo.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Order.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_OrderItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_ProductForOrder.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Rajon.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Region.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Unit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Variable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">
@@ -476,7 +478,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57897</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://bionet/admin</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

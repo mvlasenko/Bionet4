@@ -7,9 +7,9 @@ namespace Bionet4.Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery.unobtrusive-ajax.min.js"
-                ));
+                        "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/jquery.unobtrusive-ajax.min.js"
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                 "~/Scripts/jquery.validate*"));
@@ -26,7 +26,7 @@ namespace Bionet4.Admin
             bundles.Add(new ScriptBundle("~/bundles/datetimepicker").Include(
                 "~/Scripts/moment-with-locales.js",
                 "~/Scripts/bootstrap-datetimepicker.js"));
-				
+
             bundles.Add(new ScriptBundle("~/bundles/dropzone").Include(
                 "~/Scripts/dropzone/dropzone.js"));
 
@@ -39,7 +39,7 @@ namespace Bionet4.Admin
 
             bundles.Add(new StyleBundle("~/Content/datetimepicker").Include(
                 "~/Content/bootstrap-datetimepicker.css"));
-				
+
             bundles.Add(new StyleBundle("~/Content/dropzone").Include(
                 "~/Scripts/dropzone/dropzone.css"));
 

@@ -502,6 +502,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Item.
+        /// </summary>
+        public static string SelectItem {
+            get {
+                return ResourceManager.GetString("SelectItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Logo.
         /// </summary>
         public static string SelectLogo {

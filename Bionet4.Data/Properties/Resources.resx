@@ -312,4 +312,7 @@
   <data name="Images" xml:space="preserve">
     <value>Images</value>
   </data>
+  <data name="SelectItem" xml:space="preserve">
+    <value>Select Item</value>
+  </data>
 </root>

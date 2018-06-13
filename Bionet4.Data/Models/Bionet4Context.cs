@@ -1,33 +1,18 @@
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Bionet4.Data.Models.Mapping;
 
 namespace Bionet4.Data.Models
 {
-    public class Bionet4Context : DbContext // IdentityDbContext<Agent>
+    public class Bionet4Context : DbContext
     {
-        public Bionet4Context()// : base("Bionet4Context", throwIfV1Schema: false)
+        public Bionet4Context()
         {
-            //Database.SetInitializer<Bionet4Context>(null);
             Configuration.ProxyCreationEnabled = false;
-            //Configuration.LazyLoadingEnabled = false;
         }
-
-        public static Bionet4Context Create()
-        {
-            return new Bionet4Context();
-        }
-
-        //Identity and Authorization
-        //public DbSet<UserLogin> UserLogins { get; set; }
-        //public DbSet<UserClaim> UserClaims { get; set; }
-        //public DbSet<UserRole> UserRoles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-
             modelBuilder.Configurations.Add(new AgentMap());
             modelBuilder.Configurations.Add(new AlbumDetailMap());
             modelBuilder.Configurations.Add(new AlbumMap());
@@ -54,19 +39,6 @@ namespace Bionet4.Data.Models
             modelBuilder.Configurations.Add(new ImageMap());
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-
-
-
-            //modelBuilder.Entity<UserRole>().ToTable("UserRole");
-            //modelBuilder.Entity<UserLogin>().ToTable("UserLogin");
-            //modelBuilder.Entity<UserClaim>().ToTable("UserClaim");
-            //modelBuilder.Entity<UserClaim>().Property(u => u.ClaimType);
-            //modelBuilder.Entity<UserClaim>().Property(u => u.ClaimValue);
-
-            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
-            modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
         }
     }
 }

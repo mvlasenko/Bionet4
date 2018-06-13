@@ -1,0 +1,14 @@
+﻿@using Bionet4.Data.Properties
+
+@{
+
+    var values = Enum.GetValues(ViewData.ModelMetadata.ModelType).Cast<object>()
+                     .Select(v => new SelectListItem
+                     {
+                         Selected = v.Equals(Model),
+                         Text = v.ToString(),
+                         Value = v.ToString()
+                     });
+}
+
+@Html.DropDownList("", values, string.Format("< {0} >", Resources.SelectItem), new { @class = "form-control" })
