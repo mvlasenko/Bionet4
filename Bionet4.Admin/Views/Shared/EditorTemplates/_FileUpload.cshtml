@@ -1,0 +1,14 @@
+﻿@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+    var name = ViewData.ModelMetadata.PropertyName;
+    var val = ViewData.ModelMetadata.Model;
+}
+
+
+@Html.Hidden("", val)
+
+<script>
+
+
+
+</script>

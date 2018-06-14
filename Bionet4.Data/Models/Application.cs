@@ -13,15 +13,20 @@ namespace Bionet4.Data.Models
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-        [IncludeList()]
+        [IncludeList("First Name")]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Last Name")]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Middle Name")]
+        [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
+        [IncludeList()]
+        [UIHint("_Gender")]
         public int Gender { get; set; }
 
         [IncludeList("Birth Date")]
@@ -96,24 +101,34 @@ namespace Bionet4.Data.Models
         [XmlIgnore]
         public virtual Rajon Rajon { get; set; }
 
+        [ScaffoldColumn(false)]
         public int CityType { get; set; }
 
+        [IncludeList()]
         public string City { get; set; }
 
         public string Street { get; set; }
 
+        [Display(Name = "House Number")]
         public string HouseNumber { get; set; }
 
+        [Display(Name = "House Number Addition")]
         public string HouseNumberAddition { get; set; }
 
         public string Apartment { get; set; }
 
+        [IncludeList("Phone Home")]
+        [Display(Name = "Phone Home")]
         public string PhoneHome { get; set; }
 
+        [IncludeList("Phone Mobile")]
+        [Display(Name = "Phone Mobile")]
         public string PhoneMobile { get; set; }
 
+        [IncludeList()]
         public string Email { get; set; }
 
+        [Display(Name = "Enterpreneur Code")]
         public string EnterpreneurCode { get; set; }
 
         public string Number { get; set; }
@@ -122,7 +137,8 @@ namespace Bionet4.Data.Models
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
-        public int CreatedByUserID { get; set; }
+        [ScaffoldColumn(false)]
+        public string CreatedByUserID { get; set; }
 
     }
 }

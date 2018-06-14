@@ -19,32 +19,12 @@ namespace Bionet4.Data.Models
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-        [Display(Name = "Agent")]
-        [UIHint("_Agent")]
-        public int AgentId { get; set; }
-
-        [ScaffoldColumn(false)]
-        [IncludeList("Agent")]
-        public string AgentName
-        {
-            get
-            {
-                if (this.Agent == null)
-                    return String.Empty;
-
-                return string.Format("{0}", this.Agent.Name);
-            }
-        }
-
-        [ScaffoldColumn(false)]
-        [ScriptIgnore(ApplyToOverrides = true)]
-        [XmlIgnore]
-        public virtual Agent Agent { get; set; }
-
         [IncludeList()]
+        [UIHint("_Agent")]
         public string IDLeft { get; set; }
 
         [IncludeList()]
+        [UIHint("_Agent")]
         public string IDRight { get; set; }
 
         [IncludeList()]
@@ -53,7 +33,8 @@ namespace Bionet4.Data.Models
         [UIHint("MultilineText")]
         public string Body { get; set; }
 
-        [IncludeList()]
+        [IncludeList("Viewed")]
+        [Display(Name = "Viewed")]
         public bool IsViewed { get; set; }
 
         [IncludeList("Created")]
@@ -64,6 +45,5 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual ICollection<OrderItem> OrderItems { get; set; }
-
     }
 }

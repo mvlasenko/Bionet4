@@ -16,6 +16,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [UIHint("_FileUpload")]
         public byte[] Binary { get; set; }
 
         [IncludeList("Created")]

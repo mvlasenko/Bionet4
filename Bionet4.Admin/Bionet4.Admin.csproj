@@ -443,6 +443,8 @@
     <Content Include="Views\Shared\EditorTemplates\_Region.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Unit.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_Variable.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_Gender.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_FileUpload.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

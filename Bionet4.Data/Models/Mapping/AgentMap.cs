@@ -11,8 +11,6 @@ namespace Bionet4.Data.Models.Mapping
 
             // Properties
 
-            this.Property(t => t.UserID);
-
             this.Property(t => t.Code).HasMaxLength(50);
 
             this.Property(t => t.Name).HasMaxLength(255);
@@ -41,7 +39,6 @@ namespace Bionet4.Data.Models.Mapping
 
             this.ToTable("Agents");
             this.Property(t => t.Id).HasColumnName("Id");
-            this.Property(t => t.UserID).HasColumnName("UserID");
             this.Property(t => t.Code).HasColumnName("Code");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Description).HasColumnName("Description");
@@ -56,9 +53,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.UpdatedDateTime).HasColumnName("UpdatedDateTime");
 
             // Relationships
-            this.HasMany(e => e.Orders)
-                .WithRequired(e => e.Agent)
-                .WillCascadeOnDelete(true);
 
         }
     }

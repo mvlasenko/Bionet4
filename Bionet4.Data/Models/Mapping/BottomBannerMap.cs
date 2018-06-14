@@ -15,8 +15,6 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Name).IsRequired().HasMaxLength(255);
 
-            this.Property(t => t.TabID);
-
             this.Property(t => t.ExternalURL).HasMaxLength(255);
 
             this.Property(t => t.SeqID);
@@ -27,7 +25,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.TabID).HasColumnName("TabID");
             this.Property(t => t.ExternalURL).HasColumnName("ExternalURL");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 

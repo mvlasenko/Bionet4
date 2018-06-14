@@ -16,6 +16,5 @@ namespace Bionet4.Data.Models
         public string Value { get; set; }
 
         public string BigValue { get; set; }
-
     }
 }

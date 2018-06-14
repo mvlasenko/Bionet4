@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
@@ -23,8 +22,8 @@ namespace Bionet4.Data.Models
         public virtual Order Order { get; set; }
 
         [Display(Name = "Product")]
-        [UIHint("_Product")]
-        public int ProductId { get; set; }
+        [UIHint("_ProductForOrder")]
+        public int ProductForOrderId { get; set; }
 
         [ScaffoldColumn(false)]
         [IncludeList("Product")]
@@ -42,7 +41,7 @@ namespace Bionet4.Data.Models
         [ScaffoldColumn(false)]
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
-        public virtual Product Product { get; set; }
+        public virtual ProductForOrder Product { get; set; }
 
         [Display(Name = "Count")]
         public int ProductCount { get; set; }

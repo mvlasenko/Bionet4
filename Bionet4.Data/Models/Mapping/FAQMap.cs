@@ -21,11 +21,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.CreatedDateTime).IsRequired();
 
-            this.Property(t => t.CreatedByUserID).IsRequired();
-
             this.Property(t => t.ModifiedDateTime);
-
-            this.Property(t => t.ModifiedByUserID);
 
             this.Property(t => t.IsApproved);
 
@@ -40,9 +36,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Question).HasColumnName("Question");
             this.Property(t => t.Answer).HasColumnName("Answer");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
-            this.Property(t => t.CreatedByUserID).HasColumnName("CreatedByUserID");
             this.Property(t => t.ModifiedDateTime).HasColumnName("ModifiedDateTime");
-            this.Property(t => t.ModifiedByUserID).HasColumnName("ModifiedByUserID");
             this.Property(t => t.IsApproved).HasColumnName("IsApproved");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 

@@ -29,8 +29,5 @@ namespace Bionet4.Data.Models
         [IncludeList("Created")]
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
-
-        public int CreatedByUserID { get; set; }
-
     }
 }

@@ -115,6 +115,7 @@
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Certificate.cs" />
     <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\FAQ.cs" />
     <Compile Include="Models\Filters\Filter.cs" />

@@ -21,8 +21,6 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.CreatedDateTime).IsRequired();
 
-            this.Property(t => t.CreatedByUserID);
-
             // Table & Column Mappings
 
             this.ToTable("Article");
@@ -32,7 +30,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Author).HasColumnName("Author");
             this.Property(t => t.PublishDate).HasColumnName("PublishDate");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
-            this.Property(t => t.CreatedByUserID).HasColumnName("CreatedByUserID");
 
             // Relationships
         }

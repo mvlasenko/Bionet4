@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Script.Serialization;
@@ -10,6 +9,11 @@ namespace Bionet4.Data.Models
 {
     public class ProductForOrder : IEntity<int>
     {
+        public ProductForOrder()
+        {
+            this.OrderItems = new List<OrderItem>();
+        }
+
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
@@ -34,5 +38,9 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public int? Limit { get; set; }
 
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

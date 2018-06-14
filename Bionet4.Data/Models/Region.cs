@@ -22,6 +22,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [IncludeList()]
         public string Code { get; set; }
 
         [Display(Name = "Country")]

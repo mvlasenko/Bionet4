@@ -11,7 +11,8 @@ namespace Bionet4.Data.Models
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-        [IncludeList()]
+        [IncludeList("User Name")]
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
 
         [IncludeList()]
@@ -27,19 +28,14 @@ namespace Bionet4.Data.Models
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
 
-        public int CreatedByUserID { get; set; }
-
         [IncludeList("Modified")]
         [HiddenInput(DisplayValue = false)]
         public DateTime ModifiedDateTime { get; set; }
-
-        public int ModifiedByUserID { get; set; }
 
         public bool IsApproved { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
-
     }
 }

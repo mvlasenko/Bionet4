@@ -18,19 +18,6 @@ namespace Bionet4.Data.Models
         public int AlbumId { get; set; }
 
         [ScaffoldColumn(false)]
-        [IncludeList("Album")]
-        public string AlbumName
-        {
-            get
-            {
-                if (this.Album == null)
-                    return String.Empty;
-
-                return string.Format("{0}", this.Album.Name);
-            }
-        }
-
-        [ScaffoldColumn(false)]
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual Album Album { get; set; }

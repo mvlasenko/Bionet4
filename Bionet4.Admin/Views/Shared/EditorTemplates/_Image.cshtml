@@ -21,7 +21,7 @@
             if ($("#@name").val()) {
                 var mockFile = { name: "@val", size: 12345 };
                 this.emit("addedfile", mockFile);
-                this.createThumbnailFromUrl(mockFile, "/img/@val");
+                this.createThumbnailFromUrl(mockFile, "/admin/Images/Image/@val");
                 this.files[0] = mockFile;
             };
 

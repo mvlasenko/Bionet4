@@ -484,6 +484,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Gender.
+        /// </summary>
+        public static string SelectGender {
+            get {
+                return ResourceManager.GetString("SelectGender", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Image.
         /// </summary>
         public static string SelectImage {

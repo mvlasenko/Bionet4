@@ -11,8 +11,6 @@ namespace Bionet4.Data.Models.Mapping
 
             // Properties
 
-            this.Property(t => t.AgentId);
-
             this.Property(t => t.IDLeft).HasMaxLength(255);
 
             this.Property(t => t.IDRight).HasMaxLength(255);
@@ -29,7 +27,6 @@ namespace Bionet4.Data.Models.Mapping
 
             this.ToTable("Orders");
             this.Property(t => t.Id).HasColumnName("Id");
-            this.Property(t => t.AgentId).HasColumnName("AgentId");
             this.Property(t => t.IDLeft).HasColumnName("IDLeft");
             this.Property(t => t.IDRight).HasColumnName("IDRight");
             this.Property(t => t.Discount).HasColumnName("Discount");
@@ -38,9 +35,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
 
             // Relationships
-            this.HasRequired(t => t.Agent)
-                .WithMany(t => t.Orders)
-                .HasForeignKey(d => d.AgentId);
 
             this.HasMany(e => e.OrderItems)
                 .WithRequired(e => e.Order)

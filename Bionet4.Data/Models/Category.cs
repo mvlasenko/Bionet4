@@ -30,6 +30,7 @@ namespace Bionet4.Data.Models
         public string ImageID { get; set; }
 
         [Display(Name = "Parent Category")]
+        [UIHint("_Category")]
         public int ParentCategoryId { get; set; }
 
         [IncludeList("")]
@@ -40,6 +41,5 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual ICollection<Product> Products { get; set; }
-
     }
 }

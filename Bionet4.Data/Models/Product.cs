@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
@@ -11,11 +10,6 @@ namespace Bionet4.Data.Models
 {
     public class Product : IEntity<int>
     {
-        public Product()
-        {
-            this.OrderItems = new List<OrderItem>();
-        }
-
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
@@ -23,8 +17,11 @@ namespace Bionet4.Data.Models
         public string Name { get; set; }
 
         [UIHint("MultilineText")]
+        [Display(Name = "Description")]
         public string Description { get; set; }
 
+        [UIHint("MultilineText")]
+        [Display(Name = "Short Description")]
         public string ShortDescription { get; set; }
 
         [IncludeList("Image")]
@@ -35,6 +32,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public decimal Price { get; set; }
 
+        [IncludeList()]
         public string Code { get; set; }
 
         [Display(Name = "Unit")]
@@ -60,6 +58,7 @@ namespace Bionet4.Data.Models
         public virtual Unit Unit { get; set; }
 
         [Display(Name = "Parent Product")]
+        [UIHint("_Product")]
         public int ParentProductId { get; set; }
 
         [Display(Name = "Category")]
@@ -91,11 +90,5 @@ namespace Bionet4.Data.Models
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
-
-        [ScaffoldColumn(false)]
-        [ScriptIgnore(ApplyToOverrides = true)]
-        [XmlIgnore]
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
-
     }
 }

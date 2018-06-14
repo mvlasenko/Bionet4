@@ -25,6 +25,7 @@ namespace Bionet4.Admin.Controllers
         public override ActionResult CreatePartial(Application entity)
         {
             entity.CreatedDateTime = DateTime.Now;
+            entity.CityType = 0;
             return base.CreatePartial(entity);
         }
     }

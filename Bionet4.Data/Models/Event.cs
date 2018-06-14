@@ -24,9 +24,11 @@ namespace Bionet4.Data.Models
         public string City { get; set; }
 
         [UIHint("MultilineText")]
+        [Display(Name = "Short Description")]
         public string ShortDescription { get; set; }
 
         [UIHint("MultilineText")]
+        [Display(Name = "Description")]
         public string Description { get; set; }
 
         [IncludeList("Created")]
@@ -36,6 +38,5 @@ namespace Bionet4.Data.Models
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
-
     }
 }

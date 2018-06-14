@@ -58,10 +58,6 @@ namespace Bionet4.Data.Models.Mapping
                 .WithMany(t => t.Products)
                 .HasForeignKey(d => d.CategoryId);
 
-            this.HasMany(e => e.OrderItems)
-                .WithRequired(e => e.Product)
-                .WillCascadeOnDelete(true);
-
         }
     }
 }

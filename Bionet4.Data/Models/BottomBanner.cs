@@ -18,8 +18,6 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
-        public int? TabID { get; set; }
-
         [IncludeList("External URL")]
         [Display(Name = "External URL")]
         public string ExternalURL { get; set; }

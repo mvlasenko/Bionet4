@@ -19,8 +19,6 @@ namespace Bionet4.Data.Models
         [ScaffoldColumn(false)]
         public int Id { get; set; }
 
-        public int UserID { get; set; }
-
         [IncludeList()]
         public string Code { get; set; }
 
@@ -35,8 +33,11 @@ namespace Bionet4.Data.Models
         [UIHint("_Image")]
         public string ImageID { get; set; }
 
+        [IncludeList("ID")]
+        [Display(Name = "ID")]
         public int AgentID { get; set; }
 
+        [UIHint("_Agent")]
         public int ParentID { get; set; }
 
         [IncludeList()]
@@ -54,6 +55,7 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Phone { get; set; }
 
+        [UIHint("MultilineText")]
         public string Address { get; set; }
 
         [IncludeList("Updated")]

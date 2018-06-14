@@ -13,7 +13,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.OrderId);
 
-            this.Property(t => t.ProductId);
+            this.Property(t => t.ProductForOrderId);
 
             this.Property(t => t.ProductCount);
 
@@ -22,7 +22,7 @@ namespace Bionet4.Data.Models.Mapping
             this.ToTable("OrderItems");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.OrderId).HasColumnName("OrderId");
-            this.Property(t => t.ProductId).HasColumnName("ProductId");
+            this.Property(t => t.ProductForOrderId).HasColumnName("ProductForOrderId");
             this.Property(t => t.ProductCount).HasColumnName("ProductCount");
 
             // Relationships
@@ -32,7 +32,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.HasRequired(t => t.Product)
                 .WithMany(t => t.OrderItems)
-                .HasForeignKey(d => d.ProductId);
+                .HasForeignKey(d => d.ProductForOrderId);
 
         }
     }
