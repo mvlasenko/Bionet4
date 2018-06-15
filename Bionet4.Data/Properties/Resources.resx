@@ -235,10 +235,10 @@
     <value>Logos</value>
   </data>
   <data name="SelectOrderItem" xml:space="preserve">
-    <value>Select OrderItem</value>
+    <value>Select Order Item</value>
   </data>
   <data name="OrderItems" xml:space="preserve">
-    <value>OrderItems</value>
+    <value>Order Items</value>
   </data>
   <data name="SelectOrder" xml:space="preserve">
     <value>Select Order</value>
@@ -259,10 +259,10 @@
     <value>Products</value>
   </data>
   <data name="SelectProductForOrder" xml:space="preserve">
-    <value>Select Product</value>
+    <value>Select Product For Order</value>
   </data>
   <data name="ProductsForOrder" xml:space="preserve">
-    <value>Products</value>
+    <value>Products For Order</value>
   </data>
   <data name="SelectRajon" xml:space="preserve">
     <value>Select Rajon</value>

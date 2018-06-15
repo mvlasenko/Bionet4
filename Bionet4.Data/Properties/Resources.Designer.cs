@@ -322,7 +322,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OrderItems.
+        ///   Looks up a localized string similar to Order Items.
         /// </summary>
         public static string OrderItems {
             get {
@@ -349,7 +349,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Products.
+        ///   Looks up a localized string similar to Products For Order.
         /// </summary>
         public static string ProductsForOrder {
             get {
@@ -538,7 +538,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select OrderItem.
+        ///   Looks up a localized string similar to Select Order Item.
         /// </summary>
         public static string SelectOrderItem {
             get {
@@ -556,7 +556,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Product.
+        ///   Looks up a localized string similar to Select Product For Order.
         /// </summary>
         public static string SelectProductForOrder {
             get {
