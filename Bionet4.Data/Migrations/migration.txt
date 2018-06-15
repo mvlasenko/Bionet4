@@ -1,0 +1,2 @@
+﻿Enable-Migrations -EnableAutomaticMigrations -ProjectName Bionet4.Data -StartupProjectName Bionet4.Admin -Force
+Update-Database -ProjectName Bionet4.Data -StartupProjectName Bionet4.Admin -Force -Verbose

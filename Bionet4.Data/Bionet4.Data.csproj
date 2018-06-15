@@ -106,6 +106,7 @@
     <Compile Include="Contracts\IVariablesRepository.cs" />
     <Compile Include="Contracts\IVideosRepository.cs" />
     <Compile Include="Helpers\ImageHelper.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Agent.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\AlbumDetail.cs" />
@@ -199,6 +200,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Migrations\migration.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
