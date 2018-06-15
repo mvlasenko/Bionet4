@@ -200,7 +200,7 @@ namespace Bionet4.Admin.Controllers
         }
 
         [HttpPost]
-        public virtual ActionResult FileUpload(HttpPostedFileBase file)
+        public virtual ActionResult ImageUpload(HttpPostedFileBase file)
         {
             try
             {
@@ -220,7 +220,7 @@ namespace Bionet4.Admin.Controllers
                 return Json(new
                 {
                     success = true,
-                    response = "File uploaded.",
+                    response = "Image uploaded.",
                     id = newImage.Id.ToString(),
                     fileName = file.FileName
                 });

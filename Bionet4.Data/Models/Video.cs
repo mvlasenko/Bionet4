@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
@@ -9,12 +10,17 @@ namespace Bionet4.Data.Models
 {
     public class Video : IEntity<Guid>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public Guid Id { get; set; }
 
         [IncludeList()]
         public string Name { get; set; }
+
+        [IncludeList("File")]
+        [Display(Name = "File")]
+        [ReadOnly(true)]
+        public string FileName { get; set; }
 
         [UIHint("_FileUpload")]
         public byte[] Binary { get; set; }
@@ -26,6 +32,5 @@ namespace Bionet4.Data.Models
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
-
     }
 }

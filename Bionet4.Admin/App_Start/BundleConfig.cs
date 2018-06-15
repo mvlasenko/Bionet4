@@ -43,6 +43,14 @@ namespace Bionet4.Admin
             bundles.Add(new StyleBundle("~/Content/dropzone").Include(
                 "~/Scripts/dropzone/dropzone.css"));
 
+            //file upload
+            bundles.Add(new StyleBundle("~/Content/jQuery-File-Upload").Include(
+                "~/Content/jQuery.FileUpload/css/jquery.fileupload.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/jQuery-File-Upload").Include(
+                "~/Scripts/jquery-ui-{version}.js",
+                "~/Scripts/jQuery.FileUpload/jquery.iframe-transport.js",
+                "~/Scripts/jQuery.FileUpload/jquery.fileupload.js"));
         }
     }
 }

@@ -59,7 +59,7 @@ namespace Bionet4.Data.Models
 
         [Display(Name = "Parent Product")]
         [UIHint("_Product")]
-        public int ParentProductId { get; set; }
+        public int? ParentProductId { get; set; }
 
         [Display(Name = "Category")]
         [UIHint("_Category")]
