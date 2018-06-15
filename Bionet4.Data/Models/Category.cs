@@ -31,7 +31,7 @@ namespace Bionet4.Data.Models
 
         [Display(Name = "Parent Category")]
         [UIHint("_Category")]
-        public int ParentCategoryId { get; set; }
+        public int? ParentCategoryId { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
