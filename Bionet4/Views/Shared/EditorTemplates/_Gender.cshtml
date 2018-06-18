@@ -1,0 +1,13 @@
+﻿@using Bionet4.Data.Properties
+@using Bionet4.Data.Models
+
+@{
+    var values = Enum.GetValues(typeof(Gender)).Cast<Gender>()
+        .Select(v => new SelectListItem
+        {
+            Text = v.ToString(),
+            Value = ((int)v).ToString()
+        });
+}
+
+@Html.DropDownList("", values, string.Format("< {0} >", Resources.SelectGender), new { @class = "form-control" })

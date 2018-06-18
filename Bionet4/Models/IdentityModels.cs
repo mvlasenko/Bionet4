@@ -21,7 +21,7 @@ namespace Bionet4.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("Bionet4Context", throwIfV1Schema: false)
+        public ApplicationDbContext() : base("IdentityContext", throwIfV1Schema: false)
         {
         }
 

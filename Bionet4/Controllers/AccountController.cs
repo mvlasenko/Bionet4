@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Bionet4.Models;
+using Bionet4.Data.Contracts;
 
 namespace Bionet4.Controllers
 {
@@ -156,12 +157,34 @@ namespace Bionet4.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    //fill applications table
+                    IApplicationsRepository applicationsRepository = DependencyResolver.Current.GetService<IApplicationsRepository>();
+                    applicationsRepository.Insert(new Data.Models.Application {
+                        Email = model.Email,
+                        FirstName = model.FirstName,
+                        LastName = model.LastName,
+                        MiddleName = model.MiddleName,
+                        Gender = model.Gender,
+                        BirthDate = model.BirthDate,
+                        CountryId = model.CountryId,
+                        RegionId = model.RegionId,
+                        RajonId = model.RajonId,
+                        CityType = 0,
+                        City = model.City,
+                        Street = model.Street,
+                        HouseNumber = model.HouseNumber,
+                        HouseNumberAddition = model.HouseNumberAddition,
+                        Apartment = model.Apartment,
+                        PhoneHome = model.PhoneHome,
+                        PhoneMobile = model.PhoneMobile
+                    });
 
                     return RedirectToAction("Index", "Home");
                 }

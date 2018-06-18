@@ -65,15 +65,18 @@ namespace Bionet4.Models
 
     public class RegisterViewModel
     {
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
+        [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
+        [Required]
         [UIHint("_Gender")]
         public int Gender { get; set; }
 
@@ -81,6 +84,10 @@ namespace Bionet4.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Phone Mobile")]
+        public string PhoneMobile { get; set; }
 
         [Display(Name = "Birth Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
@@ -113,9 +120,6 @@ namespace Bionet4.Models
 
         [Display(Name = "Phone Home")]
         public string PhoneHome { get; set; }
-
-        [Display(Name = "Phone Mobile")]
-        public string PhoneMobile { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
