@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <mvcSiteMapNode title="Home" controller="Home" action="Index">
+    <mvcSiteMapNode title="Home" controller="Home" action="Index"/>
+    <mvcSiteMapNode title="Opportunities" controller="Home" action="Opportunities">
+      <mvcSiteMapNode title="Products" controller="Products" action="Index">
+        <mvcSiteMapNode title="Products 1" controller="Products" action="Show"/>
+      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Quality" controller="Home" action="Quality"/>
+      <mvcSiteMapNode title="Ingredients" controller="Ingredients" action="Index"/>
+      <mvcSiteMapNode title="News" controller="Home" action="News"/>
+    </mvcSiteMapNode>
+    <mvcSiteMapNode title="About" controller="Home" action="About"/>
+  </mvcSiteMapNode>
+
+</mvcSiteMap>
