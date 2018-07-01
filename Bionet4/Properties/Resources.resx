@@ -156,4 +156,7 @@
   <data name="reserved" xml:space="preserve">
     <value>All Rights Reserved.</value>
   </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
 </root>

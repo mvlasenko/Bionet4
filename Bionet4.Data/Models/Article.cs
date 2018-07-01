@@ -15,7 +15,18 @@ namespace Bionet4.Data.Models
         public string Name { get; set; }
 
         [UIHint("MultilineText")]
+        public string Description { get; set; }
+
+        [UIHint("MultilineText")]
         public string Body { get; set; }
+
+        [IncludeList("Image")]
+        [Display(Name = "Image")]
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
+
+        [Display(Name = "FA Icon")]
+        public string FaIcon { get; set; }
 
         [IncludeList()]
         public string Author { get; set; }
@@ -25,6 +36,10 @@ namespace Bionet4.Data.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy HH:mm}")]
         [UIHint("_DateTimePicker")]
         public DateTime? PublishDate { get; set; }
+
+        [IncludeList("External URL")]
+        [Display(Name = "External URL")]
+        public string ExternalURL { get; set; }
 
         [IncludeList("Created")]
         [HiddenInput(DisplayValue = false)]

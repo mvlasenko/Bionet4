@@ -1,0 +1,30 @@
+﻿@using Bionet4.Properties
+@using Bionet4.Data.Models
+@model ICollection<Product>
+
+@foreach (Product product in Model)
+{
+    <div class="product-lead bottom-pad margin-top100">
+        <div class="pattern-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 col-xs-12 text-center wow fadeInLeft">
+                        <img class="app-img" src="/Images/Image/@product.ImageID" alt="@product.Name">
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12 wow fadeInRight">
+                        <div class="app-service padding-bottom50">
+                            <h2 class="light">@product.Name</h2>
+                            <p>
+                                @product.ShortDescription
+                            </p>
+                            <div class="divider"></div>
+                            <div class="learnmore">
+                                <a class="btn-special btn-grey" href="/Products/Product/@product.Id">@Resources.ReadMore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

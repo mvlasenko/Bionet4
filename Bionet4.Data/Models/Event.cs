@@ -28,7 +28,6 @@ namespace Bionet4.Data.Models
         public string ShortDescription { get; set; }
 
         [UIHint("MultilineText")]
-        [Display(Name = "Description")]
         public string Description { get; set; }
 
         [IncludeList("Created")]

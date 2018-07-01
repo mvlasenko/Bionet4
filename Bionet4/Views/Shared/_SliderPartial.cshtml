@@ -1,0 +1,59 @@
+﻿@using Bionet4.ViewModels
+@model ICollection<SliderViewModel>
+
+<div class="fullwidthbanner-container tp-banner-container">
+    <div class="fullwidthbanner rslider tp-banner">
+        <ul>
+            @{
+                int index = 0;
+            }
+            @foreach (SliderViewModel slide in Model)
+            {
+                //todo: look inxex.html for anymation examples
+
+                if (index == 0)
+                {
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="2000" data-thumb="homeslider_thumb2.jpg" data-delay="10000" data-saveperformance="on">
+                <img src="@slide.ImageSmall" alt="@slide.Text" data-lazyload="@slide.ImageBig" data-bgposition="right top" data-kenburns="on" data-duration="12000" data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" data-bgpositionend="center bottom">
+                <div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
+                     data-x="550"
+                     data-y="83"
+                     data-speed="500"
+                     data-start="2400"
+                     data-easing="Power3.easeInOut"
+                     data-splitin="chars"
+                     data-splitout="none"
+                     data-elementdelay="0.1"
+                     data-endelementdelay="0.1"
+                     data-endspeed="300"
+                     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                    @slide.Text
+                </div>
+            </li>
+                }
+                else
+                {
+            <li data-transition="fade" data-slotamount="1" data-masterspeed="300">
+                <img src="@slide.ImageBig" data-fullwidthcentering="on" alt="">
+                <div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
+                     data-x="550"
+                     data-y="83"
+                     data-speed="500"
+                     data-start="2400"
+                     data-easing="Power3.easeInOut"
+                     data-splitin="chars"
+                     data-splitout="none"
+                     data-elementdelay="0.1"
+                     data-endelementdelay="0.1"
+                     data-endspeed="300"
+                     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
+                    @slide.Text
+                </div>
+            </li>
+                }
+
+                index++;
+            }
+        </ul>
+    </div>
+</div>

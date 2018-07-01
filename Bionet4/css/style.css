@@ -335,12 +335,6 @@ ol {
     margin: 0;
 }
 
-#style-switcher ul,
-#style-switcher ul li {
-    list-style: none;
-    padding: 0;
-}
-
 a:hover,
 a:focus {
     text-decoration: none;

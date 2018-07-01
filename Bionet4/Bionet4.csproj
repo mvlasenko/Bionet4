@@ -231,6 +231,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\SliderViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\animations.css" />
@@ -307,11 +309,9 @@
     <Content Include="css\revolution-slider\images\decor_testimonial.png" />
     <Content Include="css\revolution-slider\images\gradient\g30.png" />
     <Content Include="css\revolution-slider\images\gradient\g40.png" />
-    <Content Include="css\spectrum.css" />
     <Content Include="css\style.css" />
     <Content Include="css\superfish.css" />
     <Content Include="css\superfish3.css" />
-    <Content Include="css\switcher.css" />
     <Content Include="css\team-member.css" />
     <Content Include="css\theme-responsive.css" />
     <Content Include="favicon.ico" />
@@ -370,17 +370,8 @@
     <Content Include="img\ico\favicon.ico" />
     <Content Include="img\iphone5c.png" />
     <Content Include="img\loader.gif" />
+    <Content Include="img\logo.jpg" />
     <Content Include="img\logo.png" />
-    <Content Include="img\logos\logo_blue.png" />
-    <Content Include="img\logos\logo_brown.png" />
-    <Content Include="img\logos\logo_golden.png" />
-    <Content Include="img\logos\logo_gray.png" />
-    <Content Include="img\logos\logo_green.png" />
-    <Content Include="img\logos\logo_magenta.png" />
-    <Content Include="img\logos\logo_orange.png" />
-    <Content Include="img\logos\logo_purple.png" />
-    <Content Include="img\logos\logo_red.png" />
-    <Content Include="img\logos\logo_teal.png" />
     <Content Include="img\pattern-3.png" />
     <Content Include="img\pattern.jpg" />
     <Content Include="img\pattern.png" />
@@ -743,20 +734,6 @@
     <Content Include="img\shop\thumb\banner6.jpg" />
     <Content Include="img\shop\thumb\banner7.jpg" />
     <Content Include="img\shop\thumb\banner8.jpg" />
-    <Content Include="img\slider\img1.jpg" />
-    <Content Include="img\slider\img2.jpg" />
-    <Content Include="img\slider\nivo_slider1.jpg" />
-    <Content Include="img\slider\nivo_slider3.jpg" />
-    <Content Include="img\slider\nivo_slider4.jpg" />
-    <Content Include="img\slider\responsive-imac.png" />
-    <Content Include="img\slider\responsive-ipad.png" />
-    <Content Include="img\slider\responsive-iphone.png" />
-    <Content Include="img\slider\slider-bg-1.jpg" />
-    <Content Include="img\slider\slider-bg-2.jpg" />
-    <Content Include="img\slider\slider-bg-3.jpg" />
-    <Content Include="img\slider\slider-bg-5.jpg" />
-    <Content Include="img\slider\slider-bg-6.jpg" />
-    <Content Include="img\slider\slider-bg-7.jpg" />
     <Content Include="img\team\team-member-1.jpg" />
     <Content Include="img\team\team-member-2.jpg" />
     <Content Include="img\team\team-member-3.jpg" />
@@ -908,9 +885,7 @@
     <Content Include="js\simpleGallery\jquery.simpleGallery.min.js" />
     <Content Include="js\simpleGallery\jquery.simpleLens.js" />
     <Content Include="js\simpleGallery\jquery.simpleLens.min.js" />
-    <Content Include="js\spectrum.js" />
     <Content Include="js\superfish.js" />
-    <Content Include="js\switcher.js" />
     <Content Include="js\tweetMachine.js" />
     <Content Include="js\tytabs.js" />
     <Content Include="js\waypoints.min.js" />
@@ -989,6 +964,10 @@
     </None>
     <None Include="packages.config" />
     <Content Include="Views\Shared\About.cshtml" />
+    <Content Include="Views\Shared\_SliderPartial.cshtml" />
+    <Content Include="Views\Shared\_ArticleThumbsPartial.cshtml" />
+    <Content Include="Views\Shared\_ProductHighlights.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

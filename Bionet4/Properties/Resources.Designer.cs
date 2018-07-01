@@ -160,6 +160,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Read More.
+        /// </summary>
+        public static string ReadMore {
+            get {
+                return ResourceManager.GetString("ReadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registration.
         /// </summary>
         public static string Registration {
