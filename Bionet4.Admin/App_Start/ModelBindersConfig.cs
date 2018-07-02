@@ -15,12 +15,11 @@ namespace Bionet4.Admin
             binders[typeof(IFilter<Album, int>)] = new AlbumsFilterModelBinder();
             binders[typeof(IFilter<Application, int>)] = new ApplicationsFilterModelBinder();
             binders[typeof(IFilter<Article, int>)] = new ArticleFilterModelBinder();
-            binders[typeof(IFilter<BottomBanner, int>)] = new BottomBannersFilterModelBinder();
-            binders[typeof(IFilter<Certificate, int>)] = new CertificatesFilterModelBinder();
+            binders[typeof(IFilter<MailTemplate, int>)] = new MailTemplatesFilterModelBinder();
+            binders[typeof(IFilter<Paragraph, int>)] = new ParagraphsFilterModelBinder();
             binders[typeof(IFilter<Event, int>)] = new EventsFilterModelBinder();
             binders[typeof(IFilter<FAQ, int>)] = new FAQFilterModelBinder();
             binders[typeof(IFilter<Ingredient, int>)] = new IngredientsFilterModelBinder();
-            binders[typeof(IFilter<Logo, int>)] = new LogosFilterModelBinder();
             binders[typeof(IFilter<OrderItem, int>)] = new OrderItemsFilterModelBinder();
             binders[typeof(IFilter<Order, int>)] = new OrdersFilterModelBinder();
             binders[typeof(IFilter<Category, int>)] = new CategoriesFilterModelBinder();
@@ -29,8 +28,6 @@ namespace Bionet4.Admin
             binders[typeof(IFilter<Rajon, int>)] = new RajonsFilterModelBinder();
             binders[typeof(IFilter<Region, int>)] = new RegionsFilterModelBinder();
             binders[typeof(IFilter<Country, int>)] = new CountriesFilterModelBinder();
-            binders[typeof(IFilter<Slider, int>)] = new SlidersFilterModelBinder();
-            binders[typeof(IFilter<Unit, int>)] = new UnitsFilterModelBinder();
             binders[typeof(IFilter<Variable, int>)] = new VariablesFilterModelBinder();
             binders[typeof(IFilter<Video, Guid>)] = new VideosFilterModelBinder();
             binders[typeof(IFilter<Image, Guid>)] = new ImagesFilterModelBinder();

@@ -2,9 +2,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace Bionet4.Data.Models.Mapping
 {
-    public class LogoMap : EntityTypeConfiguration<Logo>
+    public class ParagraphMap : EntityTypeConfiguration<Paragraph>
     {
-        public LogoMap()
+        public ParagraphMap()
         {
             // Primary Key
             this.HasKey(t => t.Id);
@@ -13,22 +13,27 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.ImageID).HasMaxLength(255);
 
-            this.Property(t => t.Name).HasMaxLength(255);
+            this.Property(t => t.Name).IsRequired().HasMaxLength(255);
 
-            this.Property(t => t.ExternalURL).HasMaxLength(255);
+            this.Property(t => t.Description).HasMaxLength(4000);
 
             this.Property(t => t.SeqID);
 
             // Table & Column Mappings
 
-            this.ToTable("Logos");
+            this.ToTable("Paragraphs");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.ExternalURL).HasColumnName("ExternalURL");
+            this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 
             // Relationships
+
+            this.HasRequired(t => t.Article)
+                .WithMany(t => t.Paragraphs)
+                .HasForeignKey(d => d.ArticleId);
+
         }
     }
 }

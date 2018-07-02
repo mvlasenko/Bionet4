@@ -1,3 +1,0 @@
-@using Bionet4.Admin.Helpers
-@using Bionet4.Data.Properties
-@Html.DropDownList("", new SelectList(UIHelper.GetLogos(), "Id", "Name", ViewData.TemplateInfo.FormattedModelValue.ToString()), string.Format("< {0} >", Resources.SelectLogo), new { @class = "form-control" })

@@ -11,11 +11,11 @@ namespace Bionet4.Controllers
         {
             HomeViewModel model = new HomeViewModel();
 
-            ISlidersRepository slidersRepository = DependencyResolver.Current.GetService<ISlidersRepository>();
-            model.Sliders = slidersRepository.GetList().Select(x => new SliderViewModel { ImageBig = "/Images/Image/" + x.ImageID.ToString(), ImageSmall = "/Images/Image/" + x.ImageID.ToString() + "?width=100", Text = x.Name }).ToList();
-
             IArticleRepository articlesRepository = DependencyResolver.Current.GetService<IArticleRepository>();
-            model.ActicleThumbs = articlesRepository.GetList().Take(3).ToList();
+
+            model.Sliders = articlesRepository.GetList().Select(x => new SliderViewModel { ImageBig = "/Images/Image/" + x.ImageID.ToString(), ImageSmall = "/Images/Image/" + x.ImageID.ToString() + "?width=100", Text = x.Name }).ToList();
+
+            model.ActicleThumbs = articlesRepository.GetList().Take(3).Select(x=> new ArticleViewModel { Id = x.Id.ToString(), Name = x.Name, Description = x.Description, FaIcon = x.FaIcon }).ToList();
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.ProductHighlights = productsRepository.GetList().Take(1).ToList();

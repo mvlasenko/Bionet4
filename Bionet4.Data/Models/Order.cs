@@ -16,7 +16,7 @@ namespace Bionet4.Data.Models
             this.OrderItems = new List<OrderItem>();
         }
 
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList()]

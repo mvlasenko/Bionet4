@@ -16,7 +16,7 @@ namespace Bionet4.Data.Models
             this.AlbumDetails = new List<AlbumDetail>();
         }
 
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList()]

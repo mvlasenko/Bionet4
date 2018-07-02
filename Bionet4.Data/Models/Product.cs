@@ -5,12 +5,13 @@ using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
+using Bionet4.Data.Properties;
 
 namespace Bionet4.Data.Models
 {
     public class Product : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList()]
@@ -35,9 +36,8 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Code { get; set; }
 
-        [Display(Name = "Unit")]
         [UIHint("_Unit")]
-        public int? UnitId { get; set; }
+        public virtual Unit Unit { get; set; }
 
         [ScaffoldColumn(false)]
         [IncludeList("Unit")]
@@ -45,17 +45,18 @@ namespace Bionet4.Data.Models
         {
             get
             {
-                if (this.Unit == null)
-                    return String.Empty;
+                if (this.Unit == Unit.None)
+                    return string.Empty;
 
-                return string.Format("{0}", this.Unit.Name);
+                try
+                {
+                    return Resources.ResourceManager.GetString(this.Unit.ToString());
+                }
+                catch {
+                    return this.Unit.ToString();
+                }
             }
         }
-
-        [ScaffoldColumn(false)]
-        [ScriptIgnore(ApplyToOverrides = true)]
-        [XmlIgnore]
-        public virtual Unit Unit { get; set; }
 
         [Display(Name = "Parent Product")]
         [UIHint("_Product")]

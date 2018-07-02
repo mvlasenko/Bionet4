@@ -10,7 +10,7 @@ namespace Bionet4.Data.Models
 {
     public class AlbumDetail : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [Display(Name = "Album")]

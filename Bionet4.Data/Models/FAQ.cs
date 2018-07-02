@@ -8,7 +8,7 @@ namespace Bionet4.Data.Models
 {
     public class FAQ : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList("User Name")]

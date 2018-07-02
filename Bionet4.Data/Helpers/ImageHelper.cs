@@ -190,7 +190,7 @@ namespace Bionet4.Data.Helpers
             if (Extension.ToLower() == ".pptx") return "application/x-mspowerpoint.12";
             if (Extension.ToLower() == ".pptm") return "application/x-mspowerpoint.macroEnabled.12";
             if (Extension.ToLower() == ".p12") return "application/x-pkcs12";
-            if (Extension.ToLower() == ".p7b") return "application/x-pkcs7-certificates";
+            if (Extension.ToLower() == ".p7b") return "application/x-pkcs7-paragraphs";
             if (Extension.ToLower() == ".p7r") return "application/x-pkcs7-certreqresp";
             if (Extension.ToLower() == ".qtl") return "application/x-quicktimeplayer";
             if (Extension.ToLower() == ".rtsp") return "application/x-rtsp";

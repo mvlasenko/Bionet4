@@ -23,7 +23,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Code).HasMaxLength(10);
 
-            this.Property(t => t.UnitId);
+            this.Property(t => t.Unit);
 
             this.Property(t => t.ParentProductId);
 
@@ -43,16 +43,13 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.Price).HasColumnName("Price");
             this.Property(t => t.Code).HasColumnName("Code");
-            this.Property(t => t.UnitId).HasColumnName("UnitId");
+            this.Property(t => t.Unit).HasColumnName("Unit");
             this.Property(t => t.ParentProductId).HasColumnName("ParentProductId");
             this.Property(t => t.CategoryId).HasColumnName("CategoryId");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 
             // Relationships
-            this.HasOptional(t => t.Unit)
-                .WithMany(t => t.Products)
-                .HasForeignKey(d => d.UnitId);
 
             this.HasOptional(t => t.Category)
                 .WithMany(t => t.Products)

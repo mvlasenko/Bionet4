@@ -1,14 +1,24 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
+using System.Web.Script.Serialization;
+using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
 namespace Bionet4.Data.Models
 {
-    public class Slider : IEntity<int>
+    public class Paragraph : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
+
+        [Display(Name = "Article")]
+        public int ArticleId { get; set; }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual Article Article { get; set; }
 
         [IncludeList("Image")]
         [Display(Name = "Image")]
@@ -18,13 +28,11 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
-        [IncludeList("External URL")]
-        [Display(Name = "External URL")]
-        public string ExternalURL { get; set; }
+        [UIHint("MultilineText")]
+        public string Description { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
-
     }
 }

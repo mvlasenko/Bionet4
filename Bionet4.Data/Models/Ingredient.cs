@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using Bionet4.Admin.Attributes;
 using Bionet4.Data.Contracts;
 
@@ -6,7 +7,7 @@ namespace Bionet4.Data.Models
 {
     public class Ingredient : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList()]

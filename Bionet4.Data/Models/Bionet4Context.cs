@@ -18,12 +18,11 @@ namespace Bionet4.Data.Models
             modelBuilder.Configurations.Add(new AlbumMap());
             modelBuilder.Configurations.Add(new ApplicationMap());
             modelBuilder.Configurations.Add(new ArticleMap());
-            modelBuilder.Configurations.Add(new BottomBannerMap());
-            modelBuilder.Configurations.Add(new CertificateMap());
+            modelBuilder.Configurations.Add(new MailTemplateMap());
+            modelBuilder.Configurations.Add(new ParagraphMap());
             modelBuilder.Configurations.Add(new EventMap());
             modelBuilder.Configurations.Add(new FAQMap());
             modelBuilder.Configurations.Add(new IngredientMap());
-            modelBuilder.Configurations.Add(new LogoMap());
             modelBuilder.Configurations.Add(new OrderItemMap());
             modelBuilder.Configurations.Add(new OrderMap());
             modelBuilder.Configurations.Add(new CategoryMap());
@@ -32,8 +31,6 @@ namespace Bionet4.Data.Models
             modelBuilder.Configurations.Add(new RajonMap());
             modelBuilder.Configurations.Add(new RegionMap());
             modelBuilder.Configurations.Add(new CountryMap());
-            modelBuilder.Configurations.Add(new SliderMap());
-            modelBuilder.Configurations.Add(new UnitMap());
             modelBuilder.Configurations.Add(new VariableMap());
             modelBuilder.Configurations.Add(new VideoMap());
             modelBuilder.Configurations.Add(new ImageMap());

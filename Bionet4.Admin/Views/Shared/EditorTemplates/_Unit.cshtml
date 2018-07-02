@@ -1,3 +1,15 @@
-@using Bionet4.Admin.Helpers
 @using Bionet4.Data.Properties
-@Html.DropDownList("", new SelectList(UIHelper.GetUnits(), "Id", "Name", ViewData.TemplateInfo.FormattedModelValue.ToString()), string.Format("< {0} >", Resources.SelectUnit), new { @class = "form-control" })
+@using Bionet4.Data.Models
+@using Bionet4.Admin.Helpers
+
+@{
+    var values = Enum.GetValues(typeof(Unit)).Cast<Unit>()
+        .Select(v => new SelectListItem
+        {
+            Selected = (int)v == (int)Model,
+            Text = v.GetUnitText(),
+            Value = ((int)v).ToString()
+        });
+}
+
+@Html.DropDownList("", values, string.Format("< {0} >", Resources.SelectUnit), new { @class = "form-control" })

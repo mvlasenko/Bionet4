@@ -133,15 +133,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to BottomBanners.
-        /// </summary>
-        public static string BottomBanners {
-            get {
-                return ResourceManager.GetString("BottomBanners", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Categories.
         /// </summary>
         public static string Categories {
@@ -313,11 +304,11 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Logos.
+        ///   Looks up a localized string similar to Mail Templates.
         /// </summary>
-        public static string Logos {
+        public static string MailTemplates {
             get {
-                return ResourceManager.GetString("Logos", resourceCulture);
+                return ResourceManager.GetString("MailTemplates", resourceCulture);
             }
         }
         
@@ -430,15 +421,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Bottom Banner.
-        /// </summary>
-        public static string SelectBottomBanner {
-            get {
-                return ResourceManager.GetString("SelectBottomBanner", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Category.
         /// </summary>
         public static string SelectCategory {
@@ -520,15 +502,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Logo.
-        /// </summary>
-        public static string SelectLogo {
-            get {
-                return ResourceManager.GetString("SelectLogo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Order.
         /// </summary>
         public static string SelectOrder {
@@ -583,15 +556,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Slider.
-        /// </summary>
-        public static string SelectSlider {
-            get {
-                return ResourceManager.GetString("SelectSlider", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Time Zone.
         /// </summary>
         public static string SelectTimeZone {
@@ -628,20 +592,38 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sliders.
+        ///   Looks up a localized string similar to 100 гр.
         /// </summary>
-        public static string Sliders {
+        public static string Unit100Gramm {
             get {
-                return ResourceManager.GetString("Sliders", resourceCulture);
+                return ResourceManager.GetString("Unit100Gramm", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Units.
+        ///   Looks up a localized string similar to гр.
         /// </summary>
-        public static string Units {
+        public static string UnitGramm {
             get {
-                return ResourceManager.GetString("Units", resourceCulture);
+                return ResourceManager.GetString("UnitGramm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to шт.
+        /// </summary>
+        public static string UnitItem {
+            get {
+                return ResourceManager.GetString("UnitItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to кг.
+        /// </summary>
+        public static string UnitKilo {
+            get {
+                return ResourceManager.GetString("UnitKilo", resourceCulture);
             }
         }
         

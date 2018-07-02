@@ -42,15 +42,15 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<BottomBanner> GetBottomBanners()
+        public static List<MailTemplate> GetMailTemplates()
         {
-            IBottomBannersRepository repository = DependencyResolver.Current.GetService<IBottomBannersRepository>();
+            IMailTemplatesRepository repository = DependencyResolver.Current.GetService<IMailTemplatesRepository>();
             return repository.GetList().ToList();
         }
 
-        public static List<Certificate> GetCertificates()
+        public static List<Paragraph> GetParagraphs()
         {
-            ICertificatesRepository repository = DependencyResolver.Current.GetService<ICertificatesRepository>();
+            IParagraphsRepository repository = DependencyResolver.Current.GetService<IParagraphsRepository>();
             return repository.GetList().ToList();
         }
 
@@ -69,12 +69,6 @@ namespace Bionet4.Admin.Helpers
         public static List<Ingredient> GetIngredients()
         {
             IIngredientsRepository repository = DependencyResolver.Current.GetService<IIngredientsRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<Logo> GetLogos()
-        {
-            ILogosRepository repository = DependencyResolver.Current.GetService<ILogosRepository>();
             return repository.GetList().ToList();
         }
 
@@ -123,18 +117,6 @@ namespace Bionet4.Admin.Helpers
         public static List<Country> GetCountries()
         {
             ICountriesRepository repository = DependencyResolver.Current.GetService<ICountriesRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<Slider> GetSliders()
-        {
-            ISlidersRepository repository = DependencyResolver.Current.GetService<ISlidersRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<Unit> GetUnits()
-        {
-            IUnitsRepository repository = DependencyResolver.Current.GetService<IUnitsRepository>();
             return repository.GetList().ToList();
         }
 

@@ -198,11 +198,8 @@
   <data name="Article" xml:space="preserve">
     <value>Article</value>
   </data>
-  <data name="SelectBottomBanner" xml:space="preserve">
-    <value>Select Bottom Banner</value>
-  </data>
-  <data name="BottomBanners" xml:space="preserve">
-    <value>BottomBanners</value>
+  <data name="MailTemplates" xml:space="preserve">
+    <value>Mail Templates</value>
   </data>
   <data name="SelectCertificate" xml:space="preserve">
     <value>Select Certificate</value>
@@ -227,12 +224,6 @@
   </data>
   <data name="Ingredients" xml:space="preserve">
     <value>Ingredients</value>
-  </data>
-  <data name="SelectLogo" xml:space="preserve">
-    <value>Select Logo</value>
-  </data>
-  <data name="Logos" xml:space="preserve">
-    <value>Logos</value>
   </data>
   <data name="SelectOrderItem" xml:space="preserve">
     <value>Select Order Item</value>
@@ -282,17 +273,8 @@
   <data name="Countries" xml:space="preserve">
     <value>Countries</value>
   </data>
-  <data name="SelectSlider" xml:space="preserve">
-    <value>Select Slider</value>
-  </data>
-  <data name="Sliders" xml:space="preserve">
-    <value>Sliders</value>
-  </data>
   <data name="SelectUnit" xml:space="preserve">
     <value>Select Unit</value>
-  </data>
-  <data name="Units" xml:space="preserve">
-    <value>Units</value>
   </data>
   <data name="SelectVariable" xml:space="preserve">
     <value>Select Variable</value>
@@ -317,5 +299,17 @@
   </data>
   <data name="SelectGender" xml:space="preserve">
     <value>Select Gender</value>
+  </data>
+  <data name="Unit100Gramm" xml:space="preserve">
+    <value>100 гр</value>
+  </data>
+  <data name="UnitGramm" xml:space="preserve">
+    <value>гр</value>
+  </data>
+  <data name="UnitItem" xml:space="preserve">
+    <value>шт</value>
+  </data>
+  <data name="UnitKilo" xml:space="preserve">
+    <value>кг</value>
   </data>
 </root>

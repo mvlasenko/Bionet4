@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
 using Bionet4.Admin.Attributes;
@@ -9,7 +10,7 @@ namespace Bionet4.Data.Models
 {
     public class OrderItem : IEntity<int>
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [Display(Name = "Order")]

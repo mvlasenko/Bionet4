@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using Bionet4.Data.Properties;
 using Bionet4.Helpers;
 
 namespace Bionet4.Admin.Helpers
@@ -39,15 +40,15 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<BottomBanner> GetBottomBanners()
+        public static List<MailTemplate> GetMailTemplates()
         {
-            IBottomBannersRepository repository = DependencyResolver.Current.GetService<IBottomBannersRepository>();
+            IMailTemplatesRepository repository = DependencyResolver.Current.GetService<IMailTemplatesRepository>();
             return repository.GetList().ToList();
         }
 
-        public static List<Certificate> GetCertificates()
+        public static List<Paragraph> GetParagraphs()
         {
-            ICertificatesRepository repository = DependencyResolver.Current.GetService<ICertificatesRepository>();
+            IParagraphsRepository repository = DependencyResolver.Current.GetService<IParagraphsRepository>();
             return repository.GetList().ToList();
         }
 
@@ -66,12 +67,6 @@ namespace Bionet4.Admin.Helpers
         public static List<Ingredient> GetIngredients()
         {
             IIngredientsRepository repository = DependencyResolver.Current.GetService<IIngredientsRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<Logo> GetLogos()
-        {
-            ILogosRepository repository = DependencyResolver.Current.GetService<ILogosRepository>();
             return repository.GetList().ToList();
         }
 
@@ -123,18 +118,6 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<Slider> GetSliders()
-        {
-            ISlidersRepository repository = DependencyResolver.Current.GetService<ISlidersRepository>();
-            return repository.GetList().ToList();
-        }
-
-        public static List<Unit> GetUnits()
-        {
-            IUnitsRepository repository = DependencyResolver.Current.GetService<IUnitsRepository>();
-            return repository.GetList().ToList();
-        }
-
         public static List<Variable> GetVariables()
         {
             IVariablesRepository repository = DependencyResolver.Current.GetService<IVariablesRepository>();
@@ -172,5 +155,22 @@ namespace Bionet4.Admin.Helpers
         {
             return "DD/MM/YYYY HH:mm";
         }
+
+        public static string GetUnitText(this Unit unit)
+        {
+            if (unit == Unit.None)
+                return string.Empty;
+
+            try
+            {
+                return Resources.ResourceManager.GetString(unit.ToString());
+            }
+            catch
+            {
+                return unit.ToString();
+            }
+
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace Bionet4.Data.Models
             this.Products = new List<Product>();
         }
 
-        [ScaffoldColumn(false)]
+        [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
         [IncludeList()]
