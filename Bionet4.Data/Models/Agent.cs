@@ -20,6 +20,9 @@ namespace Bionet4.Data.Models
         public int Id { get; set; }
 
         [IncludeList()]
+        public string Email { get; set; }
+
+        [IncludeList()]
         public string Code { get; set; }
 
         [IncludeList()]
