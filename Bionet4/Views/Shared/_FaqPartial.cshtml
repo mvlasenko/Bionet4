@@ -1,0 +1,82 @@
+﻿@using Bionet4.Properties
+@using Bionet4.Data.Models
+@model ICollection<FAQ>
+
+<div class="content margin-top60 margin-bottom60">
+    <div class="container">
+        <div class="row">
+            <div class="posts-block col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <article>
+                    <h2>@Resources.FaqTitle</h2>
+                    <div class="post-content">
+                        <p>
+                            @Resources.FaqDescription
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <!-- Left Section End -->
+        </div>
+        <!-- Star -->
+        <div class="star">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="star-divider margin-topminus30">
+                            <div class="star-divider-icon">
+                                <i class=" fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /star-->
+        <div class="row">
+            <!--FAQ -->
+            <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">
+                <div class="accordionMod panel-group">
+                    @foreach (FAQ item in Model)
+                    {
+                    <div class="accordion-item">
+                        <h4 class="accordion-toggle">@item.Question</h4>
+                        <section class="accordion-inner panel-body">
+                            <p>
+                                @item.Answer
+                            </p>
+                        </section>
+                    </div>
+                    }
+                </div>
+            </div>
+            <!-- /FAQ -->
+            <!-- Contact Box -->
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="contact-box widget">
+                    <h3>More Questions?</h3>
+                    <i class="fa fa-envelope"></i>
+                    <p>Let us know your question via the contact form.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="contact-box widget">
+                    <h3>Emergency Help</h3>
+                    <i class="fa fa-phone"> </i>
+                    <p>For emergency help <br> Call Us: <strong>(111) 222 3333</strong></p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <div class="contact-box widget">
+                    <h3>Business Hour</h3>
+                    <i class="fa fa-clock-o"> </i>
+                    <ul>
+                        <li>Monday - Friday 9am to 5pm </li>
+                        <li>Saturday - 9am to 2pm</li>
+                        <li>Sunday - Closed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /Contact Box -->
+    </div>
+</div>

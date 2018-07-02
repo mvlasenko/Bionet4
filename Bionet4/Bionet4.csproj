@@ -229,6 +229,8 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="ViewModels\IngredientsViewModel.cs" />
+    <Compile Include="ViewModels\FaqViewModel.cs" />
     <Compile Include="ViewModels\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="ViewModels\ArticleViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -986,6 +988,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Quality.cshtml" />
     <Content Include="Views\Home\Opportunities.cshtml" />
+    <Content Include="Views\Shared\_FaqPartial.cshtml" />
+    <Content Include="Views\Faq\Index.cshtml" />
+    <Content Include="Views\Shared\_IngredientsPartial.cshtml" />
+    <Content Include="Views\Ingredients\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">
@@ -993,10 +999,7 @@
       <Name>Bionet4.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Faq\" />
-    <Folder Include="Views\Ingredients\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

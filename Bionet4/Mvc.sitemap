@@ -9,6 +9,7 @@
       <mvcSiteMapNode title="Ingredients" controller="Ingredients" action="Index"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="About" controller="Home" action="About"/>
+    <mvcSiteMapNode title="FAQ" controller="Faq" action="Index"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>

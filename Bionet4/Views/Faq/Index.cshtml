@@ -1,0 +1,13 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+@model FaqViewModel
+@{
+    ViewBag.Title = Resources.FaqTitle;
+    ViewBag.Description = Resources.FaqDescription;
+}
+
+<section id="main">
+    <!-- Main Content -->
+    @Html.Partial("_FaqPartial", Model.Faq)
+    <!-- /Main Content -->
+</section>

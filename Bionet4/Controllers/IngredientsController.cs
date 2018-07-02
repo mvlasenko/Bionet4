@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
+using Bionet4.Data.Contracts;
+using Bionet4.ViewModels;
 
 namespace Bionet4.Controllers
 {
     public class IngredientsController : Controller
     {
-        //todo
         public ActionResult Index()
         {
-            return View();
+            IngredientsViewModel model = new IngredientsViewModel();
+
+            IIngredientsRepository ingredientsRepository = DependencyResolver.Current.GetService<IIngredientsRepository>();
+            model.Ingredients = ingredientsRepository.GetList().ToList();
+
+            return View(model);
         }
     }
 }
