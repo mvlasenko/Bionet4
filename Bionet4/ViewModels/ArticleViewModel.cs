@@ -1,10 +1,9 @@
-﻿namespace Bionet4.ViewModels
+﻿using Bionet4.Data.Models;
+
+namespace Bionet4.ViewModels
 {
     public class ArticleViewModel
     {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public string FaIcon { get; set; }
+        public Article Article { get; set; }
     }
 }

@@ -4,12 +4,9 @@
   <mvcSiteMapNode title="Home" controller="Home" action="Index">
     <mvcSiteMapNode title="Home" controller="Home" action="Index"/>
     <mvcSiteMapNode title="Opportunities" controller="Home" action="Opportunities">
-      <mvcSiteMapNode title="Products" controller="Products" action="Index">
-        <mvcSiteMapNode title="Products 1" controller="Products" action="Show"/>
-      </mvcSiteMapNode>
+      <mvcSiteMapNode title="Products" controller="Products" action="Index" />
       <mvcSiteMapNode title="Quality" controller="Home" action="Quality"/>
       <mvcSiteMapNode title="Ingredients" controller="Ingredients" action="Index"/>
-      <mvcSiteMapNode title="News" controller="Home" action="News"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="About" controller="Home" action="About"/>
   </mvcSiteMapNode>

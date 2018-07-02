@@ -159,4 +159,19 @@
   <data name="ReadMore" xml:space="preserve">
     <value>Read More</value>
   </data>
+  <data name="ProductsSubtitle" xml:space="preserve">
+    <value>Explore all of our products here and buy them easily</value>
+  </data>
+  <data name="ProductsTitle" xml:space="preserve">
+    <value>Our Products</value>
+  </data>
+  <data name="ViewProduct" xml:space="preserve">
+    <value>View Product</value>
+  </data>
+  <data name="HomePageDescription" xml:space="preserve">
+    <value>Welcome to Bionet!</value>
+  </data>
+  <data name="HomePageTitle" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
 </root>

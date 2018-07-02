@@ -1,0 +1,13 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+@model ProductsViewModel
+@{
+    ViewBag.Title = Resources.ProductsTitle;
+    ViewBag.Description = Resources.ProductsSubtitle;
+}
+
+<section id="main">
+    <!-- products -->
+    @Html.Partial("_ProductsPartial", Model.Products)
+    <!-- / products -->
+</section>

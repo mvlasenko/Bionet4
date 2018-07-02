@@ -1,0 +1,64 @@
+﻿@using Bionet4.Properties
+@using Bionet4.Data.Models
+@model Product
+
+<!-- Main Content -->
+<div class="content margin-top60 margin-bottom60">
+    <div class="product-item">
+        <div class="container margin-top60">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h2>@Model.Name</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <div class="simpleLens-gallery-container" id="demo-simpleLens-gallery">
+                        <!-- Single Product Image -->
+                        <div class="simpleLens-container">
+                            <div class="simpleLens-big-image-container">
+                                <a class="simpleLens-lens-image" data-lens-image="/Images/Image/@Model.ImageID?width=1600">
+                                    <img src="/Images/Image/@Model.ImageID?width=520" alt="" class="simpleLens-big-image">
+                                </a>
+                            </div>
+                        </div>
+                        <!-- /Single Product Image -->
+                        <!-- Product Thumbnail -->
+                        <!-- /Product Thumbnail -->
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                    <!-- Review Box -->
+                    <div class="reviews-box">
+                        <div class="rating-box">
+                            <div class="rating pull-left">
+                                <div style="width: 60%" class="rating">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="73px" height="12px"
+                                         viewBox="0 0 73 12" enable-background="new 0 0 73 12" xml:space="preserve">
+                                        <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#1e1e1e" points="6.5,0 8,5 13,5 9,7.7 10,12 6.5,9.2 3,12 4,7.7 0,5 5,5" />
+                                        <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#1e1e1e" points="66.5,0 68,5 73,5 69,7.7 70,12 66.5,9.2 63,12 64,7.7 60,5 65,5 " />
+                                        <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#1e1e1e" points="21.5,0 23,5 28,5 24,7.7 25,12 21.5,9.2 18,12 19,7.7 15,5 20,5 " />
+                                        <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#1e1e1e" points="51.5,0 53,5 58,5 54,7.7 55,12 51.5,9.2 48,12 49,7.7 45,5 50,5 " />
+                                        <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#1e1e1e" points="36.5,0 38,5 43,5 39,7.7 40,12 36.5,9.2 33,12 34,7.7 30,5 35,5 " />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Review Box -->
+                    <!-- Product Details -->
+                    <div class="product-details">
+                        <p class="short-description">@Model.Description</p>
+                        <p><b>Product Code :</b> @Model.Code</p>
+                        <p><b>Price :</b> @Model.Price</p>
+                    </div>
+                    <!-- /Product Details -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /product-item -->
+    <!-- Related Products -->
+    <!-- /Related Products -->
+</div>
+<!-- /Main Content -->

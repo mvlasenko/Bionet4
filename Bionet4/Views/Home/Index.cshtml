@@ -1,8 +1,9 @@
-﻿@using Bionet4.ViewModels
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
 @model HomeViewModel
 @{
-    ViewBag.Title = "Home Page";
-    ViewBag.Description = "Home Page";
+    ViewBag.Title = Resources.HomePageTitle;
+    ViewBag.Description = Resources.HomePageDescription;
 }
 
 <section id="main">
@@ -10,7 +11,7 @@
     @Html.Partial("_SliderPartial", Model.Sliders)
     <!-- Slider -->
     <!-- Main Content -->
-    @Html.Partial("_ArticleThumbsPartial", Model.ActicleThumbs)
+    @Html.Partial("_ArticleThumbsPartial", Model.Thumbs)
     <!-- /Main Content -->
     <!-- Product Content -->
     @Html.Partial("_ProductHighlights", Model.ProductHighlights)

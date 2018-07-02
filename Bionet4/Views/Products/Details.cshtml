@@ -1,0 +1,12 @@
+﻿@using Bionet4.ViewModels
+@model ProductDetailsViewModel
+@{
+    ViewBag.Title = Model.Product.Name;
+    ViewBag.Description = Model.Product.Description;
+}
+
+<section id="main">
+    <!-- single product -->
+    @Html.Partial("_ProductDetailsPartial", Model.Product)
+    <!-- / single product -->
+</section>

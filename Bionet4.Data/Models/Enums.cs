@@ -21,13 +21,15 @@
         Article = 0,
         Slider = 1,
         Banner = 2,
-        Paragraph = 3,
-        Logo = 4
+        Certificate = 3,
+        Logo = 4,
+        About = 5,
+        Quality = 6,
+        Opportunities = 7
     }
 
     public enum MailType
     {
         ConfirmEmail = 1
     }
-
 }

@@ -20,16 +20,19 @@ namespace Bionet4.Data.Models
         [XmlIgnore]
         public virtual Article Article { get; set; }
 
-        [IncludeList("Image")]
-        [Display(Name = "Image")]
-        [UIHint("_Image")]
-        public string ImageID { get; set; }
-
         [IncludeList()]
         public string Name { get; set; }
 
         [UIHint("MultilineText")]
         public string Description { get; set; }
+
+        [IncludeList("Image")]
+        [Display(Name = "Image")]
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
+
+        [Display(Name = "FA Icon")]
+        public string FaIcon { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]

@@ -133,6 +133,24 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Welcome to Bionet!.
+        /// </summary>
+        public static string HomePageDescription {
+            get {
+                return ResourceManager.GetString("HomePageDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Page.
+        /// </summary>
+        public static string HomePageTitle {
+            get {
+                return ResourceManager.GetString("HomePageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -160,6 +178,24 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Explore all of our products here and buy them easily.
+        /// </summary>
+        public static string ProductsSubtitle {
+            get {
+                return ResourceManager.GetString("ProductsSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Our Products.
+        /// </summary>
+        public static string ProductsTitle {
+            get {
+                return ResourceManager.GetString("ProductsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read More.
         /// </summary>
         public static string ReadMore {
@@ -183,6 +219,15 @@ namespace Bionet4.Properties {
         public static string reserved {
             get {
                 return ResourceManager.GetString("reserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Product.
+        /// </summary>
+        public static string ViewProduct {
+            get {
+                return ResourceManager.GetString("ViewProduct", resourceCulture);
             }
         }
     }

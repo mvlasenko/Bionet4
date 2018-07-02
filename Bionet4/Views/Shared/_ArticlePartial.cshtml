@@ -1,0 +1,55 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+@using Bionet4.Data.Models
+@model Article
+
+<!-- Main Content-->
+<div class="content-about margin-top60">
+    <div class="container">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="posts-block col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <img src="/Images/Image/@Model.ImageID?width=600" alt="@Model.Name">
+            </div>
+            <!-- /Left Section -->
+            <!-- welcome Section -->
+            <div class="welcome col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <h2>@Model.Name</h2>
+                <p>
+                    @Model.Description
+                </p>
+                @foreach (Paragraph paragraph in Model.Paragraphs)
+                {
+                <div class="content-box-about ch-item">
+                    @if (!string.IsNullOrEmpty(paragraph.FaIcon))
+                    {
+                    <div class="content-box-about-icon">
+                        <div class="ch-info">
+                            <div class="ch-info-front ch-img-1"><i class="fa @paragraph.FaIcon"></i></div>
+                            <div class="ch-info-back">
+                                <i class="fa @paragraph.FaIcon"></i>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                    else if (!string.IsNullOrEmpty(paragraph.ImageID))
+                    {
+                    <div class="content-box-about-icon">
+                        <img src="/Images/Image/@paragraph.ImageID?width=120" alt="@paragraph.Name">
+                    </div>
+                    }
+
+                    <div class="content-box-about-info">
+                        <h3>@paragraph.Name</h3>
+                        <p>
+                            @paragraph.Description
+                        </p>
+                    </div>
+                </div>
+                }
+            </div>
+            <!-- /welcome Section -->
+        </div>
+    </div>
+</div>
+<!-- /Main Content-->

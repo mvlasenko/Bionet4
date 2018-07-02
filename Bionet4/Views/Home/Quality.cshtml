@@ -1,0 +1,12 @@
+﻿@using Bionet4.ViewModels
+@model ArticleViewModel
+@{
+    ViewBag.Title = Model.Article.Name;
+    ViewBag.Description = Model.Article.Description;
+}
+
+<section id="main">
+    <!-- Main Content -->
+    @Html.Partial("_ArticlePartial", Model.Article)
+    <!-- /Main Content -->
+</section>
