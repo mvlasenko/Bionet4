@@ -15,6 +15,8 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.ParentID).IsRequired();
 
+            this.Property(t => t.ImageID).HasMaxLength(255);
+
             this.Property(t => t.Code).HasMaxLength(50);
 
             this.Property(t => t.Name).HasMaxLength(255);
@@ -33,6 +35,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.ItemID).HasColumnName("ItemID");
             this.Property(t => t.ParentID).HasColumnName("ParentID");
+            this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.Code).HasColumnName("Code");
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Price).HasColumnName("Price");

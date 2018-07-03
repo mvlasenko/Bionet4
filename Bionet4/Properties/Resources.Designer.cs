@@ -133,6 +133,24 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Events Description.
+        /// </summary>
+        public static string EventsDescription {
+            get {
+                return ResourceManager.GetString("EventsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Events.
+        /// </summary>
+        public static string EventsTitle {
+            get {
+                return ResourceManager.GetString("EventsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn&apos;t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of ove [rest of string was truncated]&quot;;.
         /// </summary>
         public static string FaqDescription {
@@ -212,6 +230,42 @@ namespace Bionet4.Properties {
         public static string Manage {
             get {
                 return ResourceManager.GetString("Manage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make Order.
+        /// </summary>
+        public static string OrderSubmit {
+            get {
+                return ResourceManager.GetString("OrderSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make a New Order.
+        /// </summary>
+        public static string OrderSubtitle {
+            get {
+                return ResourceManager.GetString("OrderSubtitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success!!!.
+        /// </summary>
+        public static string OrderSuccess {
+            get {
+                return ResourceManager.GetString("OrderSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New Order.
+        /// </summary>
+        public static string OrderTitle {
+            get {
+                return ResourceManager.GetString("OrderTitle", resourceCulture);
             }
         }
         

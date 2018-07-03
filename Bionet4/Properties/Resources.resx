@@ -190,4 +190,22 @@
   <data name="IngredientsTitle" xml:space="preserve">
     <value>Ingredients</value>
   </data>
+  <data name="OrderSubtitle" xml:space="preserve">
+    <value>Make a New Order</value>
+  </data>
+  <data name="OrderTitle" xml:space="preserve">
+    <value>New Order</value>
+  </data>
+  <data name="OrderSuccess" xml:space="preserve">
+    <value>Success!!!</value>
+  </data>
+  <data name="OrderSubmit" xml:space="preserve">
+    <value>Make Order</value>
+  </data>
+  <data name="EventsDescription" xml:space="preserve">
+    <value>Events Description</value>
+  </data>
+  <data name="EventsTitle" xml:space="preserve">
+    <value>Events</value>
+  </data>
 </root>

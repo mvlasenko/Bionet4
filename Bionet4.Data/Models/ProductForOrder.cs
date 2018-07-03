@@ -22,6 +22,11 @@ namespace Bionet4.Data.Models
 
         public int ParentID { get; set; }
 
+        [IncludeList("Image")]
+        [Display(Name = "Image")]
+        [UIHint("_Image")]
+        public string ImageID { get; set; }
+
         public string Code { get; set; }
 
         [IncludeList()]

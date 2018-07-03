@@ -1,0 +1,13 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+@model EventsViewModel
+@{
+    ViewBag.Title = Resources.EventsTitle;
+    ViewBag.Description = Resources.EventsDescription;
+}
+
+<section id="main">
+    <!-- Main Content -->
+    @Html.Partial("_EventsPartial", Model.Events)
+    <!-- /Main Content -->
+</section>

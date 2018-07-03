@@ -6,5 +6,6 @@ namespace Bionet4.ViewModels
     public class ProductsViewModel
     {
         public List<Product> Products { get; set; }
+        public Category Category { get; set; }
     }
 }
