@@ -61,6 +61,24 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pictures Description.
+        /// </summary>
+        public static string AlbumsDescription {
+            get {
+                return ResourceManager.GetString("AlbumsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pictures.
+        /// </summary>
+        public static string AlbumsTitle {
+            get {
+                return ResourceManager.GetString("AlbumsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Гаряча лінія: 800 111 11 11.
         /// </summary>
         public static string CallUs {

@@ -208,4 +208,10 @@
   <data name="EventsTitle" xml:space="preserve">
     <value>Events</value>
   </data>
+  <data name="AlbumsDescription" xml:space="preserve">
+    <value>Pictures Description</value>
+  </data>
+  <data name="AlbumsTitle" xml:space="preserve">
+    <value>Pictures</value>
+  </data>
 </root>

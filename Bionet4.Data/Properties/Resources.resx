@@ -312,4 +312,7 @@
   <data name="UnitKilo" xml:space="preserve">
     <value>кг</value>
   </data>
+  <data name="Paragraphs" xml:space="preserve">
+    <value>Paragraphs</value>
+  </data>
 </root>

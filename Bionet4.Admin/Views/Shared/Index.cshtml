@@ -44,6 +44,12 @@
         <div class="modal-content" id="modal-content"></div>
     </div>
 </div>
+<!-- Modal - 2nd level -->
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" id="modal2-content"></div>
+    </div>
+</div>
 
 <!-- loading spinner -->
 <div class="modal fade" id="loader" role="dialog" style="top: 300px; left: 300px;">
@@ -118,6 +124,19 @@
                 });
             }
         });
+
+        $('.create-pargraph').click(function() {
+            var url = "@Url.Content("~/")Paragraphs/CreatePartial";
+            $.get(url, function(data) {
+                $('#modal2-content').html(data);
+
+                $('#modal2').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal');
+
+                AddAsterisk();
+            });
+        });
+
     }
 
     function InitPager(pageIndex) {

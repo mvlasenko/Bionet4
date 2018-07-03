@@ -331,6 +331,15 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Paragraphs.
+        /// </summary>
+        public static string Paragraphs {
+            get {
+                return ResourceManager.GetString("Paragraphs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Products.
         /// </summary>
         public static string Products {

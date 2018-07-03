@@ -37,5 +37,7 @@ namespace Bionet4.Data.Models
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
         }
+
+        public System.Data.Entity.DbSet<Bionet4.Data.Models.Article> Articles { get; set; }
     }
 }

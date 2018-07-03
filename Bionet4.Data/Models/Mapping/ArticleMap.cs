@@ -49,7 +49,7 @@ namespace Bionet4.Data.Models.Mapping
             // Relationships
 
             this.HasMany(e => e.Paragraphs)
-                .WithOptional(e => e.Article)
+                .WithRequired(e => e.Article)
                 .WillCascadeOnDelete(true);
 
         }

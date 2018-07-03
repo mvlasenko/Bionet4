@@ -12,6 +12,7 @@
     <mvcSiteMapNode title="FAQ" controller="Faq" action="Index"/>
     <mvcSiteMapNode title="Events" controller="Events" action="Index"/>
     <mvcSiteMapNode title="Create Order" controller="Orders" action="Create"/>
+    <mvcSiteMapNode title="Album" controller="Albums" action="Index"/>
   </mvcSiteMapNode>
 
 </mvcSiteMap>
