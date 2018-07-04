@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
@@ -24,6 +25,7 @@ namespace Bionet4.Data.Models
         public string Name { get; set; }
 
         [UIHint("MultilineText")]
+        [Column(TypeName = "ntext")]
         public string Description { get; set; }
 
         [IncludeList("Image")]

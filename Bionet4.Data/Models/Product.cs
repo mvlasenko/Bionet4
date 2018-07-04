@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 using System.Xml.Serialization;
@@ -19,10 +20,12 @@ namespace Bionet4.Data.Models
 
         [UIHint("MultilineText")]
         [Display(Name = "Description")]
+        [Column(TypeName = "ntext")]
         public string Description { get; set; }
 
         [UIHint("MultilineText")]
         [Display(Name = "Short Description")]
+        [Column(TypeName = "ntext")]
         public string ShortDescription { get; set; }
 
         [IncludeList("Image")]
@@ -31,7 +34,7 @@ namespace Bionet4.Data.Models
         public string ImageID { get; set; }
 
         [IncludeList()]
-        public decimal Price { get; set; }
+        public decimal? Price { get; set; }
 
         [IncludeList()]
         public string Code { get; set; }
