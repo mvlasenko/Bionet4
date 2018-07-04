@@ -2,13 +2,15 @@
     var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
     var name = ViewData.ModelMetadata.PropertyName;
     var val = ViewData.ModelMetadata.Model;
+    var prefix = ViewData.TemplateInfo.HtmlFieldPrefix;
+    name = prefix.Replace(".", "_");
 }
-<div id="imageDrop" class="dropzone"></div>
+<div id="@(name + "_imageDrop")" class="dropzone"></div>
 @Html.Hidden("", val)
 
 <script>
 
-    var options = Dropzone.options.imageDrop = {
+    var @(name + "_options") = Dropzone.options.imageDrop = {
         url: '@Url.Action("ImageUpload")',
         paramName: "file",
         maxFiles: 1,
@@ -42,6 +44,6 @@
 
     };
 
-    $("div#imageDrop").dropzone(options);
+    $("div#@(name + "_imageDrop")").dropzone(@(name + "_options"));
 
 </script>
