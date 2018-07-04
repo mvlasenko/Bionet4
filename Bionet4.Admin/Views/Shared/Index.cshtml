@@ -88,6 +88,7 @@
                 AddAsterisk();
                 InitDatePicker();
                 RefreshParagraphs();
+                RefreshAlbumDetails();
             });
         });
 
@@ -131,7 +132,7 @@
         });
     }
 
-    function Init2ndLevel() {
+    function InitParagraphModal() {
 
         $('.create-paragraph').unbind();
         $('.create-paragraph').click(function () {
@@ -169,6 +170,50 @@
                 $.get(url + '/' + id, function(data) {
 
                     RefreshParagraphs();
+
+                });
+            }
+        });
+    }
+
+    function InitAlbumDetailModal() {
+
+        $('.create-ad').unbind();
+        $('.create-ad').click(function () {
+            var url = "@Url.Content("~/")AlbumDetails/CreateAlbumDetail?AlbumId=" + $("#Id").val();
+            $.get(url, function(data) {
+                $('#modal2-content').html(data);
+
+                $('#modal2').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal2');
+
+                AddAsterisk();
+            });
+        });
+
+        $('.edit-ad').unbind();
+        $('.edit-ad').click(function() {
+            var url = "@Url.Content("~/")AlbumDetails/UpdatePartial";
+            var id = $(this).attr('data-id');
+            $.get(url + '/' + id, function(data) {
+                $('#modal2-content').html(data);
+
+                $('#modal2').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal2');
+
+                AddAsterisk();
+            });
+        });
+
+        $('.delete-ad').unbind();
+        $('.delete-ad').click(function () {
+            if (confirm('@Resources.DeleteConfirm'))
+            {
+                var url = "@Url.Content("~/")AlbumDetails/DestroyPartial";
+                var id = $(this).attr('data-id');
+                $.get(url + '/' + id, function(data) {
+
+                    RefreshAlbumDetails();
 
                 });
             }
@@ -262,7 +307,34 @@
                     $('table#gridParagraphs TBODY').append(row);
                 });
 
-                Init2ndLevel();
+                InitParagraphModal();
+            },
+            processData: false,
+            async: true
+        });
+    }
+
+    function RefreshAlbumDetails() {
+        var url = "@Url.Content("~/")AlbumDetails/GetAlbumDetails?AlbumId=" + $("#Id").val();
+        $.ajax({
+            type: 'GET',
+            dataType: 'Json',
+            url: url,
+            success: function(data) {
+
+                $('table#gridAlbumDetails TBODY').empty();
+
+                $.each(data, function (idx, item) {
+                    var row = "<tr>";
+                    row += (item.ImageID ? '<td><img src="/admin/Images/Image/' + item.ImageID + '?width=100" width=100 height=100 /></td>' : '<td><i class="fa fa-question-circle fa-4x"></i></td>');
+                    row += '<td>' + item.Name + '</td>';
+                    row += "<td align='right'><button type='button' class='btn btn-primary edit-ad' data-id='" + item.Id + "'>@Resources.Edit</button> <button type='button' class='btn btn-primary delete-ad' data-id='" + item.Id + "'>@Resources.Delete</button></td>";
+                    row += "</tr>";
+
+                    $('table#gridAlbumDetails TBODY').append(row);
+                });
+
+                InitAlbumDetailModal();
             },
             processData: false,
             async: true

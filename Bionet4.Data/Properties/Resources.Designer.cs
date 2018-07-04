@@ -79,15 +79,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Album Details.
-        /// </summary>
-        public static string AlbumDetails {
-            get {
-                return ResourceManager.GetString("AlbumDetails", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Albums.
         /// </summary>
         public static string Albums {
@@ -138,15 +129,6 @@ namespace Bionet4.Data.Properties {
         public static string Categories {
             get {
                 return ResourceManager.GetString("Categories", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Certificates.
-        /// </summary>
-        public static string Certificates {
-            get {
-                return ResourceManager.GetString("Certificates", resourceCulture);
             }
         }
         
@@ -403,15 +385,6 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Album Details.
-        /// </summary>
-        public static string SelectAlbumDetail {
-            get {
-                return ResourceManager.GetString("SelectAlbumDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Application.
         /// </summary>
         public static string SelectApplication {
@@ -435,15 +408,6 @@ namespace Bionet4.Data.Properties {
         public static string SelectCategory {
             get {
                 return ResourceManager.GetString("SelectCategory", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select Certificate.
-        /// </summary>
-        public static string SelectCertificate {
-            get {
-                return ResourceManager.GetString("SelectCertificate", resourceCulture);
             }
         }
         

@@ -174,12 +174,6 @@
   <data name="Agents" xml:space="preserve">
     <value>Agents</value>
   </data>
-  <data name="SelectAlbumDetail" xml:space="preserve">
-    <value>Select Album Details</value>
-  </data>
-  <data name="AlbumDetails" xml:space="preserve">
-    <value>Album Details</value>
-  </data>
   <data name="SelectAlbum" xml:space="preserve">
     <value>Select Album</value>
   </data>
@@ -200,12 +194,6 @@
   </data>
   <data name="MailTemplates" xml:space="preserve">
     <value>Mail Templates</value>
-  </data>
-  <data name="SelectCertificate" xml:space="preserve">
-    <value>Select Certificate</value>
-  </data>
-  <data name="Certificates" xml:space="preserve">
-    <value>Certificates</value>
   </data>
   <data name="SelectEvent" xml:space="preserve">
     <value>Select Event</value>

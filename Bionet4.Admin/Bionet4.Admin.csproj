@@ -511,6 +511,9 @@
     <Content Include="Views\Paragraphs\_CreatePartial.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\_FaIcon.cshtml" />
     <Content Include="Views\Paragraphs\_EditPartial.cshtml" />
+    <Content Include="Views\AlbumDetails\_CreatePartial.cshtml" />
+    <Content Include="Views\AlbumDetails\_EditPartial.cshtml" />
+    <Content Include="Views\Albums\_EditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">
