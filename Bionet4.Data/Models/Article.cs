@@ -44,6 +44,7 @@ namespace Bionet4.Data.Models
         public string ImageID { get; set; }
 
         [Display(Name = "FA Icon")]
+        [UIHint("_FaIcon")]
         public string FaIcon { get; set; }
 
         [IncludeList()]

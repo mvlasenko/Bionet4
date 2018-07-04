@@ -262,16 +262,7 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\colors\blue.css" />
-    <Content Include="css\colors\brown.css" />
-    <Content Include="css\colors\golden.css" />
-    <Content Include="css\colors\gray.css" />
     <Content Include="css\colors\green.css" />
-    <Content Include="css\colors\magenta.css" />
-    <Content Include="css\colors\orange.css" />
-    <Content Include="css\colors\purple.css" />
-    <Content Include="css\colors\red.css" />
-    <Content Include="css\colors\teal.css" />
     <Content Include="css\coming-soon.css" />
     <Content Include="css\countdown.css" />
     <Content Include="css\fonts\font-awesome\css\font-awesome.css" />

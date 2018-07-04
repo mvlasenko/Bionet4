@@ -26,10 +26,22 @@ namespace Bionet4.Admin.Controllers
         {
             IPagedCollection model = this.LoadCollection(filter);
 
-            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name, Type = prop.PropertyType.Name, UIHint = prop.GetCustomAttributes().Any(x => x is UIHintAttribute) ? ((UIHintAttribute)prop.GetCustomAttributes().First(x => x is UIHintAttribute)).UIHint : "" }).ToList();
+            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name, Type = GetTypeName(prop), UIHint = prop.GetCustomAttributes().Any(x => x is UIHintAttribute) ? ((UIHintAttribute)prop.GetCustomAttributes().First(x => x is UIHintAttribute)).UIHint : "" }).ToList();
             ViewBag.ListFieldHeaders = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => ((IncludeListAttribute)prop.GetCustomAttributes().First(x => x is IncludeListAttribute)).IncludeListTitle ?? prop.Name).ToList();
 
             return View("Index", model);
+        }
+
+        public string GetTypeName(PropertyInfo prop)
+        {
+            var propertyType = prop.PropertyType;
+
+            if (propertyType.IsGenericType && propertyType.GetGenericTypeDefinition() == typeof(Nullable<>))
+            {
+                propertyType = propertyType.GetGenericArguments()[0];
+            }
+
+            return propertyType.Name;
         }
 
         [HttpGet]

@@ -2,6 +2,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using Bionet4.Helpers;
 
 namespace Bionet4.Admin.Controllers
 {
@@ -29,9 +30,15 @@ namespace Bionet4.Admin.Controllers
             return base.CreatePartial(entity);
         }
 
+        [HttpPost, ValidateInput(false)]
+        public override ActionResult UpdatePartial(int id, [Bind(Prefix = "paragraph")] Paragraph entity)
+        {
+            return base.UpdatePartial(id, entity);
+        }
+
         public JsonResult GetParagraphs(int ArticleId)
         {
-            var list = repository.GetList().Where(x => x.ArticleId == ArticleId);
+            var list = repository.GetList().Where(x => x.ArticleId == ArticleId).Select(x => new Paragraph { Id = x.Id, Name = x.Name, Description = x.Description.Cut(30), ImageID = x.ImageID, FaIcon = x.FaIcon, ArticleId = x.ArticleId, SeqID =x.SeqID });
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 

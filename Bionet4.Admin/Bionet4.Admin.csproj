@@ -241,6 +241,9 @@
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\images\video.png" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-noscript.css" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui-noscript.css" />
     <Content Include="Content\jQuery.FileUpload\css\jquery.fileupload-ui.css" />
@@ -289,6 +292,7 @@
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -410,6 +414,11 @@
     <Content Include="Scripts\ckeditor\package.json" />
     <Content Include="Scripts\ckeditor\LICENSE.md" />
     <Content Include="Scripts\ckeditor\CHANGES.md" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckeditor\styles.js" />
@@ -500,6 +509,8 @@
     <Content Include="Views\Shared\EditorTemplates\_FileUpload.cshtml" />
     <Content Include="Views\Article\_EditPartial.cshtml" />
     <Content Include="Views\Paragraphs\_CreatePartial.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_FaIcon.cshtml" />
+    <Content Include="Views\Paragraphs\_EditPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

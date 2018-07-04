@@ -74,6 +74,8 @@
     <script type="text/javascript">
 
     function InitModal() {
+
+        $('.edit-item').unbind();
         $('.edit-item').click(function() {
             var url = "@Url.Content("~/")@controller/UpdatePartial";
             var id = $(this).attr('data-id');
@@ -85,11 +87,11 @@
 
                 AddAsterisk();
                 InitDatePicker();
-                Init2ndLevel();
                 RefreshParagraphs();
             });
         });
 
+        $('.create-item').unbind();
         $('.create-item').click(function() {
             var url = "@Url.Content("~/")@controller/CreatePartial";
             $.get(url, function(data) {
@@ -103,6 +105,7 @@
             });
         });
 
+        $('.delete-item').unbind();
         $('.delete-item').click(function () {
 
             if (confirm('@Resources.DeleteConfirm'))
@@ -128,18 +131,47 @@
         });
     }
 
-    function Init2ndLevel()
-    {
-        $('.create-pargraph').click(function () {
+    function Init2ndLevel() {
+
+        $('.create-paragraph').unbind();
+        $('.create-paragraph').click(function () {
             var url = "@Url.Content("~/")Paragraphs/CreateParagraph?ArticleId=" + $("#Id").val();
             $.get(url, function(data) {
                 $('#modal2-content').html(data);
 
                 $('#modal2').modal('show');
-                jQuery.validator.unobtrusive.parse('#frmModal');
+                jQuery.validator.unobtrusive.parse('#frmModal2');
 
                 AddAsterisk();
             });
+        });
+
+        $('.edit-paragraph').unbind();
+        $('.edit-paragraph').click(function() {
+            var url = "@Url.Content("~/")Paragraphs/UpdatePartial";
+            var id = $(this).attr('data-id');
+            $.get(url + '/' + id, function(data) {
+                $('#modal2-content').html(data);
+
+                $('#modal2').modal('show');
+                jQuery.validator.unobtrusive.parse('#frmModal2');
+
+                AddAsterisk();
+            });
+        });
+
+        $('.delete-paragraph').unbind();
+        $('.delete-paragraph').click(function () {
+            if (confirm('@Resources.DeleteConfirm'))
+            {
+                var url = "@Url.Content("~/")Paragraphs/DestroyPartial";
+                var id = $(this).attr('data-id');
+                $.get(url + '/' + id, function(data) {
+
+                    RefreshParagraphs();
+
+                });
+            }
         });
     }
 
@@ -183,7 +215,7 @@
                 {
                     if (prop.UIHint == "_Image")
                     {
-                        @Html.Raw("row += '<td><img src=/admin/Images/Image/' + item." + prop.Name + " + ' width=100 height=100 /></td>';\n");
+                        @Html.Raw("row += (item.ImageID ? '<td><img src=\"/admin/Images/Image/' + item.ImageID + '?width=100\" width=100 height=100 /></td>' : '<td><i class=\"fa ' + (item.FaIcon ? item.FaIcon : 'fa-question-circle') + ' fa-4x\"></i></td>');\n");
                     }
                     else if(prop.Type == "DateTime")
                     {
@@ -221,13 +253,16 @@
 
                 $.each(data, function (idx, item) {
                     var row = "<tr>";
-                    row += '<td><img src="/admin/Images/Image/' + item.ImageID + '?width=100" width=100 height=100 /></td>';
+                    row += (item.ImageID ? '<td><img src="/admin/Images/Image/' + item.ImageID + '?width=100" width=100 height=100 /></td>' : '<td><i class="fa ' + (item.FaIcon ? item.FaIcon : 'fa-question-circle') + ' fa-4x"></i></td>');
                     row += '<td>' + item.Name + '</td>';
                     row += '<td>' + item.Description + '</td>';
+                    row += "<td align='right'><button type='button' class='btn btn-primary edit-paragraph' data-id='" + item.Id + "'>@Resources.Edit</button> <button type='button' class='btn btn-primary delete-paragraph' data-id='" + item.Id + "'>@Resources.Delete</button></td>";
                     row += "</tr>";
 
                     $('table#gridParagraphs TBODY').append(row);
                 });
+
+                Init2ndLevel();
             },
             processData: false,
             async: true
