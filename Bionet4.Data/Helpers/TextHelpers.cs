@@ -7,6 +7,9 @@ namespace Bionet4.Helpers
     {
         public static string Cut(this string str, int maxLength)
         {
+            if (str == null)
+                return str;
+
             if (maxLength < 5)
                 maxLength = 5;
 
@@ -20,6 +23,9 @@ namespace Bionet4.Helpers
 
         public static string StripTags(this string str)
         {
+            if (str == null)
+                return str;
+
             str = HttpUtility.HtmlDecode(str);
             str = HttpUtility.HtmlDecode(str);
             return Regex.Replace(str, "<.*?>", string.Empty);

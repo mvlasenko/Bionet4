@@ -38,7 +38,7 @@ namespace Bionet4.Admin.Controllers
 
         public JsonResult GetParagraphs(int ArticleId)
         {
-            var list = repository.GetList().Where(x => x.ArticleId == ArticleId).Select(x => new Paragraph { Id = x.Id, Name = x.Name, Description = x.Description.Cut(30), ImageID = x.ImageID, FaIcon = x.FaIcon, ArticleId = x.ArticleId, SeqID =x.SeqID });
+            var list = repository.GetList().Where(x => x.ArticleId == ArticleId);//.Select(x => new Paragraph { Id = x.Id, Name = x.Name, Description = x.Description.Cut(30), ImageID = x.ImageID, FaIcon = x.FaIcon, ArticleId = x.ArticleId, SeqID =x.SeqID });
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 

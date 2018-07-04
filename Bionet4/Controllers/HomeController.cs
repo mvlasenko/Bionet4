@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using Bionet4.Data.Repository;
+using Bionet4.Helpers;
 using Bionet4.ViewModels;
 
 namespace Bionet4.Controllers
@@ -10,13 +12,22 @@ namespace Bionet4.Controllers
     {
         public ActionResult Index()
         {
+            //IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
+            //foreach (Product product in repository.GetList())
+            //{
+            //    product.Description = product.Description.StripTags();
+            //    product.ShortDescription = product.ShortDescription.StripTags();
+            //    repository.Update(product);
+            //}
+
+
             HomeViewModel model = new HomeViewModel();
 
-            IArticleRepository articlesRepository = DependencyResolver.Current.GetService<IArticleRepository>();
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
 
-            model.Sliders = articlesRepository.GetList().Where(x => x.ArticleType == ArticleType.Slider).Select(x => new SliderViewModel { ImageBig = "/Images/Image/" + x.ImageID.ToString(), ImageSmall = "/Images/Image/" + x.ImageID.ToString() + "?width=100", Text = x.Name }).ToList();
+            model.Sliders = articlesRepository.GetListByType(ArticleType.Slider).Select(x => new SliderViewModel { ImageBig = "/Images/Image/" + x.ImageID.ToString(), ImageSmall = "/Images/Image/" + x.ImageID.ToString() + "?width=300&height=100", Text = x.Name, Paragraphs = x.Paragraphs.ToList() }).ToList();
 
-            model.Thumbs = articlesRepository.GetList().Take(3).Select(x=> new ThumbViewModel { Id = x.Id.ToString(), Name = x.Name, Description = x.Description, FaIcon = x.FaIcon }).ToList();
+            model.Thumbs = articlesRepository.GetList().Take(3).Select(x => new ThumbViewModel { Id = x.Id.ToString(), Name = x.Name, Description = x.Description, FaIcon = x.FaIcon }).ToList();
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.ProductHighlights = productsRepository.GetList().Take(1).ToList();
@@ -28,9 +39,9 @@ namespace Bionet4.Controllers
         {
             ArticleViewModel model = new ArticleViewModel();
 
-            IArticleRepository articlesRepository = DependencyResolver.Current.GetService<IArticleRepository>();
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
 
-            model.Article = articlesRepository.GetList().Where(x => x.ArticleType == ArticleType.About).FirstOrDefault();
+            model.Article = articlesRepository.GetByType(ArticleType.About);
 
             return View(model);
         }
@@ -39,9 +50,9 @@ namespace Bionet4.Controllers
         {
             ArticleViewModel model = new ArticleViewModel();
 
-            IArticleRepository articlesRepository = DependencyResolver.Current.GetService<IArticleRepository>();
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
 
-            model.Article = articlesRepository.GetList().Where(x => x.ArticleType == ArticleType.Quality).FirstOrDefault();
+            model.Article = articlesRepository.GetByType(ArticleType.Quality);
 
             return View(model);
         }
@@ -50,9 +61,9 @@ namespace Bionet4.Controllers
         {
             ArticleViewModel model = new ArticleViewModel();
 
-            IArticleRepository articlesRepository = DependencyResolver.Current.GetService<IArticleRepository>();
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
 
-            model.Article = articlesRepository.GetList().Where(x => x.ArticleType == ArticleType.Opportunities).FirstOrDefault();
+            model.Article = articlesRepository.GetByType(ArticleType.Opportunities);
 
             return View(model);
         }

@@ -7,14 +7,17 @@ namespace Bionet4.Controllers
 {
     public class CategoriesController : Controller
     {
-        public ActionResult Index(int id)
+        public ActionResult Category(int id)
         {
             ProductsViewModel model = new ProductsViewModel();
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.Products = productsRepository.GetList().Where(x => x.CategoryId == id).ToList();
 
-            return View(model);
+            ICategoriesRepository repository = DependencyResolver.Current.GetService<ICategoriesRepository>();
+            model.Category = repository.GetById(id);
+
+            return View("CategoryDetails", model);
         }
     }
 }

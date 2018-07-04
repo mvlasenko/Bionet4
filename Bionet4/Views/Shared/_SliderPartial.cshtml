@@ -1,5 +1,6 @@
 ﻿@using Bionet4.ViewModels
-@model ICollection<SliderViewModel>
+@using Bionet4.Data.Models
+@model IList<SliderViewModel>
 
 <div class="fullwidthbanner-container tp-banner-container">
     <div class="fullwidthbanner rslider tp-banner">
@@ -9,11 +10,7 @@
             }
             @foreach (SliderViewModel slide in Model)
             {
-                //todo: look inxex.html for anymation examples
-
-                if (index == 0)
-                {
-            <li data-transition="fade" data-slotamount="7" data-masterspeed="2000" data-thumb="homeslider_thumb2.jpg" data-delay="10000" data-saveperformance="on">
+            <li data-transition="fade" data-slotamount="7" data-masterspeed="2000" data-thumb="@slide.ImageSmall" data-delay="10000" data-saveperformance="on">
                 <img src="@slide.ImageSmall" alt="@slide.Text" data-lazyload="@slide.ImageBig" data-bgposition="right top" data-kenburns="on" data-duration="12000" data-ease="Power0.easeInOut" data-bgfit="115" data-bgfitend="100" data-bgpositionend="center bottom">
                 <div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
                      data-x="550"
@@ -29,28 +26,54 @@
                      style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
                     @slide.Text
                 </div>
-            </li>
+                @{
+                    int par_index = 1;
                 }
-                else
-                {
-            <li data-transition="fade" data-slotamount="1" data-masterspeed="300">
-                <img src="@slide.ImageBig" data-fullwidthcentering="on" alt="">
-                <div class="tp-caption black_heavy_70 skewfromleftshort fadeout tp-resizeme rs-parallaxlevel-10"
-                     data-x="550"
-                     data-y="83"
-                     data-speed="500"
-                     data-start="2400"
-                     data-easing="Power3.easeInOut"
-                     data-splitin="chars"
-                     data-splitout="none"
-                     data-elementdelay="0.1"
-                     data-endelementdelay="0.1"
-                     data-endspeed="300"
-                     style="z-index: 4; max-width: auto; max-height: auto; white-space: nowrap;">
-                    @slide.Text
+                @foreach (Paragraph paragraph in slide.Paragraphs)
+                    {
+                        par_index++;
+
+                <div class="tp-caption black_bold_bg_20 sfr fadeout tp-resizeme rs-parallaxlevel-10"
+                    data-x="601"
+                    data-y="@(par_index * 40 + 100)" 
+                    data-speed="300"
+                    data-start="@(par_index * 500)"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="300"
+                    style="z-index: 6; max-width: auto; max-height: auto; white-space: nowrap;">@paragraph.Name
                 </div>
-            </li>
+                <div class="tp-caption greenbox30 customin fadeout tp-resizeme rs-parallaxlevel-10"
+                    data-x="570"
+                    data-y="@(par_index * 40 + 100)" 
+                    data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                    data-speed="300"
+                    data-start="@(par_index * 500 + 200)"
+                    data-easing="Power3.easeInOut"
+                    data-splitin="none"
+                    data-splitout="none"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="300"
+                    style="z-index: 7; max-width: auto; max-height: auto; white-space: nowrap;">&nbsp;
+                </div>
+                <div class="tp-caption arrowicon customin fadeout rs-parallaxlevel-10"
+                    data-x="579"
+                    data-y="@(par_index * 40 + 112)" 
+                    data-customin="x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0;scaleY:0;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+                    data-speed="300"
+                    data-start="@(par_index * 500 + 500)"
+                    data-easing="Power3.easeInOut"
+                    data-elementdelay="0.1"
+                    data-endelementdelay="0.1"
+                    data-endspeed="300"
+                    style="z-index: 8;"><img src="/img/dummy.png" alt="" data-ww="17" data-hh="17" data-lazyload="/img/check.png">
+                </div>
                 }
+            </li>
 
                 index++;
             }

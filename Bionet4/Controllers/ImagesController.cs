@@ -10,6 +10,9 @@ namespace Bionet4.Controllers
     {
         public ActionResult Image(string id, int? width, int? height, bool crop = true, bool center = true)
         {
+            if (id == null)
+                return null;
+
             IImagesRepository repository = DependencyResolver.Current.GetService<IImagesRepository>();
 
             var imageEntity = repository.GetById(new Guid(id));

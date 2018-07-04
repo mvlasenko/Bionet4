@@ -17,7 +17,7 @@ namespace Bionet4.Controllers
             return View(model);
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Product(int id)
         {
             ProductDetailsViewModel model = new ProductDetailsViewModel();
 
