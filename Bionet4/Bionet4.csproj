@@ -972,7 +972,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <Content Include="Views\Shared\About.cshtml" />
+    <Content Include="Views\Shared\_FotterTip.cshtml" />
     <Content Include="Views\Shared\_SliderPartial.cshtml" />
     <Content Include="Views\Shared\_ArticleThumbsPartial.cshtml" />
     <Content Include="Views\Shared\_ProductHighlights.cshtml" />
