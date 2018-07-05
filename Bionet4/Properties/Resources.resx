@@ -159,12 +159,6 @@
   <data name="ReadMore" xml:space="preserve">
     <value>Read More</value>
   </data>
-  <data name="ProductsSubtitle" xml:space="preserve">
-    <value>Explore all of our products here and buy them easily</value>
-  </data>
-  <data name="ProductsTitle" xml:space="preserve">
-    <value>Our Products</value>
-  </data>
   <data name="ViewProduct" xml:space="preserve">
     <value>View Product</value>
   </data>
@@ -174,44 +168,10 @@
   <data name="HomePageTitle" xml:space="preserve">
     <value>Home Page</value>
   </data>
-  <data name="FaqDescription" xml:space="preserve">
-    <value>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</value>
-  </data>
-  <data name="FaqTitle" xml:space="preserve">
-    <value>Frequently Asked Questions</value>
-  </data>
-  <data name="IngredientsDescription" xml:space="preserve">
-    <value>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which
-                    don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All
-                    the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over
-                    200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always
-                    free from repetition, injected humour, or non-characteristic words etc.</value>
-  </data>
-  <data name="IngredientsTitle" xml:space="preserve">
-    <value>Ingredients</value>
-  </data>
-  <data name="OrderSubtitle" xml:space="preserve">
-    <value>Make a New Order</value>
-  </data>
-  <data name="OrderTitle" xml:space="preserve">
-    <value>New Order</value>
-  </data>
   <data name="OrderSuccess" xml:space="preserve">
     <value>Success!!!</value>
   </data>
   <data name="OrderSubmit" xml:space="preserve">
     <value>Make Order</value>
-  </data>
-  <data name="EventsDescription" xml:space="preserve">
-    <value>Events Description</value>
-  </data>
-  <data name="EventsTitle" xml:space="preserve">
-    <value>Events</value>
-  </data>
-  <data name="AlbumsDescription" xml:space="preserve">
-    <value>Pictures Description</value>
-  </data>
-  <data name="AlbumsTitle" xml:space="preserve">
-    <value>Pictures</value>
   </data>
 </root>

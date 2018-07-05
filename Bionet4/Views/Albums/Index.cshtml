@@ -1,53 +1,13 @@
-﻿@using Bionet4.Data.Models
-@using Bionet4.Properties
-@using Bionet4.ViewModels
+﻿@using Bionet4.ViewModels
 @model AlbumsViewModel
 @{
-    ViewBag.Title = Resources.AlbumsTitle;
-    ViewBag.Description = Resources.AlbumsDescription;
+    ViewBag.Title = Model.Intro.Name;
+    ViewBag.Description = Model.Intro.Description;
 }
 
 <section id="main">
     <!-- Main Content -->
-    <div class="content margin-top60 margin-bottom60">
-        <div class="container">
-            <!-- Portfolio Content-->
-            <div class="row">
-                <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
-                    <div id="options">
-                        <ul id="filters" class="option-set clearfix" data-option-key="filter">
-                            <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
-                            @foreach (Album album in Model.Albums)
-                            {
-                            <li><a href="#filter" data-option-value=".album_@album.Id">@album.Name</a></li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-                <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 portfolio-four-column portfolio-wrap">
-                    <!-- Portfolio -->
-                    <div class="portfolio">
-                        <div class="grid">
-                            @foreach (AlbumDetail detail in Model.AlbumDetails)
-                            {
-                            <!-- Item -->
-                            <figure class="effect-zoe portfolio-border album_@detail.AlbumId item">
-                                <a href="/Images/Image/@detail.ImageID?width=400" class="portfolio-item-link" data-rel="prettyPhoto"><img src="/Images/Image/@detail.ImageID" alt="@detail.Name" /></a>
-                                <figcaption>
-                                    <h2>@detail.Name</h2>
-                                </figcaption>
-                            </figure>
-                            <!-- /Item -->
-                            }
-                        </div>
-                        <!-- /grid -->
-                    </div>
-                    <!-- /Portfolio -->
-                </div>
-            </div>
-            <!-- /Portfolio Content-->
-        </div>
-    </div>
+    @Html.Partial("_IntroPartial", Model.Intro)
+    @Html.Partial("_AlbumsPartial", Model.Albums)
     <!-- /Main Content -->
 </section>

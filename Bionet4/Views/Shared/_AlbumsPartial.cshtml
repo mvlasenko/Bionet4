@@ -1,0 +1,43 @@
+﻿@using Bionet4.Data.Models
+@model IList<Album>
+
+<div class="content margin-top60 margin-bottom60">
+    <div class="container">
+        <!-- Portfolio Content-->
+        <div class="row">
+            <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12">
+                <div id="options">
+                    <ul id="filters" class="option-set clearfix" data-option-key="filter">
+                        <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
+                        @foreach (int year in Model.Where(x => x.Year != null).GroupBy(y => y.Year).Select(grp => grp.Key))
+                        {
+                            <li><a href="#filter" data-option-value=".year_@year">@year</a></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-lg-12  col-md-12 col-sm-12 col-xs-12 portfolio-four-column portfolio-wrap">
+                <!-- Portfolio -->
+                <div class="portfolio">
+                    <div class="grid">
+                        @foreach (Album album in Model)
+                        {
+                            <!-- Item -->
+                            <figure class="effect-zoe portfolio-border year_@album.Year item">
+                                <a href="/Images/Image/@album.ImageID?width=400" class="portfolio-item-link" data-rel="prettyPhoto"><img src="/Images/Image/@album.ImageID" alt="@album.Name" /></a>
+                                <figcaption>
+                                    <h2><a href="/Albums/Album/@album.Id">@album.Name</a></h2>
+                                </figcaption>
+                            </figure>
+                            <!-- /Item -->
+                        }
+                    </div>
+                    <!-- /grid -->
+                </div>
+                <!-- /Portfolio -->
+            </div>
+        </div>
+        <!-- /Portfolio Content-->
+    </div>
+</div>

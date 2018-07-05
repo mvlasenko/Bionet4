@@ -1,0 +1,78 @@
+﻿@using Bionet4.Data.Models
+@model Album
+@{
+    ViewBag.Title = Model.Name;
+    ViewBag.Description = Model.Description;
+}
+
+<section id="main">
+    <!-- Main Content -->
+    <div class="content margin-top60 margin-bottom60">
+        <div class="container">
+            <div class="row">
+                <!-- Left Section -->
+                <div class="posts-block col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <!-- Recent work -->
+                    <div class="recentwork_wrapper">
+                        <!-- Slider -->
+                        <div class="gallery-image">
+                            <div class="slider-wrapper theme-default">
+                                <ul class="bxslider">
+                                    @foreach (AlbumDetail detail in Model.AlbumDetails)
+                                    {
+                                    <li><img src="/Images/Image/@detail.ImageID?width=1500&height=500" alt="@detail.Name"></li>
+                                    }
+                                </ul>
+                                <div id="bx-pager">
+                                    @foreach (AlbumDetail detail in Model.AlbumDetails)
+                                    {
+                                    <a data-slide-index="0" href=""><img src="/Images/Image/@detail.ImageID?width=150&height=150" alt="@detail.Name"></a>
+                                    }
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!-- /Slider -->
+                        </div>
+                        <h3>@Model.Name</h3>
+                        <div class="post-content top-pad">
+                            <p>
+                                @Model.Description
+                            </p>
+                        </div>
+                    </div>
+                    <!-- /Recent work -->
+                </div>
+                <!-- /Left Section -->
+                <!-- Project Summary -->
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 sidebar">
+                    <div class="widget">
+                        <h3 class="title">@Model.Name</h3>
+                        <p>
+                            @Model.Description
+                        </p>
+                    </div>
+
+                    <!-- todo: add something here-->
+
+
+                </div>
+                <!-- /Project Summary -->
+            </div>
+            <!-- Star -->
+            <div class="star">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-md-6 col-md-offset-3">
+                            <div class="star-divider">
+                                <div class="star-divider-icon">
+                                    <i class=" fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Main Content -->
+</section>

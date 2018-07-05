@@ -30,9 +30,9 @@ namespace Bionet4.Data.Models
 
         [IncludeList("Modified")]
         [HiddenInput(DisplayValue = false)]
-        public DateTime ModifiedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
 
-        public bool IsApproved { get; set; }
+        public bool? IsApproved { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]

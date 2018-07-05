@@ -41,13 +41,13 @@ namespace Bionet4.Data.Models
         public int AgentID { get; set; }
 
         [UIHint("_Agent")]
-        public int ParentID { get; set; }
+        public int? ParentID { get; set; }
 
         [IncludeList()]
-        public int Level { get; set; }
+        public int? Level { get; set; }
 
         [IncludeList()]
-        public int Percent { get; set; }
+        public int? Percent { get; set; }
 
         [IncludeList("Begin")]
         [Display(Name = "Begin")]

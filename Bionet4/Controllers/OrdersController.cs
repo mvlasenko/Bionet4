@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using Bionet4.Data.Repository;
 using Bionet4.ViewModels;
 
 namespace Bionet4.Controllers
@@ -13,6 +14,13 @@ namespace Bionet4.Controllers
         public virtual ActionResult Create()
         {
             OrderViewModel model = new OrderViewModel();
+
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
+            model.Intro = articlesRepository.GetByType(ArticleType.OrderIntro);
+
+            IProductsForOrderRepository repository = DependencyResolver.Current.GetService<IProductsForOrderRepository>();
+            model.ProductsForOrder = repository.GetList().ToList();
+
             return View("Create", model);
         }
 

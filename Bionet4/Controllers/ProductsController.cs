@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
+using Bionet4.Data.Models;
+using Bionet4.Data.Repository;
 using Bionet4.ViewModels;
 
 namespace Bionet4.Controllers
@@ -10,6 +12,9 @@ namespace Bionet4.Controllers
         public ActionResult Index()
         {
             ProductsViewModel model = new ProductsViewModel();
+
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
+            model.Intro = articlesRepository.GetByType(ArticleType.ProductsIntro);
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.Products = productsRepository.GetList().ToList();

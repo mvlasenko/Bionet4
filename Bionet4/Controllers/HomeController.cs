@@ -20,6 +20,28 @@ namespace Bionet4.Controllers
             //    repository.Update(product);
             //}
 
+            //IAlbumsRepository albumsRepository = DependencyResolver.Current.GetService<IAlbumsRepository>();
+            //foreach (Album album in albumsRepository.GetList())
+            //{
+            //    album.Description = album.Description.StripTags();
+            //    albumsRepository.Update(album);
+            //}
+
+            //IEventsRepository eventsRepository = DependencyResolver.Current.GetService<IEventsRepository>();
+            //foreach (Event ev in eventsRepository.GetList())
+            //{
+            //    ev.ShortDescription = ev.ShortDescription.StripTags();
+            //    eventsRepository.Update(ev);
+            //}
+
+            //IIngredientsRepository ingredientsRepository = DependencyResolver.Current.GetService<IIngredientsRepository>();
+            //foreach (Ingredient item in ingredientsRepository.GetList())
+            //{
+            //    item.Name = item.Name.StripTags();
+            //    item.Description = item.Description.StripTags();
+            //    ingredientsRepository.Update(item);
+            //}
+
 
             HomeViewModel model = new HomeViewModel();
 

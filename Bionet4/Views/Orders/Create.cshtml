@@ -3,12 +3,13 @@
 @using Bionet4.ViewModels
 @model OrderViewModel
 @{
-    ViewBag.Title = Resources.OrderTitle;
-    ViewBag.Description = Resources.OrderSubtitle;
+    ViewBag.Title = Model.Intro.Name;
+    ViewBag.Description = Model.Intro.Description;
 }
 
 <section id="main">
     <!-- Main Content -->
+    @Html.Partial("_IntroPartial", Model.Intro)
     <div class="content margin-top60 margin-bottom60">
         <div class="container">
             <div class="row">
