@@ -215,6 +215,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlbumsController.cs" />
+    <Compile Include="Controllers\ArticlesController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FaqController.cs" />
@@ -990,6 +991,7 @@
     <Content Include="Views\Shared\_IntroPartial.cshtml" />
     <Content Include="Views\Shared\_AlbumsPartial.cshtml" />
     <Content Include="Views\Albums\AlbumDetails.cshtml" />
+    <Content Include="Views\Articles\Article.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

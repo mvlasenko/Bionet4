@@ -9,6 +9,13 @@
       <mvcSiteMapNode title="Ingredients" controller="Ingredients" action="Index"/>
     </mvcSiteMapNode>
     <mvcSiteMapNode title="About" controller="Home" action="About"/>
+    
+    <mvcSiteMapNode title="Test Article 1" controller="Articles" action="Article" key="1">
+      <mvcSiteMapNode title="Test Article 2" controller="Articles" action="Article" key="2">
+        <mvcSiteMapNode title="Test Article 3" controller="Articles" action="Article" key="3"/>
+      </mvcSiteMapNode>
+    </mvcSiteMapNode>
+
     <mvcSiteMapNode title="FAQ" controller="Faq" action="Index"/>
     <mvcSiteMapNode title="Events" controller="Events" action="Index"/>
     <mvcSiteMapNode title="Create Order" controller="Orders" action="Create"/>
