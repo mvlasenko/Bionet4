@@ -6,6 +6,9 @@
 }
 
 <section id="main">
+    <!-- header -->
+    @Html.Partial("_HeaderPartial")
+    <!-- / header -->
     <!-- Main Content -->
     <div class="content margin-top60 margin-bottom60">
         <div class="container">
@@ -20,13 +23,13 @@
                                 <ul class="bxslider">
                                     @foreach (AlbumDetail detail in Model.AlbumDetails)
                                     {
-                                    <li><img src="/Images/Image/@detail.ImageID?width=1500&height=500" alt="@detail.Name"></li>
+                                        <li><img src="/Images/Image/@detail.ImageID?width=1500&height=500" alt="@detail.Name"></li>
                                     }
                                 </ul>
                                 <div id="bx-pager">
                                     @foreach (AlbumDetail detail in Model.AlbumDetails)
                                     {
-                                    <a data-slide-index="0" href=""><img src="/Images/Image/@detail.ImageID?width=150&height=150" alt="@detail.Name"></a>
+                                        <a data-slide-index="0" href=""><img src="/Images/Image/@detail.ImageID?width=150&height=150" alt="@detail.Name"></a>
                                     }
                                 </div>
                             </div>

@@ -61,6 +61,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are Now on:.
+        /// </summary>
+        public static string BreadcrumbsTitle {
+            get {
+                return ResourceManager.GetString("BreadcrumbsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Гаряча лінія: 800 111 11 11.
         /// </summary>
         public static string CallUs {

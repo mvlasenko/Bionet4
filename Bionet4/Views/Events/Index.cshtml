@@ -6,6 +6,9 @@
 }
 
 <section id="main">
+    <!-- header -->
+    @Html.Partial("_HeaderPartial")
+    <!-- / header -->
     <!-- Main Content -->
     @Html.Partial("_IntroPartial", Model.Intro)
     @Html.Partial("_EventsPartial", Model.Events)

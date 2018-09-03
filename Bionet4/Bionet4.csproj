@@ -337,6 +337,8 @@
     <Content Include="img\ads-small.jpg" />
     <Content Include="img\bg-black.png" />
     <Content Include="img\bg_off.png" />
+    <Content Include="img\bionet2.png" />
+    <Content Include="img\bionet21.png" />
     <Content Include="img\blog\01.jpg" />
     <Content Include="img\blog\02.jpg" />
     <Content Include="img\blog\03.jpg" />
@@ -992,6 +994,7 @@
     <Content Include="Views\Shared\_AlbumsPartial.cshtml" />
     <Content Include="Views\Albums\AlbumDetails.cshtml" />
     <Content Include="Views\Articles\Article.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

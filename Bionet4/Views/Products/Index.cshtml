@@ -6,8 +6,10 @@
 }
 
 <section id="main">
+    <!-- header -->
+    @Html.Partial("_HeaderPartial")
+    <!-- / header -->
     <!-- products -->
-    @Html.Partial("_IntroPartial", Model.Intro)
     @Html.Partial("_ProductsPartial", Model.Products)
     <!-- / products -->
 </section>

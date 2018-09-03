@@ -174,4 +174,7 @@
   <data name="OrderSubmit" xml:space="preserve">
     <value>Make Order</value>
   </data>
+  <data name="BreadcrumbsTitle" xml:space="preserve">
+    <value>You are Now on:</value>
+  </data>
 </root>
