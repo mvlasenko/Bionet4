@@ -86,18 +86,22 @@ namespace Bionet4.Helpers
 
             sb.AppendFormat("<li>{0}</li>", Resources.BreadcrumbsTitle);
 
-            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
-            string id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"].ToString();
+            ISiteMapNode current = helper.SiteMap.CurrentNode;
 
-            foreach (ISiteMapNode item in GetBreadcrumbs(helper.SiteMap.CurrentNode.ParentNode))
+            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+            var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
+            if (current == null && id != null && controller != null && id.ToString() != string.Empty && controller.ToString() == "Articles")
             {
-                sb.AppendFormat("<li><a href=\"{0}\">{1}</a></li>", item.Url, item.Title);
+                current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Key == id.ToString() && v.Controller == controller.ToString());
+
+                IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
+                Article article = repository.GetById(int.Parse(id.ToString()));
+                current.Title = article.Name;
             }
 
-            if (!string.IsNullOrEmpty(id) && controller == "Articles")
+            if (current != null)
             {
-                ISiteMapNode current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Key == id && v.Controller == controller);
-                if (current != null)
+                if (current.ParentNode != null)
                 {
                     foreach (ISiteMapNode item in GetBreadcrumbs(current.ParentNode))
                     {
@@ -105,18 +109,7 @@ namespace Bionet4.Helpers
                     }
                 }
 
-                IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
-                Article article = repository.GetById(int.Parse(id));
-                sb.AppendFormat("<li>{0}</li>", article.Name);
-            }
-            else if (helper.SiteMap.CurrentNode != null && helper.SiteMap.CurrentNode.ParentNode != null)
-            {
-                foreach (ISiteMapNode item in GetBreadcrumbs(helper.SiteMap.CurrentNode.ParentNode))
-                {
-                    sb.AppendFormat("<li><a href=\"{0}\">{1}</a></li>", item.Url, item.Title);
-                }
-
-                sb.AppendFormat("<li>{0}</li>", helper.SiteMap.CurrentNode.Title);
+                sb.AppendFormat("<li>{0}</li>", current.Title);
             }
 
             sb.Append("</ul>");
@@ -133,16 +126,6 @@ namespace Bionet4.Helpers
                 res.AddRange(GetBreadcrumbs(current.ParentNode));
             }
 
-            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
-            string id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"].ToString();
-            if (!string.IsNullOrEmpty(id) && controller == "Articles")
-            {
-                IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
-                Article article = repository.GetById(int.Parse(id));
-
-                current.Title = article.Name;
-            }
-
             res.Add(current);
 
             return res;
@@ -150,13 +133,12 @@ namespace Bionet4.Helpers
 
         public static MvcHtmlString GetTitle(this MvcSiteMapHtmlHelper helper)
         {
-            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
-            string id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"].ToString();
-
-            if (!string.IsNullOrEmpty(id) && controller == "Articles")
+            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+            var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
+            if (id != null && controller != null && id.ToString() != string.Empty && controller.ToString() == "Articles")
             {
                 IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
-                Article article = repository.GetById(int.Parse(id));
+                Article article = repository.GetById(int.Parse(id.ToString()));
                 return new MvcHtmlString(article.Name);
             }
 

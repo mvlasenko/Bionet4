@@ -14,8 +14,8 @@ namespace Bionet4.Controllers
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.Products = productsRepository.GetList().Where(x => x.CategoryId == id).ToList();
 
-            ICategoriesRepository repository = DependencyResolver.Current.GetService<ICategoriesRepository>();
-            model.Category = repository.GetById(id);
+            //ICategoriesRepository repository = DependencyResolver.Current.GetService<ICategoriesRepository>();
+            //model.Category = repository.GetById(id);
 
             return View("CategoryDetails", model);
         }

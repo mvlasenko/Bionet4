@@ -18,6 +18,10 @@ namespace Bionet4.Controllers
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             model.Products = productsRepository.GetList().ToList();
+            model.ProductsBest = model.Products.Take(2).ToList();
+
+            ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
+            model.Categories = categoriesRepository.GetList().ToList();
 
             return View(model);
         }

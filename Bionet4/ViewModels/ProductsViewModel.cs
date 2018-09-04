@@ -7,6 +7,7 @@ namespace Bionet4.ViewModels
     {
         public Article Intro { get; set; }
         public List<Product> Products { get; set; }
-        public Category Category { get; set; }
+        public List<Product> ProductsBest { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }
