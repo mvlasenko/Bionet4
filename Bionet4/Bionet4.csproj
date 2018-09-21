@@ -231,6 +231,7 @@
     </Compile>
     <Compile Include="Helpers\MenuHelper.cs" />
     <Compile Include="Helpers\UIHelper.cs" />
+    <Compile Include="Models\MySiteMapNode.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />

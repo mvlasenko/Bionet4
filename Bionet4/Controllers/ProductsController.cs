@@ -17,13 +17,30 @@ namespace Bionet4.Controllers
             model.Intro = articlesRepository.GetByType(ArticleType.ProductsIntro);
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
-            model.Products = productsRepository.GetList().ToList();
+            model.Products = productsRepository.GetList().Take(15).ToList();
             model.ProductsBest = model.Products.Take(2).ToList();
 
             ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
             model.Categories = categoriesRepository.GetList().ToList();
 
             return View(model);
+        }
+
+        public ActionResult List(int? id)
+        {
+            ProductsViewModel model = new ProductsViewModel();
+
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
+            model.Intro = articlesRepository.GetByType(ArticleType.ProductsIntro);
+
+            IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
+            model.Products = productsRepository.GetList().Take((int)id).ToList();
+            model.ProductsBest = model.Products.Take(2).ToList();
+
+            ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
+            model.Categories = categoriesRepository.GetList().ToList();
+
+            return View("Index", model);
         }
 
         public ActionResult Product(int id)
