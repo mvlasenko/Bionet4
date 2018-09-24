@@ -25,37 +25,38 @@
 
                     @foreach (Product product in Model.ProductsBest)
                     {
-                    <!-- Product Items -->
-                    <div class="product-block">
-                        <div class="image ">
-                            <span class="product-label product-label-special">
-                                <span>NEW</span>
-                            </span>
-                            <!-- Swap image -->
-                            <div class="flip">
-                                <a href="/Products/Product/@product.Id" class="swap-image">
-                                    <img src="/Images/Image/@product.ImageID?width=190" title="@product.Name" alt="@product.Name" class="front">
-                                </a>
+                        <!-- Product Items -->
+                        <div class="product-block">
+                            <div class="image ">
+                                <span class="product-label product-label-special">
+                                    <span>NEW</span>
+                                </span>
+                                <!-- Swap image -->
+                                <div class="flip">
+                                    <a href="/Products/Product/@product.Id" class="swap-image">
+                                        <img src="/Images/Image/@product.ImageID?width=190" title="@product.Name" alt="@product.Name" class="front">
+                                    </a>
+                                </div>
+                                <!-- /Swap image -->
+                                <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
                             </div>
-                            <!-- /Swap image -->
-                            <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
-                        </div>
-                        <div class="product-meta">
-                            <div class="left">
-                                <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
-                                <div class="price">
-                                    <span class="price-old">@(product.Price * 1.1m)</span>
-                                    <span class="price-new">@product.Price</span>
+                            <div class="product-meta">
+                                <div class="left">
+                                    <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
+                                    <div class="price">
+                                        <span class="price-old">@(product.Price * 1.1m)</span>
+                                        <span class="price-new">@product.Price</span>
+                                    </div>
+                                </div>
+                                <div class="right">
+                                    <div class="rating">
+                                        <img src="img/shop/stars-5.png" alt="Based on 1 reviews.">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="right">
-                                <div class="rating">
-                                    <img src="img/shop/stars-5.png" alt="Based on 1 reviews.">
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <!-- /Product Items -->
+                        <p></p>
+                        <!-- /Product Items -->
                     }
                 </div>
                 <!-- Best Seller End -->
@@ -84,78 +85,79 @@
                 <div class="product-grid">
                     <div class="products-block">
 
-                        @for (int block = 0; block < Model.Products.Count / 3 + 1; block++) {
+                        @for (int block = 0; block < Model.Products.Count / 3 + 1; block++)
+                        {
 
-                        <div class="row product-items @(block == 0 ? " first" : "")@(block == Model.Products.Count / 3 - 1 ? " last" : "")">
+                            <div class="row product-items @(block == 0 ? " first" : "")@(block == Model.Products.Count / 3 - 1 ? " last" : "")">
 
-                            @for (int i = 0; i < 3; i++)
-                            {
-                                if (block * 3 + i < Model.Products.Count) {
+                                @for (int i = 0; i < 3; i++)
+                                {
+                                    if (block * 3 + i < Model.Products.Count)
+                                    {
+                                        Product product = Model.Products[block * 3 + i];
 
-                                    Product product = Model.Products[block * 3 + i];
-
-                            <!-- Product Items -->
-                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 product-cols @(i == 0 ? " first" : "")@(i == 2 ? " last" : "")">
-                                <div class="product-block">
-                                    <div class="image ">
-                                        <span class="product-label product-label-special">
-                                            <span>NEW</span>
-                                        </span>
-                                        <!-- Swap image -->
-                                        <div class="flip">
-                                            <a href="/Products/Product/@product.Id" class="swap-image">
-                                                <img src="/Images/Image/@product.ImageID?width=190" title="@product.Name" alt="@product.Name" class="front">
-                                            </a>
-                                        </div>
-                                        <!-- /Swap image -->
-                                        <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
-                                    </div>
-                                    <div class="product-meta">
-                                        <div class="left">
-                                            <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
-                                            <div class="price">
-                                                <span class="price-old">@(product.Price * 1.1m)</span>
-                                                <span class="price-new">@product.Price</span>
-                                            </div>
-                                        </div>
-                                        <div class="right">
-                                            <div class="rating">
-                                                <img src="img/shop/stars-5.png" alt="Based on 1 reviews.">
-                                            </div>
-                                            <p class="description">
-                                                @product.Description
-                                            </p>
-                                            <div class="action">
-                                                <div class="cart">
-                                                    <!-- <input type="button" value="" onclick="addToCart('');" class="product-icon fa fa-shopping-cart shopping-cart" /> -->
-                                                    <button class="btn btn-shopping-cart">
-                                                        <span class="fa fa-shopping-cart product-icon hidden-sm">&nbsp;</span>
-                                                        <span>Add to Cart</span>
-                                                    </button>
-                                                </div>
-                                                <div class="button-group">
-                                                    <div class="wishlist">
-                                                        <a title="Add to Wish List" class="fa fa-heart product-icon">
-                                                            <span>Add to Wish List</span>
+                                        <!-- Product Items -->
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 product-cols @(i == 0 ? " first" : "")@(i == 2 ? " last" : "")">
+                                            <div class="product-block">
+                                                <div class="image ">
+                                                    <span class="product-label product-label-special">
+                                                        <span>NEW</span>
+                                                    </span>
+                                                    <!-- Swap image -->
+                                                    <div class="flip">
+                                                        <a href="/Products/Product/@product.Id" class="swap-image">
+                                                            <img src="/Images/Image/@product.ImageID?width=190" title="@product.Name" alt="@product.Name" class="front">
                                                         </a>
                                                     </div>
-                                                    <div class="compare">
-                                                        <a title="Add to Compare" class="fa fa-refresh product-icon">
-                                                            <span>Add to Compare</span>
-                                                        </a>
+                                                    <!-- /Swap image -->
+                                                    <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
+                                                </div>
+                                                <div class="product-meta">
+                                                    <div class="left">
+                                                        <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
+                                                        <div class="price">
+                                                            <span class="price-old">@(product.Price * 1.1m)</span>
+                                                            <span class="price-new">@product.Price</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="right">
+                                                        <div class="rating">
+                                                            <img src="img/shop/stars-5.png" alt="Based on 1 reviews.">
+                                                        </div>
+                                                        <p class="description">
+                                                            @product.Description
+                                                        </p>
+                                                        <div class="action">
+                                                            <div class="cart">
+                                                                <!-- <input type="button" value="" onclick="addToCart('');" class="product-icon fa fa-shopping-cart shopping-cart" /> -->
+                                                                <button class="btn btn-shopping-cart">
+                                                                    <span class="fa fa-shopping-cart product-icon hidden-sm">&nbsp;</span>
+                                                                    <span>Add to Cart</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="button-group">
+                                                                <div class="wishlist">
+                                                                    <a title="Add to Wish List" class="fa fa-heart product-icon">
+                                                                        <span>Add to Wish List</span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="compare">
+                                                                    <a title="Add to Compare" class="fa fa-refresh product-icon">
+                                                                        <span>Add to Compare</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- /Product Items -->
+                                        <!-- /Product Items -->
 
+                                    }
                                 }
-                            }
 
-                        </div>
+                            </div>
                         }
 
                     </div>
@@ -178,3 +180,4 @@
             <!-- /Products End -->
         </div>
     </div>
+</div>
