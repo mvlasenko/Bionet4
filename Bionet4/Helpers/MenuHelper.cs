@@ -103,11 +103,34 @@ namespace Bionet4.Helpers
 
             ISiteMapNode current = helper.SiteMap.CurrentNode;
 
+            //fix products paging
+            if (current == null)
+            {
+                var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+                var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
+
+                if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Index")
+                {
+                    current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Action == action.ToString());
+                }
+            }
+
             if (current != null)
             {
                 if (current.ParentNode != null)
                 {
                     foreach (ISiteMapNode item in GetBreadcrumbs(current.ParentNode))
+                    {
+                        sb.AppendFormat("<li><a href=\"{0}\">{1}</a></li>", item.Url, item.Title);
+                    }
+                }
+            }
+            else
+            {
+                ISiteMapNode parent = GetParent(helper);
+                if (parent != null)
+                {
+                    foreach (ISiteMapNode item in GetBreadcrumbs(parent))
                     {
                         sb.AppendFormat("<li><a href=\"{0}\">{1}</a></li>", item.Url, item.Title);
                     }
@@ -121,6 +144,27 @@ namespace Bionet4.Helpers
             return new MvcHtmlString(sb.ToString());
         }
 
+        private static ISiteMapNode GetParent(MvcSiteMapHtmlHelper helper)
+        {
+            var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+            var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
+            var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
+
+            //articles
+            if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
+            {
+                return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
+            }
+
+            //products
+            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
+            {
+                return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
+            }
+
+            return null;
+        }
+
         private static string GetTitleString(MvcSiteMapHtmlHelper helper)
         {
             ISiteMapNode current = helper.SiteMap.CurrentNode;
@@ -128,28 +172,30 @@ namespace Bionet4.Helpers
                 return current.Title;
 
             var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
+            var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
             var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
 
             //articles
-            if (controller != null && controller.ToString() == "Articles")
+            if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
             {
-                if (id != null && id.ToString() != string.Empty)
-                {
-                    IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
-                    Article article = repository.GetById(int.Parse(id.ToString()));
-                    return article.Name;
-                }
+                IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
+                Article article = repository.GetById(int.Parse(id.ToString()));
+                return article.Name;
             }
 
             //products
-            if (controller != null && controller.ToString() == "Products")
+            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
             {
-                if (id != null && id.ToString() != string.Empty)
-                {
-                    IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
-                    Product product = repository.GetById(int.Parse(id.ToString()));
-                    return product.Name;
-                }
+                IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
+                Product product = repository.GetById(int.Parse(id.ToString()));
+                return product.Name;
+            }
+
+            //products paging
+            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Index")
+            {
+                current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Action == action.ToString());
+                return current.Title;
             }
 
             return string.Empty;
