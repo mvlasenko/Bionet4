@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
@@ -12,6 +13,11 @@ namespace Bionet4.Data.Models
 {
     public class Product : IEntity<int>
     {
+        public Product()
+        {
+            this.OrderItems = new List<OrderItem>();
+        }
+
         [HiddenInput(DisplayValue = false)]
         public int Id { get; set; }
 
@@ -94,5 +100,10 @@ namespace Bionet4.Data.Models
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }

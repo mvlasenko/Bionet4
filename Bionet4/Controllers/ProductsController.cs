@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
@@ -9,7 +10,7 @@ namespace Bionet4.Controllers
 {
     public class ProductsController : Controller
     {
-        public ActionResult Index(int? id)
+        public ActionResult Index(int? id, int? category = null)
         {
             ProductsViewModel model = new ProductsViewModel();
 
@@ -17,8 +18,24 @@ namespace Bionet4.Controllers
             model.Intro = articlesRepository.GetByType(ArticleType.ProductsIntro);
 
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
-            model.Products = productsRepository.GetList().Take(15).ToList();
-            model.ProductsBest = model.Products.Take(2).ToList();
+            List<Product> products = productsRepository.GetList().ToList();
+
+            if (category != null)
+            {
+                products = products.Where(x => x.CategoryId == category).ToList();
+            }
+
+            if (id != null && id > 1)
+            {
+                model.Products = products.Skip((int)id * 15).Take(15).ToList();
+            }
+            else
+            {
+                model.Products = products.Take(15).ToList();
+            }
+
+            //todo: aggregete count
+            model.ProductsBest = products.Take(2).ToList();
 
             ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
             model.Categories = categoriesRepository.GetList().ToList();

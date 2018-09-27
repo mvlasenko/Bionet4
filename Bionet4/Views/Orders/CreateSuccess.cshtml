@@ -2,8 +2,8 @@
 @using Bionet4.ViewModels
 @model OrderViewModel
 @{
-    ViewBag.Title = Resources.OrderTitle;
-    ViewBag.Description = Resources.OrderSubtitle;
+    ViewBag.Title = Model.Intro.Name;
+    ViewBag.Description = Model.Intro.Description;
 }
 
 <section id="main">

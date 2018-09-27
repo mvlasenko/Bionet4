@@ -23,8 +23,21 @@ namespace Bionet4.Data.Models
         public virtual Order Order { get; set; }
 
         [Display(Name = "Product")]
+        [UIHint("_Product")]
+        public int? ProductId { get; set; }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual Product Product { get; set; }
+
         [UIHint("_ProductForOrder")]
-        public int ProductForOrderId { get; set; }
+        public int? ProductForOrderId { get; set; }
+
+        [ScaffoldColumn(false)]
+        [ScriptIgnore(ApplyToOverrides = true)]
+        [XmlIgnore]
+        public virtual ProductForOrder ProductForOrder { get; set; }
 
         [ScaffoldColumn(false)]
         [IncludeList("Product")]
@@ -32,17 +45,15 @@ namespace Bionet4.Data.Models
         {
             get
             {
-                if (this.Product == null)
-                    return String.Empty;
+                if (this.Product != null)
+                    return string.Format("{0}", this.Product.Name);
 
-                return string.Format("{0}", this.Product.Name);
+                if (this.ProductForOrder != null)
+                    return string.Format("{0}", this.ProductForOrder.Name);
+
+                return String.Empty;
             }
         }
-
-        [ScaffoldColumn(false)]
-        [ScriptIgnore(ApplyToOverrides = true)]
-        [XmlIgnore]
-        public virtual ProductForOrder Product { get; set; }
 
         [Display(Name = "Count")]
         public int ProductCount { get; set; }
