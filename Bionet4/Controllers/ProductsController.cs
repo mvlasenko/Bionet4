@@ -37,6 +37,9 @@ namespace Bionet4.Controllers
             //todo: aggregete count
             model.ProductsBest = products.Take(2).ToList();
 
+            model.IndexMax = products.Count;
+            model.IndexCurrent = id != null && id > 1 ? id.Value : 1;
+
             ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
             model.Categories = categoriesRepository.GetList().ToList();
 
