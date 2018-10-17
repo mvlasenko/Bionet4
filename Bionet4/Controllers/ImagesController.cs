@@ -36,9 +36,9 @@ namespace Bionet4.Controllers
                     binary = this.HttpContext.Cache[key] as byte[];
                     if (binary == null)
                     {
-                        binary = crop ?
+                        binary = crop && width.HasValue && height.HasValue ?
                             ImageHelper.GetImageCroped(imageEntity.Binary, width.Value, height.Value, center) :
-                            ImageHelper.GetImageResized(imageEntity.Binary, width.Value, height.Value);
+                            ImageHelper.GetImageResized(imageEntity.Binary, width.HasValue ? width.Value : 0, height.HasValue ? height.Value : 0);
                         this.HttpContext.Cache.Insert(key, binary);
                     }
                 }

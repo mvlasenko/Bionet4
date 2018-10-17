@@ -28,6 +28,26 @@
                 }
                 <th></th>
             </tr>
+            <tr>
+                @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.ListFields)
+                {
+                    <th>
+                        @if (prop.UIHint == "_Enum") {
+                            Type enumType = prop.Type;
+                            Type underlyingEnumType = Nullable.GetUnderlyingType(enumType);
+                            var values = Enum.GetValues(underlyingEnumType ?? enumType).Cast<Enum>()
+                                    .Select(v => new SelectListItem
+                                    {
+                                        Selected = false,
+                                        Text = v.ToString(),
+                                        Value = v.ToString()
+                                    });
+                            @Html.DropDownList(prop.Name, values, string.Format("< {0} >", Resources.SelectItem), new { @class = "form-control" })
+                        }
+                    </th>
+                }
+                <th></th>
+            </tr>
         </thead>
 
         <tbody></tbody>
@@ -262,7 +282,7 @@
                     {
                         @Html.Raw("row += (item.ImageID ? '<td><img src=\"/admin/Images/Image/' + item.ImageID + '?width=100\" width=100 height=100 /></td>' : '<td><i class=\"fa ' + (item.FaIcon ? item.FaIcon : 'fa-question-circle') + ' fa-4x\"></i></td>');\n");
                     }
-                    else if(prop.Type == "DateTime")
+                    else if(prop.TypeName == "DateTime")
                     {
                         @Html.Raw("row += '<td>' + ((new Date(parseInt(item." + prop.Name + ".substr(6)))).toLocaleString()) + '</td>';\n");
                     }

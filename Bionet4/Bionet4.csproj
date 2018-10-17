@@ -995,6 +995,7 @@
     <Content Include="Views\Albums\AlbumDetails.cshtml" />
     <Content Include="Views\Articles\Article.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Shared\_FotterTip2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

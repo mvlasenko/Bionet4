@@ -247,10 +247,10 @@ namespace Bionet4.Data.Helpers
             if (Extension.ToLower() == ".gif") return "image/gif";
             if (Extension.ToLower() == ".jp2") return "image/jp2";
             if (Extension.ToLower() == ".jpg") return "image/jpeg";
+            if (Extension.ToLower() == ".jpeg") return "image/jpeg";
             if (Extension.ToLower() == ".jp2") return "image/jpeg2000";
             if (Extension.ToLower() == ".jp2") return "image/jpeg2000-image";
             if (Extension.ToLower() == ".pict") return "image/pict";
-            if (Extension.ToLower() == ".jpg") return "image/pjpeg";
             if (Extension.ToLower() == ".png") return "image/png";
             if (Extension.ToLower() == ".tiff") return "image/tiff";
             if (Extension.ToLower() == ".mdi") return "image/vnd.ms-modi";
