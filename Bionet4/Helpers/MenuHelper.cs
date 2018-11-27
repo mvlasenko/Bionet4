@@ -29,6 +29,22 @@ namespace Bionet4.Helpers
             return new MvcHtmlString(sb.ToString());
         }
 
+        public static MvcHtmlString FooterMenu(this MvcSiteMapHtmlHelper helper)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("<p>");
+
+            foreach (ISiteMapNode item in helper.SiteMap.RootNode.ChildNodes)
+            {
+                ProcessItem2(item, sb);
+                sb.Append("<br />");
+            }
+
+            sb.Append("</p>");
+
+            return new MvcHtmlString(sb.ToString());
+        }
+
         private static void ProcessItem(ISiteMapNode item, StringBuilder sb)
         {
             //if (item.Controller == "Products" && item.Action == "Index")
@@ -77,6 +93,25 @@ namespace Bionet4.Helpers
                 string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
 
                 sb.AppendFormat("<li><a href=\"{0}\" class=\"sf-with-ul\">{1}</a></li>", url, item.Title);
+            }
+        }
+
+        private static void ProcessItem2(ISiteMapNode item, StringBuilder sb)
+        {
+            if (item.ChildNodes != null && item.ChildNodes.Count > 0)
+            {
+                string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
+
+                foreach (ISiteMapNode childItem in item.ChildNodes)
+                {
+                    ProcessItem2(childItem, sb);
+                }
+            }
+            else
+            {
+                string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
             }
         }
 
