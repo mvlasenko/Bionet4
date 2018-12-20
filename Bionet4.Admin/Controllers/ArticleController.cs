@@ -1,7 +1,10 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using Bionet4.Data.Models.Filters;
 
 namespace Bionet4.Admin.Controllers
 {
@@ -27,5 +30,14 @@ namespace Bionet4.Admin.Controllers
             entity.CreatedDateTime = DateTime.Now;
             return base.CreatePartial(entity);
         }
+
+        public override Func<Article, bool> GetWhere(string f)
+        {
+            Dictionary<string, string> filters = f.Split(';').Select(x => new KeyValuePair<string, string>(x.Split('=')[0], x.Split('=')[1])).ToDictionary(x => x.Key, x => x.Value);
+
+
+            return new Func<Article, bool>(x => true);
+        }
+
     }
 }

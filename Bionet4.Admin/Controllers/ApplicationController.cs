@@ -25,11 +25,15 @@ namespace Bionet4.Admin.Controllers
         public virtual ActionResult Index(IFilter<T, TKey> filter)
         {
             IPagedCollection model = this.LoadCollection(filter);
-
-            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name, Type = prop.PropertyType, TypeName = GetTypeName(prop), UIHint = prop.GetCustomAttributes().Any(x => x is UIHintAttribute) ? ((UIHintAttribute)prop.GetCustomAttributes().First(x => x is UIHintAttribute)).UIHint : "" }).ToList();
-            ViewBag.ListFieldHeaders = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => ((IncludeListAttribute)prop.GetCustomAttributes().First(x => x is IncludeListAttribute)).IncludeListTitle ?? prop.Name).ToList();
-
+            ViewBag.ListFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is IncludeListAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name, Title = ((IncludeListAttribute)prop.GetCustomAttributes().First(x => x is IncludeListAttribute)).IncludeListTitle ?? prop.Name, Type = GetType(prop), TypeName = GetTypeName(prop), UIHint = prop.GetCustomAttributes().Any(x => x is UIHintAttribute) ? ((UIHintAttribute)prop.GetCustomAttributes().First(x => x is UIHintAttribute)).UIHint : "" }).ToList();
             return View("Index", model);
+        }
+
+        public Type GetType(PropertyInfo prop)
+        {
+            Type type = prop.PropertyType;
+            Type underlyingType = Nullable.GetUnderlyingType(type);
+            return underlyingType ?? type;
         }
 
         public string GetTypeName(PropertyInfo prop)
@@ -202,13 +206,28 @@ namespace Bionet4.Admin.Controllers
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
-        public virtual JsonResult GetPagedList(int? id)
+        public virtual Func<T, bool> GetWhere(string f)
+        {
+            return new Func<T, bool>(x => true);
+        }
+
+        public virtual JsonResult GetPagedList(int? id, string f)
         {
             IFilter<T, TKey> filter = new Filter<T, TKey>();
+            filter.Where = GetWhere(f);
             filter.PageIndex = id == null ? 1 : id.Value;
 
             var list = repository.GetPagedList(filter);
             return Json(list, JsonRequestBehavior.AllowGet);
+        }
+
+        public virtual JsonResult GetCount(string f)
+        {
+            IFilter<T, TKey> filter = new Filter<T, TKey>();
+            filter.Where = GetWhere(f);
+
+            var list = repository.GetPagedList(filter);
+            return Json(new { totalCount = list.Count }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

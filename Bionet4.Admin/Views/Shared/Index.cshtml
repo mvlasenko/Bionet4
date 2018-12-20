@@ -22,26 +22,39 @@
 
         <thead>
             <tr>
-                @foreach (string propName in ViewBag.ListFieldHeaders)
+                @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.ListFields)
                 {
-                    <th>@propName</th>
+                    <th>@prop.Title</th>
                 }
                 <th></th>
             </tr>
             <tr>
                 @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.ListFields)
                 {
+                    <td>
+                        @if (prop.TypeName == "String" && prop.UIHint != "MultilineText" && prop.UIHint != "_Image" && prop.UIHint != "_FaIcon"
+                            || prop.TypeName == "DateTime"
+                            || prop.TypeName == "Int32" && prop.Name != "SeqID") {
+                        <select id="filter_@prop.Name" data-id="@prop.Name" data-type="@prop.TypeName" class="row-filter">
+                            <option value="">@string.Format("< {0} >", Resources.SelectItem)</option>
+                        </select>
+                        }
+                    </td>
+                }
+                <td></td>
+            </tr>
+            <tr>
+                @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.ListFields)
+                {
                     <th>
                         @if (prop.UIHint == "_Enum") {
-                            Type enumType = prop.Type;
-                            Type underlyingEnumType = Nullable.GetUnderlyingType(enumType);
-                            var values = Enum.GetValues(underlyingEnumType ?? enumType).Cast<Enum>()
-                                    .Select(v => new SelectListItem
-                                    {
-                                        Selected = false,
-                                        Text = v.ToString(),
-                                        Value = v.ToString()
-                                    });
+                            var values = Enum.GetValues(prop.Type).Cast<Enum>()
+                                .Select(v => new SelectListItem
+                                {
+                                    Selected = false,
+                                    Text = v.ToString(),
+                                    Value = v.ToString()
+                                });
                             @Html.DropDownList(prop.Name, values, string.Format("< {0} >", Resources.SelectItem), new { @class = "form-control" })
                         }
                     </th>
@@ -91,7 +104,7 @@
 
     @Scripts.Render("~/bundles/jqueryval")
 
-    <script type="text/javascript">
+<script type="text/javascript">
 
     function InitModal() {
 
@@ -138,14 +151,11 @@
                     totalCount = data.totalCount;
 
                     var pageSize = @Model.PageSize;
-                    var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
-                    if (pageIndex <= currentPageIndex)
-                    {
-                        currentPageIndex = pageIndex;
-                        InitPager(currentPageIndex);
-                    }
+                    var currentPageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
 
-                    RefreshGrid(currentPageIndex);
+                    InitPager();
+                    InitRowFilters();
+                    RefreshGrid();
 
                 });
             }
@@ -188,9 +198,7 @@
                 var url = "@Url.Content("~/")Paragraphs/DestroyPartial";
                 var id = $(this).attr('data-id');
                 $.get(url + '/' + id, function(data) {
-
                     RefreshParagraphs();
-
                 });
             }
         });
@@ -240,7 +248,55 @@
         });
     }
 
-    function InitPager(pageIndex) {
+    function InitRowFilters() {
+
+        $(".row-filter").unbind();
+        $(".row-filter").prop("disabled", true);
+
+        $.get("@Url.Content("~/")@controller/GetList", function (data) {
+            $(".row-filter").each(function () {
+                var id = $(this).attr('id');
+                var name = $(this).data('id');
+                var type = $(this).data('type');
+
+                let col_data = data.map(a => a[name]).filter(function (value, index, self) { return self.indexOf(value) === index; });
+
+                $.each(col_data, function (idx, item) {
+
+                    var text = type == "DateTime" ? (new Date(parseInt(item.substr(6)))).toLocaleString() : item;
+                    $("#" + id).append($("<option></option>")
+                        .attr("value", item)
+                        .text(text));
+                });
+
+                $("#" + id).prop("disabled", false);
+                $("#" + id).change(function () {
+
+                    currentPageIndex = 1;
+
+                    var f = GetFilters();
+                    var url = "@Url.Content("~/")@controller/GetCount/?f=" + f;
+                    $.ajax({
+                        type: 'GET',
+                        dataType: 'Json',
+                        url: url,
+                        success: function(data) {
+
+                            totalCount = data.totalCount;
+                            InitPager();
+
+                        },
+                        processData: false,
+                        async: true
+                    });
+
+                    RefreshGrid();
+                });
+            });
+        });
+    }
+
+    function InitPager() {
 
         var pageSize = @Model.PageSize;
 
@@ -248,7 +304,7 @@
 
         for (i = 1; i <= (totalCount - 1) / pageSize + 1; i++)
         {
-            $('#pager').append('<button class="btn btn-primary page-item ' + (i == pageIndex ? "disabled" : "") + '" style="margin: 4px;" data-id="' + i +'">' + i + '</button>');
+            $('#pager').append('<button class="btn btn-primary page-item ' + (i == currentPageIndex ? "disabled" : "") + '" style="margin: 4px;" data-id="' + i +'">' + i + '</button>');
         }
 
         $('.page-item').click(function () {
@@ -257,13 +313,29 @@
             $('.page-item').removeClass("disabled");
             $(this).addClass("disabled");
 
-            RefreshGrid(currentPageIndex);
+            RefreshGrid();
         });
     }
 
-    function RefreshGrid(pageIndex) {
+    function GetFilters() {
+        var f = "";
+        $(".row-filter").each(function () {
+            var id = $(this).attr('id');
+            var name = $(this).data('id');
+            var type = $(this).data('type');
+            var val = $(this).val();
+            if (val) {
+                f = f + name + "=" + val + ";"
+            }
+        });
+        return f;
+    }
+
+    function RefreshGrid() {
         $('#loader').modal('show');
-        var url = "@Url.Content("~/")@controller/GetPagedList/" + pageIndex;
+
+        var f = GetFilters();
+        var url = "@Url.Content("~/")@controller/GetPagedList/" + currentPageIndex + "?f=" + f;
         $.ajax({
             type: 'GET',
             dataType: 'Json',
@@ -379,14 +451,11 @@
         totalCount = data.totalCount;
 
         var pageSize = @Model.PageSize;
-        var pageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
-        if (pageIndex != currentPageIndex)
-        {
-            currentPageIndex = pageIndex;
-            InitPager(currentPageIndex);
-        }
+        var currentPageIndex = Math.floor((totalCount - 1) / pageSize) + 1;
 
-        RefreshGrid(currentPageIndex);
+        InitPager();
+        InitRowFilters();
+        RefreshGrid();
     }
 
     function InitDatePicker() {
@@ -407,10 +476,12 @@
 
         InitModal();
 
-        InitPager(currentPageIndex);
+        InitPager();
 
-        RefreshGrid(currentPageIndex);
+        RefreshGrid();
+
+        InitRowFilters();
     });
 
-    </script>
+</script>
 }
