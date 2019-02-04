@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CallUs" xml:space="preserve">
-    <value>Гаряча лінія: 800 111 11 11</value>
+    <value>+38 (067) 696-59-94</value>
   </data>
   <data name="company" xml:space="preserve">
     <value>Bionet</value>
@@ -139,19 +139,19 @@
     <value>http://twitter.com</value>
   </data>
   <data name="contact_web" xml:space="preserve">
-    <value>http://biosystem.com.ua</value>
+    <value>http://bionetvip.com.ua/</value>
   </data>
   <data name="Login" xml:space="preserve">
-    <value>Login</value>
+    <value>Вход</value>
   </data>
   <data name="LogOff" xml:space="preserve">
-    <value>Log off</value>
+    <value>Выход</value>
   </data>
   <data name="Manage" xml:space="preserve">
-    <value>Manage</value>
+    <value>Управление</value>
   </data>
   <data name="Registration" xml:space="preserve">
-    <value>Registration</value>
+    <value>Регистрация</value>
   </data>
   <data name="reserved" xml:space="preserve">
     <value>All Rights Reserved.</value>
@@ -166,7 +166,7 @@
     <value>Welcome to Bionet!</value>
   </data>
   <data name="HomePageTitle" xml:space="preserve">
-    <value>Home Page</value>
+    <value>Главная</value>
   </data>
   <data name="OrderSuccess" xml:space="preserve">
     <value>Success!!!</value>

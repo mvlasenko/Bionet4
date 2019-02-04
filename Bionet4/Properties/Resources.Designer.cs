@@ -70,7 +70,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Гаряча лінія: 800 111 11 11.
+        ///   Looks up a localized string similar to +38 (067) 696-59-94.
         /// </summary>
         public static string CallUs {
             get {
@@ -133,7 +133,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://biosystem.com.ua.
+        ///   Looks up a localized string similar to http://bionetvip.com.ua/.
         /// </summary>
         public static string contact_web {
             get {
@@ -151,7 +151,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home Page.
+        ///   Looks up a localized string similar to Главная.
         /// </summary>
         public static string HomePageTitle {
             get {
@@ -160,7 +160,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Login.
+        ///   Looks up a localized string similar to Вход.
         /// </summary>
         public static string Login {
             get {
@@ -169,7 +169,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Log off.
+        ///   Looks up a localized string similar to Выход.
         /// </summary>
         public static string LogOff {
             get {
@@ -178,7 +178,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Manage.
+        ///   Looks up a localized string similar to Управление.
         /// </summary>
         public static string Manage {
             get {
@@ -214,7 +214,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registration.
+        ///   Looks up a localized string similar to Регистрация.
         /// </summary>
         public static string Registration {
             get {

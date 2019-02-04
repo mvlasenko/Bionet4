@@ -1,25 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   
-  <mvcSiteMapNode title="Home" controller="Home" action="Index">
-    <mvcSiteMapNode title="Home" controller="Home" action="Index"/>
-    <mvcSiteMapNode title="Opportunities" controller="Home" action="Opportunities">
-      <mvcSiteMapNode title="Products" controller="Products" action="Index"/>
-      <mvcSiteMapNode title="Quality" controller="Home" action="Quality"/>
-      <mvcSiteMapNode title="Ingredients" controller="Ingredients" action="Index"/>
-    </mvcSiteMapNode>
-    <mvcSiteMapNode title="About" controller="Home" action="About"/>
+  <mvcSiteMapNode title="Главная" controller="Home" action="Index">
     
-    <mvcSiteMapNode title="Test Article 1" controller="Articles" action="Article" key="1">
-      <mvcSiteMapNode title="Test Article 2" controller="Articles" action="Article" key="2">
-        <mvcSiteMapNode title="Test Article 3" controller="Articles" action="Article" key="3"/>
-      </mvcSiteMapNode>
+    <mvcSiteMapNode title="Главная" controller="Home" action="Index"/>
+    <mvcSiteMapNode title="О нас" controller="Home" action="About"/>
+    <mvcSiteMapNode title="Продукция" controller="Products" action="Index"/>
+    
+    <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1">
+      <mvcSiteMapNode title="Референции" controller="Articles" action="Article" key="2" />
+      <mvcSiteMapNode title="Статьи" controller="Articles" action="ArticleList" />
     </mvcSiteMapNode>
 
-    <mvcSiteMapNode title="FAQ" controller="Faq" action="Index"/>
-    <mvcSiteMapNode title="Events" controller="Events" action="Index"/>
-    <mvcSiteMapNode title="Create Order" controller="Orders" action="Create"/>
-    <mvcSiteMapNode title="Album" controller="Albums" action="Index"/>
+    <mvcSiteMapNode title="Мой кабинет" controller="Manage" action="Index" authorized="true">
+      <mvcSiteMapNode title="Мои заказы" controller="Orders" action="Index" authorized="true"/>
+      <mvcSiteMapNode title="Список желаний" controller="Wishes" action="Index" authorized="true"/>
+    </mvcSiteMapNode>
+
   </mvcSiteMapNode>
 
 </mvcSiteMap>

@@ -151,7 +151,7 @@ namespace Bionet4.Data.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://bionet.com.ua.
+        ///   Looks up a localized string similar to http://bionetvip.com.ua/.
         /// </summary>
         public static string ContactUsLink {
             get {
