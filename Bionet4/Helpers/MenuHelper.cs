@@ -124,8 +124,6 @@ namespace Bionet4.Helpers
             StringBuilder sb = new StringBuilder();
             sb.Append("<ul>");
 
-            sb.AppendFormat("<li>{0}</li>", Resources.BreadcrumbsTitle);
-
             ISiteMapNode current = helper.SiteMap.CurrentNode;
 
             //fix products paging

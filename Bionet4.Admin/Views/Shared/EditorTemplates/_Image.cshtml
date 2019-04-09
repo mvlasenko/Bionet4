@@ -8,42 +8,45 @@
 <div id="@(name + "_imageDrop")" class="dropzone"></div>
 @Html.Hidden("", val)
 
-<script>
+<script type="text/javascript">
 
-    var @(name + "_options") = Dropzone.options.imageDrop = {
-        url: '@Url.Action("ImageUpload")',
-        paramName: "file",
-        maxFiles: 1,
-        acceptedFiles: "image/*",
+    $(document).ready(function () {
 
-        init: function (file) {
+        var @(name + "_options") = Dropzone.options.imageDrop = {
+            url: '@Url.Action("ImageUpload")',
+            paramName: "file",
+            maxFiles: 1,
+            acceptedFiles: "image/*",
 
-            imageDrop = this;
+            init: function (file) {
 
-            if ($("#@name").val()) {
-                var mockFile = { name: "@val", size: 12345 };
-                this.emit("addedfile", mockFile);
-                this.createThumbnailFromUrl(mockFile, "/admin/Images/Image/@val");
-                this.files[0] = mockFile;
-            };
+                imageDrop = this;
 
-            this.on("addedfile", function (files) {
-                if (this.files[1] != null) {
-                    this.removeFile(this.files[0]);
-                }
-            });
-        },
+                if ($("#@name").val()) {
+                    var mockFile = { name: "@val", size: 12345 };
+                    this.emit("addedfile", mockFile);
+                    this.createThumbnailFromUrl(mockFile, "/admin/Images/Image/@val");
+                    this.files[0] = mockFile;
+                };
 
-        success: function (file, response) {
+                this.on("addedfile", function (files) {
+                    if (this.files[1] != null) {
+                        this.removeFile(this.files[0]);
+                    }
+                });
+            },
 
-            //console.log(file);
-            //console.log(response);
+            success: function (file, response) {
 
-            $("#@name").val(response.id);
-        }
+                //console.log(file);
+                //console.log(response);
 
-    };
+                $("#@name").val(response.id);
+            }
 
-    $("div#@(name + "_imageDrop")").dropzone(@(name + "_options"));
+        };
+
+        $("div#@(name + "_imageDrop")").dropzone(@(name + "_options"));
+    });
 
 </script>

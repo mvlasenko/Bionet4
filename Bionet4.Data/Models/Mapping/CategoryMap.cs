@@ -17,8 +17,6 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.ImageID).HasMaxLength(255);
 
-            this.Property(t => t.ParentCategoryId);
-
             this.Property(t => t.SeqID);
 
             // Table & Column Mappings
@@ -28,7 +26,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.ImageID).HasColumnName("ImageID");
-            this.Property(t => t.ParentCategoryId).HasColumnName("ParentCategoryId");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 
             // Relationships

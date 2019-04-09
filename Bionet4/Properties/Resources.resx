@@ -157,24 +157,30 @@
     <value>All Rights Reserved.</value>
   </data>
   <data name="ReadMore" xml:space="preserve">
-    <value>Read More</value>
+    <value>Еще</value>
   </data>
   <data name="ViewProduct" xml:space="preserve">
-    <value>View Product</value>
+    <value>Просмотр</value>
   </data>
   <data name="HomePageDescription" xml:space="preserve">
-    <value>Welcome to Bionet!</value>
+    <value>Добро пожадовать на сайт Bionet!</value>
   </data>
   <data name="HomePageTitle" xml:space="preserve">
     <value>Главная</value>
   </data>
   <data name="OrderSuccess" xml:space="preserve">
-    <value>Success!!!</value>
+    <value>Ура!!!</value>
   </data>
   <data name="OrderSubmit" xml:space="preserve">
-    <value>Make Order</value>
+    <value>Заказать</value>
   </data>
-  <data name="BreadcrumbsTitle" xml:space="preserve">
-    <value>You are Now on:</value>
+  <data name="AddToCart" xml:space="preserve">
+    <value>В корзину</value>
+  </data>
+  <data name="BestSeller" xml:space="preserve">
+    <value>Бестселлеры</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Цена</value>
   </data>
 </root>

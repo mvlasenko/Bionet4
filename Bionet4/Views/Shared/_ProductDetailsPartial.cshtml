@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                     <!-- Review Box -->
-                    <div class="reviews-box">
+                    <!--div class="reviews-box">
                         <div class="rating-box">
                             <div class="rating pull-left">
                                 <div style="width: 60%" class="rating">
@@ -44,13 +44,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div -->
                     <!-- /Review Box -->
                     <!-- Product Details -->
                     <div class="product-details">
                         <p class="short-description">@Model.Description</p>
-                        <p><b>Product Code :</b> @Model.Code</p>
-                        <p><b>Price :</b> @Model.Price</p>
+
+                        @if (Model.PriceNew != null)
+                        {
+                            <p><b>@Resources.Price :</b> @Model.PriceNew</p>
+                        }
+                        else if (Model.Price != null)
+                        {
+                            <p><b>@Resources.Price :</b> @Model.Price</p>
+                        }
+                        
                     </div>
                     <!-- /Product Details -->
                 </div>

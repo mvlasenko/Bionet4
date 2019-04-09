@@ -27,6 +27,7 @@ namespace Bionet4.Data.Models
         [UIHint("MultilineText")]
         [Display(Name = "Description")]
         [Column(TypeName = "ntext")]
+        [Rtf]
         public string Description { get; set; }
 
         [UIHint("MultilineText")]
@@ -41,6 +42,10 @@ namespace Bionet4.Data.Models
 
         [IncludeList()]
         public decimal? Price { get; set; }
+
+        [IncludeList("New Price")]
+        [Display(Name = "New Price")]
+        public decimal? PriceNew { get; set; }
 
         [IncludeList()]
         public string Code { get; set; }
@@ -67,10 +72,6 @@ namespace Bionet4.Data.Models
             }
         }
 
-        [Display(Name = "Parent Product")]
-        [UIHint("_Product")]
-        public int? ParentProductId { get; set; }
-
         [Display(Name = "Category")]
         [UIHint("_Category")]
         public int? CategoryId { get; set; }
@@ -92,6 +93,12 @@ namespace Bionet4.Data.Models
         [ScriptIgnore(ApplyToOverrides = true)]
         [XmlIgnore]
         public virtual Category Category { get; set; }
+
+        [IncludeList()]
+        public bool New { get; set; }
+
+        [IncludeList()]
+        public bool Bestseller { get; set; }
 
         [IncludeList("Created")]
         [HiddenInput(DisplayValue = false)]

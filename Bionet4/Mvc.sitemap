@@ -7,11 +7,13 @@
     <mvcSiteMapNode title="О нас" controller="Home" action="About"/>
     <mvcSiteMapNode title="Продукция" controller="Products" action="Index"/>
     
-    <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1">
-      <mvcSiteMapNode title="Референции" controller="Articles" action="Article" key="2" />
-      <mvcSiteMapNode title="Статьи" controller="Articles" action="ArticleList" />
+    <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1" />
+    
+    <mvcSiteMapNode title="Статьи" controller="Articles" action="All">
+      <mvcSiteMapNode title="О Бизнесе" controller="Articles" action="Business" />
+      <mvcSiteMapNode title="О Продукции " controller="Articles" action="Products" />
     </mvcSiteMapNode>
-
+     
     <mvcSiteMapNode title="Мой кабинет" controller="Manage" action="Index" authorized="true">
       <mvcSiteMapNode title="Мои заказы" controller="Orders" action="Index" authorized="true"/>
       <mvcSiteMapNode title="Список желаний" controller="Wishes" action="Index" authorized="true"/>

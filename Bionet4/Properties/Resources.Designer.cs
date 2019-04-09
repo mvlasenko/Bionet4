@@ -61,11 +61,20 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You are Now on:.
+        ///   Looks up a localized string similar to В корзину.
         /// </summary>
-        public static string BreadcrumbsTitle {
+        public static string AddToCart {
             get {
-                return ResourceManager.GetString("BreadcrumbsTitle", resourceCulture);
+                return ResourceManager.GetString("AddToCart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Бестселлеры.
+        /// </summary>
+        public static string BestSeller {
+            get {
+                return ResourceManager.GetString("BestSeller", resourceCulture);
             }
         }
         
@@ -142,7 +151,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to Bionet!.
+        ///   Looks up a localized string similar to Добро пожадовать на сайт Bionet!.
         /// </summary>
         public static string HomePageDescription {
             get {
@@ -187,7 +196,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make Order.
+        ///   Looks up a localized string similar to Заказать.
         /// </summary>
         public static string OrderSubmit {
             get {
@@ -196,7 +205,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Success!!!.
+        ///   Looks up a localized string similar to Ура!!!.
         /// </summary>
         public static string OrderSuccess {
             get {
@@ -205,7 +214,16 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Read More.
+        ///   Looks up a localized string similar to Цена.
+        /// </summary>
+        public static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Еще.
         /// </summary>
         public static string ReadMore {
             get {
@@ -232,7 +250,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to View Product.
+        ///   Looks up a localized string similar to Просмотр.
         /// </summary>
         public static string ViewProduct {
             get {

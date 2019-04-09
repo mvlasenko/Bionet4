@@ -31,7 +31,12 @@
         EventsIntro = 10,
         ProductsIntro = 11,
         OrderIntro = 12,
-        AlbumsIntro = 13
+        AlbumsIntro = 13,
+        ArticlesAllIntro = 14,
+        ArticlesBusinessIntro = 15,
+        ArticlesProductsIntro = 16,
+        Business = 17,
+        Products = 18
     }
 
     public enum MailType

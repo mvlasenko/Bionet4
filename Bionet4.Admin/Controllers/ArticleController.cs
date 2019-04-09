@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
-using Bionet4.Data.Models.Filters;
 
 namespace Bionet4.Admin.Controllers
 {
@@ -15,6 +12,20 @@ namespace Bionet4.Admin.Controllers
         public ArticleController(IArticleRepository repository) : base(repository)
         {
             this.repository = repository;
+        }
+
+        public override ActionResult Create()
+        {
+            Article entity = new Article();
+            entity.PublishDate = DateTime.Now;
+
+            return View("New", entity);
+        }
+
+        public override ActionResult Create(Article entity)
+        {
+            entity.CreatedDateTime = DateTime.Now;
+            return base.Create(entity);
         }
 
         public override ActionResult CreatePartial()
@@ -33,7 +44,7 @@ namespace Bionet4.Admin.Controllers
 
         public override Func<Article, bool> GetWhere(string f)
         {
-            Dictionary<string, string> filters = f.Split(';').Select(x => new KeyValuePair<string, string>(x.Split('=')[0], x.Split('=')[1])).ToDictionary(x => x.Key, x => x.Value);
+            //Dictionary<string, string> filters = f.Split(';').Select(x => new KeyValuePair<string, string>(x.Split('=')[0], x.Split('=')[1])).ToDictionary(x => x.Key, x => x.Value);
 
 
             return new Func<Article, bool>(x => true);

@@ -38,6 +38,7 @@ namespace Bionet4.Data.Models
 
         [UIHint("MultilineText")]
         [Column(TypeName = "ntext")]
+        [Rtf]
         public string Description { get; set; }
 
         [IncludeList("Image")]

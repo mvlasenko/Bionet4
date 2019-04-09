@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\RtfAttribute.cs" />
     <Compile Include="Attributes\IncludeListAttribute.cs" />
     <Compile Include="Common\PagedCollection.cs" />
     <Compile Include="Contracts\IAgentsRepository.cs" />

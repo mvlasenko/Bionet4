@@ -59,6 +59,7 @@ namespace Bionet4.Admin.Controllers
         public virtual ActionResult Create()
         {
             T model = new T();
+            ViewBag.RtfFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is RtfAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name }).ToList();
             return View("New", model);
         }
 
@@ -115,6 +116,7 @@ namespace Bionet4.Admin.Controllers
         public virtual ActionResult Update(TKey id)
         {
             dynamic model = this.LoadModel(id);
+            ViewBag.RtfFields = typeof(T).GetProperties().Where(prop => prop.GetCustomAttributes().Any(x => x is RtfAttribute)).Select(prop => new ViewModels.FieldInfo { Name = prop.Name }).ToList();
             return ObjectOr404("Edit", model);
         }
 

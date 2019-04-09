@@ -1,0 +1,73 @@
+﻿@using Bionet4.Data.Properties
+@using Bionet4.Admin.Helpers
+
+@{
+    var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"].ToString();
+
+    ViewBag.Title = controller;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@controller</h2>
+
+<h4 class="modal-title" id="myModalLabel">@Resources.Create</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="modal-body">
+        @Html.EditorForModel()
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">@Resources.Save</button>
+    </div>
+}
+
+@section scripts {
+
+    @Styles.Render("~/Content/datetimepicker")
+    @Scripts.Render("~/bundles/datetimepicker")
+
+    @Styles.Render("~/Content/dropzone")
+    @Scripts.Render("~/bundles/dropzone")
+
+    @Styles.Render("~/Content/jQuery-File-Upload")
+    @Scripts.Render("~/bundles/jQuery-File-Upload")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @Scripts.Render("~/bundles/ckeditor")
+
+    <script type="text/javascript">
+
+        function InitDatePicker() {
+
+            $('.datetimepicker').datetimepicker({
+                format: '@UIHelper.GetDateTimeFormat()'
+            });
+
+            $('.datepicker').datetimepicker({
+                format: '@UIHelper.GetDateFormat()'
+            });
+        }
+
+        function InitCkEditor() {
+
+            @foreach (Bionet4.Admin.ViewModels.FieldInfo prop in ViewBag.RtfFields)
+            {
+                <text>
+                CKEDITOR.replace('@prop.Name');
+                </text>
+            }
+        }
+
+        $(document).ready(function () {
+
+            InitDatePicker();
+            InitCkEditor();
+        });
+
+    </script>
+}

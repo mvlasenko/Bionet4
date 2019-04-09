@@ -21,13 +21,17 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Price);
 
+            this.Property(t => t.PriceNew);
+
             this.Property(t => t.Code).HasMaxLength(10);
 
             this.Property(t => t.Unit);
 
-            this.Property(t => t.ParentProductId);
-
             this.Property(t => t.CategoryId);
+
+            this.Property(t => t.New);
+
+            this.Property(t => t.Bestseller);
 
             this.Property(t => t.CreatedDateTime).IsRequired();
 
@@ -42,10 +46,12 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.ShortDescription).HasColumnName("ShortDescription");
             this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.Price).HasColumnName("Price");
+            this.Property(t => t.PriceNew).HasColumnName("PriceNew");
             this.Property(t => t.Code).HasColumnName("Code");
             this.Property(t => t.Unit).HasColumnName("Unit");
-            this.Property(t => t.ParentProductId).HasColumnName("ParentProductId");
             this.Property(t => t.CategoryId).HasColumnName("CategoryId");
+            this.Property(t => t.New).HasColumnName("New");
+            this.Property(t => t.Bestseller).HasColumnName("Bestseller");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
             this.Property(t => t.SeqID).HasColumnName("SeqID");
 

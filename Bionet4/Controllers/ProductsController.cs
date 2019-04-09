@@ -35,7 +35,7 @@ namespace Bionet4.Controllers
             }
 
             //todo: aggregete count
-            model.ProductsBest = products.Take(2).ToList();
+            model.ProductsBest = products.Where(x => x.Bestseller == true).ToList();
 
             model.IndexMax = products.Count;
             model.IndexCurrent = id != null && id > 1 ? id.Value : 1;

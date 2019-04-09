@@ -110,6 +110,13 @@
 
         $('.edit-item').unbind();
         $('.edit-item').click(function() {
+            var url = "@Url.Content("~/")@controller/Update";
+            var id = $(this).attr('data-id');
+            window.open(url + '/' + id);
+        });
+
+        @*$('.edit-item').unbind();
+        $('.edit-item').click(function() {
             var url = "@Url.Content("~/")@controller/UpdatePartial";
             var id = $(this).attr('data-id');
             $.get(url + '/' + id, function(data) {
@@ -123,9 +130,15 @@
                 RefreshParagraphs();
                 RefreshAlbumDetails();
             });
-        });
+        });*@
 
         $('.create-item').unbind();
+        $('.create-item').click(function() {
+            var url = "@Url.Content("~/")@controller/Create";
+            window.open(url);
+        });
+
+        @*$('.create-item').unbind();
         $('.create-item').click(function() {
             var url = "@Url.Content("~/")@controller/CreatePartial";
             $.get(url, function(data) {
@@ -137,7 +150,7 @@
                 AddAsterisk();
                 InitDatePicker();
             });
-        });
+        });*@
 
         $('.delete-item').unbind();
         $('.delete-item').click(function () {

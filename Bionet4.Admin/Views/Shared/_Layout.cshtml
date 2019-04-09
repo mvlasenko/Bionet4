@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - @Resources.AppName</title>
     @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", false)
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -28,23 +33,23 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>@Html.ActionLink(Resources.Agents, "Index", "Agents")</li>
+                            @*<li>@Html.ActionLink(Resources.Agents, "Index", "Agents")</li>
                             <li>@Html.ActionLink(Resources.Albums, "Index", "Albums")</li>
-                            <li>@Html.ActionLink(Resources.Applications, "Index", "Applications")</li>
+                            <li>@Html.ActionLink(Resources.Applications, "Index", "Applications")</li>*@
                             <li>@Html.ActionLink(Resources.Article, "Index", "Article")</li>
-                            <li>@Html.ActionLink(Resources.Events, "Index", "Events")</li>
+                            @*<li>@Html.ActionLink(Resources.Events, "Index", "Events")</li>
                             <li>@Html.ActionLink(Resources.FAQ, "Index", "FAQ")</li>
                             <li>@Html.ActionLink(Resources.Ingredients, "Index", "Ingredients")</li>
-                            <li>@Html.ActionLink(Resources.OrderItems, "Index", "OrderItems")</li>
+                            <li>@Html.ActionLink(Resources.OrderItems, "Index", "OrderItems")</li>*@
                             <li>@Html.ActionLink(Resources.Orders, "Index", "Orders")</li>
                             <li>@Html.ActionLink(Resources.Categories, "Index", "Categories")</li>
                             <li>@Html.ActionLink(Resources.Products, "Index", "Products")</li>
-                            <li>@Html.ActionLink(Resources.ProductsForOrder, "Index", "ProductsForOrder")</li>
+                            @*<li>@Html.ActionLink(Resources.ProductsForOrder, "Index", "ProductsForOrder")</li>*@
                             <li>@Html.ActionLink(Resources.Rajons, "Index", "Rajons")</li>
                             <li>@Html.ActionLink(Resources.Regions, "Index", "Regions")</li>
                             <li>@Html.ActionLink(Resources.Countries, "Index", "Countries")</li>
                             <li>@Html.ActionLink(Resources.Variables, "Index", "Variables")</li>
-                            <li>@Html.ActionLink(Resources.Videos, "Index", "Videos")</li>
+                            @*<li>@Html.ActionLink(Resources.Videos, "Index", "Videos")</li>*@
                             <li>@Html.ActionLink(Resources.MailTemplates, "Index", "MailTemplates")</li>
                         </ul>
                     </li>
@@ -60,11 +65,6 @@
             <p>&copy; @DateTime.Now.Year - @Resources.AppName</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-
-    @RenderSection("scripts", false)
 
 </body>
 </html>

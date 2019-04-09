@@ -39,14 +39,14 @@ function display(view) {
         $('.products-block  .product-block').each(function(index, element) {
             $(element).parent().addClass("col-fullwidth");
         });     
-        $('.display').html('<span><b>Display:</b></span><a class="btn-small btn-pad" onclick="display(\'grid\');"><i class="fa fa-th"></i></a><a class="list btn-small btn-color btn-pad active"><i class="fa fa-th-list"></i></a>');
+        $('.display').html('<a class="btn-small btn-pad" onclick="display(\'grid\');"><i class="fa fa-th"></i></a><a class="list btn-small btn-color btn-pad active"><i class="fa fa-th-list"></i></a>');
         $.totalStorage('display', 'list'); 
     } else {
         $('.product-list').attr('class', 'product-grid');
         $('.products-block  .product-block').each(function(index, element) {
             $(element).parent().removeClass("col-fullwidth");  
         }); 
-        $('.display').html('<span><b>Display:</b></span><a class="btn-small btn-color btn-pad active"><i class="fa fa-th"></i></a><a class="list btn-small btn-pad" onclick="display(\'list\');"><i class="fa fa-th-list"></i></a>');
+        $('.display').html('<a class="btn-small btn-color btn-pad active"><i class="fa fa-th"></i></a><a class="list btn-small btn-pad" onclick="display(\'list\');"><i class="fa fa-th-list"></i></a>');
         $.totalStorage('display', 'grid');
     }
 }

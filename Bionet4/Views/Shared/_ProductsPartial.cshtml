@@ -20,20 +20,18 @@
                 </div>
                 <!-- /Category Widget End -->
 
-                @if (Model.Products.Count >= 15)
-                {
                 <!-- Best Seller Start -->
                 <div class="widget">
-                    <h3 class="title">Best Seller</h3>
+                    <h3 class="title">@Resources.BestSeller</h3>
 
                     @foreach (Product product in Model.ProductsBest)
                     {
                         <!-- Product Items -->
                         <div class="product-block">
                             <div class="image ">
-                                <span class="product-label product-label-special">
+                                <!--span class="product-label product-label-special">
                                     <span>NEW</span>
-                                </span>
+                                </span-->
                                 <!-- Swap image -->
                                 <div class="flip">
                                     <a href="/Products/Product/@product.Id" class="swap-image">
@@ -47,13 +45,28 @@
                                 <div class="left">
                                     <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
                                     <div class="price">
-                                        <span class="price-old">@(product.Price * 1.1m)</span>
-                                        <span class="price-new">@product.Price</span>
+                                        @if (product.Price != null && product.PriceNew != null)
+                                        {
+                                            <span class="price-old">@product.Price</span>
+                                            <span class="price-new">@product.PriceNew</span>
+                                        }
+                                        else if (product.Price != null)
+                                        {
+                                            <span class="price-new">@product.Price</span>
+                                        }
+                                        else if (product.PriceNew != null)
+                                        {
+                                            <span class="price-new">@product.PriceNew</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="price-new">&nbsp;</span>
+                                        }
                                     </div>
                                 </div>
                                 <div class="right">
                                     <div class="rating">
-                                        <img src="/img/shop/stars-5.png" alt="Based on 1 reviews.">
+                                        <!--img src="/img/shop/stars-5.png" alt="Based on 1 reviews."-->
                                     </div>
                                 </div>
                             </div>
@@ -63,7 +76,6 @@
                     }
                 </div>
                 <!-- Best Seller End -->
-                }
 
             </div>
             <!-- /Sidebar End -->
@@ -72,18 +84,17 @@
                 <div class="row">
                     <div class="col-lg-7 col-md-6 col-sm-6 col-xs-12">
                         <div class="display">
-                            <span><b>Display:</b></span>
                             <a class="active btn-small btn-color btn-pad"><i class="fa fa-th"></i></a>
                             <a class="list btn-small btn-pad" onclick="display(&#39;list&#39;);"><i class="fa fa-th-list"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6 col-sm-6 col-xs-12 pull-right">
-                        <div class="input-group">
+                        <!--div class="input-group">
                             <input type="text" value="Search Products" onfocus="if(this.value=='Search Products')this.value='';" onblur="if(this.value=='')this.value='Search Products';" class="search-input form-control product-search-height">
                             <span class="input-group-btn">
                                 <button type="submit" class="subscribe-btn btn product-search-height"><i class="fa fa-search"></i></button>
                             </span>
-                        </div>
+                        </div-->
                         <!-- /Product Search  -->
                     </div>
                 </div>
@@ -105,9 +116,12 @@
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 product-cols @(i == 0 ? " first" : "")@(i == 2 ? " last" : "")">
                                             <div class="product-block">
                                                 <div class="image ">
-                                                    <span class="product-label product-label-special">
-                                                        <span>NEW</span>
-                                                    </span>
+                                                    @if (product.New == true)
+                                                    {
+                                                        <span class="product-label product-label-special">
+                                                            <span>NEW</span>
+                                                        </span>
+                                                    }
                                                     <!-- Swap image -->
                                                     <div class="flip">
                                                         <a href="/Products/Product/@product.Id" class="swap-image">
@@ -121,13 +135,28 @@
                                                     <div class="left">
                                                         <h3 class="name"><a href="/Products/Product/@product.Id">@product.Name</a></h3>
                                                         <div class="price">
-                                                            <span class="price-old">@(product.Price * 1.1m)</span>
-                                                            <span class="price-new">@product.Price</span>
+                                                            @if (product.Price != null && product.PriceNew != null)
+                                                            {
+                                                                <span class="price-old">@product.Price</span>
+                                                                <span class="price-new">@product.PriceNew</span>
+                                                            }
+                                                            else if (product.Price != null)
+                                                            {
+                                                                <span class="price-new">@product.Price</span>
+                                                            }
+                                                            else if (product.PriceNew != null)
+                                                            {
+                                                                <span class="price-new">@product.PriceNew</span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <span class="price-new">&nbsp;</span>
+                                                            }
                                                         </div>
                                                     </div>
                                                     <div class="right">
                                                         <div class="rating">
-                                                            <img src="/img/shop/stars-5.png" alt="Based on 1 reviews.">
+                                                            <!--img src="/img/shop/stars-5.png" alt="Based on 1 reviews."-->
                                                         </div>
                                                         <p class="description">
                                                             @product.Description
@@ -137,10 +166,10 @@
                                                                 <!-- <input type="button" value="" onclick="addToCart('');" class="product-icon fa fa-shopping-cart shopping-cart" /> -->
                                                                 <button class="btn btn-shopping-cart">
                                                                     <span class="fa fa-shopping-cart product-icon hidden-sm">&nbsp;</span>
-                                                                    <span>Add to Cart</span>
+                                                                    <span>@Resources.AddToCart</span>
                                                                 </button>
                                                             </div>
-                                                            <div class="button-group">
+                                                            <!--div class="button-group">
                                                                 <div class="wishlist">
                                                                     <a title="Add to Wish List" class="fa fa-heart product-icon">
                                                                         <span>Add to Wish List</span>
@@ -151,7 +180,7 @@
                                                                         <span>Add to Compare</span>
                                                                     </a>
                                                                 </div>
-                                                            </div>
+                                                            </div -->
                                                         </div>
                                                     </div>
                                                 </div>

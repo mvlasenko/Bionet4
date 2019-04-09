@@ -31,10 +31,6 @@ namespace Bionet4.Data.Models
         [UIHint("_Image")]
         public string ImageID { get; set; }
 
-        [Display(Name = "Parent Category")]
-        [UIHint("_Category")]
-        public int? ParentCategoryId { get; set; }
-
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]
         public int? SeqID { get; set; }
