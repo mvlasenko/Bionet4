@@ -48,7 +48,7 @@
                     <!-- /Review Box -->
                     <!-- Product Details -->
                     <div class="product-details">
-                        <p class="short-description">@Model.Description</p>
+                        @Html.Raw(Model.Description)
 
                         @if (Model.PriceNew != null)
                         {

@@ -12,9 +12,16 @@
 
 <h4 class="modal-title" id="myModalLabel">@Resources.Create</h4>
 
-@using (Html.BeginForm())
+@using (Ajax.BeginForm("CreatePartial", null,
+    new AjaxOptions
+    {
+        InsertionMode = InsertionMode.Replace,
+        HttpMethod = "POST",
+        UpdateTargetId = "form-content",
+        OnSuccess = "window.close();"
+    },
+    new { @id = "frmMain" }))
 {
-    @Html.AntiForgeryToken()
 
     <div class="modal-body">
         @Html.EditorForModel()
@@ -23,6 +30,8 @@
     <div class="modal-footer">
         <button type="submit" class="btn btn-primary">@Resources.Save</button>
     </div>
+
+    <div id="form-content"></div>
 }
 
 @section scripts {

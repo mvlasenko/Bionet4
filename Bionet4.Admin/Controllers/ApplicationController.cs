@@ -71,7 +71,7 @@ namespace Bionet4.Admin.Controllers
                 try
                 {
                     entity = repository.Insert(entity);
-                    return RedirectToDefaultUrl(entity);
+                    return Json(new { success = true });
                 }
                 catch (Exception ex)
                 {
@@ -120,7 +120,7 @@ namespace Bionet4.Admin.Controllers
             return ObjectOr404("Edit", model);
         }
 
-        [HttpPut, ValidateInput(false)]
+        [HttpPost, ValidateInput(false)]
         public virtual ActionResult Update(TKey id, T entity)
         {
             if (ModelState.IsValid)
@@ -128,7 +128,7 @@ namespace Bionet4.Admin.Controllers
                 try
                 {
                     entity = repository.Update(entity);
-                    return RedirectToDefaultUrl(entity);
+                    return Json(new { success = true });
                 }
                 catch (Exception ex)
                 {
@@ -180,7 +180,7 @@ namespace Bionet4.Admin.Controllers
                 throw;
             }
 
-            return RedirectToCollectionUrl();
+            return Json(new { success = true });
         }
 
         [HttpGet, ValidateInput(false)]
@@ -280,19 +280,9 @@ namespace Bionet4.Admin.Controllers
             return repository.GetById(id);
         }
 
-        protected virtual RedirectToRouteResult RedirectToCollectionUrl()
-        {
-            return RedirectToAction("Index");
-        }
-
         protected virtual RedirectToRouteResult RedirectToResourceUrl(T resource)
         {
             return RedirectToAction("Show", new { @id = resource.Id });
-        }
-
-        protected virtual RedirectToRouteResult RedirectToDefaultUrl(T resource)
-        {
-            return RedirectToCollectionUrl();
         }
 
         protected virtual ActionResult ObjectOr404(object entity)

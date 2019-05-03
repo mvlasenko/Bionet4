@@ -516,6 +516,7 @@
     <Content Include="Views\Albums\_EditPartial.cshtml" />
     <Content Include="Views\Shared\Edit.cshtml" />
     <Content Include="Views\Shared\New.cshtml" />
+    <Content Include="Views\Article\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

@@ -1,0 +1,30 @@
+﻿@using Bionet4.Data.Models
+@model ICollection<Article>
+
+<!-- Main Content -->
+<div class="content-about margin-top60">
+    <div class="container">
+        <div class="row padding-top40">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                @foreach (Article item in Model)
+                {
+                <div class="content-box-about ch-item">
+                    <div class="content-box-about-icon">
+                        <div class="ch-info">
+                            <div class="ch-info-front ch-img-1"><i class="fa fa-calendar"></i></div>
+                            <div class="ch-info-back">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-box-about-info">
+                        <h3>@item.Name</h3>
+                        @Html.Raw(item.Description)
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Main Content -->

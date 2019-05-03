@@ -1,6 +1,4 @@
-﻿@using Bionet4.Properties
-@using Bionet4.ViewModels
-@using Bionet4.Data.Models
+﻿@using Bionet4.Data.Models
 @model Article
 
 <!-- Main Content-->
@@ -15,9 +13,7 @@
             <!-- welcome Section -->
             <div class="welcome col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <h2>@Model.Name</h2>
-                <p>
-                    @Model.Description
-                </p>
+                @Html.Raw(Model.Description)
                 @foreach (Paragraph paragraph in Model.Paragraphs)
                 {
                 <div class="content-box-about ch-item">
