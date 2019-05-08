@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
-using Bionet4.Models;
-using Bionet4.Properties;
 using MvcSiteMapProvider;
 using MvcSiteMapProvider.Web.Html;
 
@@ -51,7 +49,11 @@ namespace Bionet4.Helpers
             {
                 if (item.ChildNodes != null && item.ChildNodes.Count > 0)
                 {
-                    string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                    string url = item.Url;
+                    if (item.Controller == "Articles" && item.Action == "Article")
+                    {
+                        url = "/Articles/Article/" + item.Key;
+                    }
 
                     sb.Append("<li>");
 
@@ -76,7 +78,11 @@ namespace Bionet4.Helpers
                 }
                 else
                 {
-                    string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                    string url = item.Url;
+                    if (item.Controller == "Articles" && item.Action == "Article")
+                    {
+                        url = "/Articles/Article/" + item.Key;
+                    }
 
                     sb.AppendFormat("<li><a href=\"{0}\" class=\"sf-with-ul\">{1}</a></li>", url, item.Title);
                 }
@@ -89,7 +95,12 @@ namespace Bionet4.Helpers
             {
                 if (item.ChildNodes != null && item.ChildNodes.Count > 0)
                 {
-                    string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                    string url = item.Url;
+                    if (item.Controller == "Articles" && item.Action == "Article")
+                    {
+                        url = "/Articles/Article/" + item.Key;
+                    }
+
                     sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
 
                     foreach (ISiteMapNode childItem in item.ChildNodes)
@@ -99,7 +110,12 @@ namespace Bionet4.Helpers
                 }
                 else
                 {
-                    string url = item.Controller == "Articles" && item.Action == "Article" ? "/Articles/Article/" + item.Key : item.Url;
+                    string url = item.Url;
+                    if (item.Controller == "Articles" && item.Action == "Article")
+                    {
+                        url = "/Articles/Article/" + item.Key;
+                    }
+
                     sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
                 }
             }
@@ -124,9 +140,10 @@ namespace Bionet4.Helpers
             StringBuilder sb = new StringBuilder();
             sb.Append("<ul>");
 
+            sb.AppendFormat("<li>{0}</li>", "&nbsp;");
+
             ISiteMapNode current = helper.SiteMap.CurrentNode;
 
-            //fix products paging
             if (current == null)
             {
                 var controller = HttpContext.Current.Request.RequestContext.RouteData.Values["controller"];
@@ -173,16 +190,27 @@ namespace Bionet4.Helpers
             var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
             var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
 
-            //articles
-            if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
+            ISiteMapNode current = helper.SiteMap.CurrentNode;
+            if (current == null)
             {
-                return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
-            }
+                //articles
+                if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
+                {
+                    return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
+                }
 
-            //products
-            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
-            {
-                return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
+                //products
+                if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
+                {
+                    IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
+                    Product product = repository.GetById(int.Parse(id.ToString()));
+
+                    ISiteMapNode parentCategoryNode = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Url == "/Products/Index?category=" + product.CategoryId);
+                    if (parentCategoryNode != null)
+                        return parentCategoryNode;
+
+                    return helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Key != id.ToString());
+                }
             }
 
             return null;
@@ -198,27 +226,30 @@ namespace Bionet4.Helpers
             var action = HttpContext.Current.Request.RequestContext.RouteData.Values["action"];
             var id = HttpContext.Current.Request.RequestContext.RouteData.Values["id"];
 
-            //articles
-            if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
+            if (current == null)
             {
-                IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
-                Article article = repository.GetById(int.Parse(id.ToString()));
-                return article.Name;
-            }
+                //articles
+                if (controller != null && controller.ToString() == "Articles" && action != null && action.ToString() == "Article" && id != null && id.ToString() != string.Empty)
+                {
+                    IArticleRepository repository = DependencyResolver.Current.GetService<IArticleRepository>();
+                    Article article = repository.GetById(int.Parse(id.ToString()));
+                    return article.Name;
+                }
 
-            //products
-            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
-            {
-                IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
-                Product product = repository.GetById(int.Parse(id.ToString()));
-                return product.Name;
-            }
+                //products
+                if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Product" && id != null && id.ToString() != string.Empty)
+                {
+                    IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
+                    Product product = repository.GetById(int.Parse(id.ToString()));
+                    return product.Name;
+                }
 
-            //products paging
-            if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Index")
-            {
-                current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Action == action.ToString());
-                return current.Title;
+                //products paging
+                if (controller != null && controller.ToString() == "Products" && action != null && action.ToString() == "Index")
+                {
+                    current = helper.SiteMap.GetDescendants(helper.SiteMap.RootNode).FirstOrDefault(v => v.Controller == controller.ToString() && v.Action == action.ToString());
+                    return current.Title;
+                }
             }
 
             return string.Empty;

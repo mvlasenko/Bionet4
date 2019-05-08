@@ -52,11 +52,11 @@
 
                         @if (Model.PriceNew != null)
                         {
-                            <p><b>@Resources.Price :</b> @Model.PriceNew</p>
+                            <p><b>@Resources.Price :</b> @Model.PriceNew @Resources.Currency</p>
                         }
                         else if (Model.Price != null)
                         {
-                            <p><b>@Resources.Price :</b> @Model.Price</p>
+                            <p><b>@Resources.Price :</b> @Model.Price @Resources.Currency</p>
                         }
                         
                     </div>

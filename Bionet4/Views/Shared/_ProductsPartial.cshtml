@@ -10,7 +10,7 @@
             <div class="sidebar col-lg-4 col-md-4 col-sm-4 col-xs-12">
                 <!-- Category Widget Start -->
                 <div class="widget category">
-                    <h3 class="title">Categories</h3>
+                    <h3 class="title">@Resources.Categories</h3>
                     <ul class="category-list slide">
                         @foreach (Category category in Model.Categories)
                         {
@@ -19,6 +19,9 @@
                     </ul>
                 </div>
                 <!-- /Category Widget End -->
+
+                @if (Model.ProductsBest.Any())
+                {
 
                 <!-- Best Seller Start -->
                 <div class="widget">
@@ -39,7 +42,7 @@
                                     </a>
                                 </div>
                                 <!-- /Swap image -->
-                                <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
+                                <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>@Resources.ViewProduct</span></a>
                             </div>
                             <div class="product-meta">
                                 <div class="left">
@@ -47,16 +50,16 @@
                                     <div class="price">
                                         @if (product.Price != null && product.PriceNew != null)
                                         {
-                                            <span class="price-old">@product.Price</span>
-                                            <span class="price-new">@product.PriceNew</span>
+                                            <span class="price-old">@product.Price @Resources.Currency</span>
+                                            <span class="price-new">@product.PriceNew @Resources.Currency</span>
                                         }
                                         else if (product.Price != null)
                                         {
-                                            <span class="price-new">@product.Price</span>
+                                            <span class="price-new">@product.Price @Resources.Currency</span>
                                         }
                                         else if (product.PriceNew != null)
                                         {
-                                            <span class="price-new">@product.PriceNew</span>
+                                            <span class="price-new">@product.PriceNew @Resources.Currency</span>
                                         }
                                         else
                                         {
@@ -76,6 +79,8 @@
                     }
                 </div>
                 <!-- Best Seller End -->
+
+                }
 
             </div>
             <!-- /Sidebar End -->
@@ -129,7 +134,7 @@
                                                         </a>
                                                     </div>
                                                     <!-- /Swap image -->
-                                                    <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>View Product</span></a>
+                                                    <a href="/Products/Product/@product.Id" class="pav-colorbox btn btn-theme-default cboxElement"><em class="fa fa-plus"></em><span>@Resources.ViewProduct</span></a>
                                                 </div>
                                                 <div class="product-meta">
                                                     <div class="left">
@@ -137,16 +142,16 @@
                                                         <div class="price">
                                                             @if (product.Price != null && product.PriceNew != null)
                                                             {
-                                                                <span class="price-old">@product.Price</span>
-                                                                <span class="price-new">@product.PriceNew</span>
+                                                                <span class="price-old">@product.Price @Resources.Currency</span>
+                                                                <span class="price-new">@product.PriceNew @Resources.Currency</span>
                                                             }
                                                             else if (product.Price != null)
                                                             {
-                                                                <span class="price-new">@product.Price</span>
+                                                                <span class="price-new">@product.Price @Resources.Currency</span>
                                                             }
                                                             else if (product.PriceNew != null)
                                                             {
-                                                                <span class="price-new">@product.PriceNew</span>
+                                                                <span class="price-new">@product.PriceNew @Resources.Currency</span>
                                                             }
                                                             else
                                                             {

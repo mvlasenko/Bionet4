@@ -41,7 +41,10 @@ namespace Bionet4.Controllers
             model.IndexCurrent = id != null && id > 1 ? id.Value : 1;
 
             ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
-            model.Categories = categoriesRepository.GetList().ToList();
+            List<Category> allCategories = categoriesRepository.GetList().ToList();
+            List<int?> nonEmptyCategories = ((ProductsRepository)productsRepository).GetCategoriesNonEmpty();
+
+            model.Categories = allCategories.Where(c => nonEmptyCategories.Contains(c.Id)).ToList();
 
             return View(model);
         }

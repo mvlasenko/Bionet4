@@ -5,7 +5,10 @@
     
     <mvcSiteMapNode title="Главная" controller="Home" action="Index"/>
     <mvcSiteMapNode title="О нас" controller="Home" action="About"/>
-    <mvcSiteMapNode title="Продукция" controller="Products" action="Index"/>
+    <mvcSiteMapNode title="Продукция" controller="Products" action="Index">
+      <mvcSiteMapNode title="Диетические добавки" url="/Products/Index?category=1" />
+      <mvcSiteMapNode title="Приборы" url="/Products/Index?category=42" />
+    </mvcSiteMapNode>
     
     <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1" />
     
