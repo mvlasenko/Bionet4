@@ -12,7 +12,7 @@
     
     <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1" />
     
-    <mvcSiteMapNode title="Статьи" controller="Articles" action="All">
+    <mvcSiteMapNode title="Статьи" controller="Articles" action="Index">
       <mvcSiteMapNode title="О Бизнесе" controller="Articles" action="Business" />
       <mvcSiteMapNode title="О Продукции " controller="Articles" action="Products" />
     </mvcSiteMapNode>
@@ -21,6 +21,8 @@
       <mvcSiteMapNode title="Мои заказы" controller="Orders" action="Index" authorized="true"/>
       <mvcSiteMapNode title="Список желаний" controller="Wishes" action="Index" authorized="true"/>
     </mvcSiteMapNode>
+
+    <mvcSiteMapNode title="Корзина" controller="Orders" action="Cart" />
 
   </mvcSiteMapNode>
 

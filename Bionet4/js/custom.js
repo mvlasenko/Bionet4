@@ -721,3 +721,18 @@ $("#contact").submit(function (e) {
 
     return false;
 });
+
+
+
+/*----------------------------------------------------*/
+/*	Shopping cart
+/*----------------------------------------------------*/
+jQuery(document).ready(function () {
+
+    jQuery('.btn-shopping-cart').click(function () {
+
+        var product_id = jQuery(this).data("id");
+        alert(product_id);
+    });
+
+});

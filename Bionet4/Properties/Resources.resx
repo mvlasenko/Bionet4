@@ -189,4 +189,31 @@
   <data name="Currency" xml:space="preserve">
     <value>грн.</value>
   </data>
+  <data name="Cart" xml:space="preserve">
+    <value>Корзина</value>
+  </data>
+  <data name="CartIsEmpty" xml:space="preserve">
+    <value>Корзина пуста</value>
+  </data>
+  <data name="ProceedToCheckout" xml:space="preserve">
+    <value>Оформить заказ</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="Qty" xml:space="preserve">
+    <value>Количество</value>
+  </data>
+  <data name="Subtotal" xml:space="preserve">
+    <value>Сумма</value>
+  </data>
+  <data name="UnitPrice" xml:space="preserve">
+    <value>Цена за штуку</value>
+  </data>
+  <data name="UpdateShoppingCart" xml:space="preserve">
+    <value>Обновить список</value>
+  </data>
+  <data name="Articles" xml:space="preserve">
+    <value>статьи</value>
+  </data>
 </root>

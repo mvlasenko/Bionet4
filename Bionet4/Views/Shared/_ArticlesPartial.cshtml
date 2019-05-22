@@ -3,29 +3,53 @@
 @model ICollection<Article>
 
 <!-- Main Content -->
-<div class="content-about margin-top60">
+<div class="content margin-top60 margin-bottom60">
     <div class="container">
-        <div class="row padding-top40">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="row">
+
+            <!-- Blog Posts -->
+            <div class="posts-block col-lg-8 col-md-8 col-sm-8 col-xs-12">
+
                 @foreach (Article article in Model)
                 {
-                    <div class="content-box-about ch-item">
-                        <div class="content-box-about-icon">
-                            <div class="ch-info">
-                                <div class="ch-info-front ch-img-1"><i class="fa @article.FaIcon"></i></div>
-                                <div class="ch-info-back">
-                                    <i class="fa @article.FaIcon"></i>
+                <article class="post hentry">
+                    <header class="post-header">
+                        <h2>@article.Name</h2>
+                        <div class="blog-entry-meta">
+                            <div class="blog-entry-meta-date">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="blog-entry-meta-date-day">@((article.PublishDate ?? article.CreatedDateTime).Day)</span>
+                                <span class="blog-entry-meta-date-month">@((article.PublishDate ?? article.CreatedDateTime).ToString("MMM"))</span>
+                                <span class="blog-entry-meta-date-year">@((article.PublishDate ?? article.CreatedDateTime).Year)</span>
+                            </div>
+                            <div class="blog-entry-meta-author">
+                                <i class="fa fa-user"></i>
+                                <a href="#" class="blog-entry-meta-author">@article.Author</a>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="post-content">
+                        @Html.Raw(article.Description)
+                    </div>
+                    <footer class="post-footer">
+                        <a href="/Articles/Article/@article.Id" class="btn btn-color">@Resources.ReadMore</a>
+                    </footer>
+                </article>
+                <div class="star">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="star-divider">
+                                <div class="star-divider-icon">
+                                    <i class=" fa fa-star"></i>
                                 </div>
                             </div>
                         </div>
-                        <div class="content-box-about-info">
-                            <h3>@article.Name</h3>
-                            @Html.Raw(article.Description)
-                            <a href="/Articles/Article/@article.Id">@Resources.ReadMore <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i></a>
-                        </div>
                     </div>
+                </div>
                 }
+
             </div>
+            <!-- /Blog Posts -->
         </div>
     </div>
 </div>

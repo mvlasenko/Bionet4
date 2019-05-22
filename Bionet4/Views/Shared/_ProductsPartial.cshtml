@@ -163,13 +163,13 @@
                                                         <div class="rating">
                                                             <!--img src="/img/shop/stars-5.png" alt="Based on 1 reviews."-->
                                                         </div>
-                                                        <p class="description">
-                                                            @product.Description
-                                                        </p>
+                                                        <div class="description">
+                                                            @Html.Raw(product.Description)
+                                                        </div>
                                                         <div class="action">
                                                             <div class="cart">
                                                                 <!-- <input type="button" value="" onclick="addToCart('');" class="product-icon fa fa-shopping-cart shopping-cart" /> -->
-                                                                <button class="btn btn-shopping-cart">
+                                                                <button class="btn btn-shopping-cart" data-id="@product.Id">
                                                                     <span class="fa fa-shopping-cart product-icon hidden-sm">&nbsp;</span>
                                                                     <span>@Resources.AddToCart</span>
                                                                 </button>

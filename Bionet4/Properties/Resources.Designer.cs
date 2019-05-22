@@ -70,6 +70,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to статьи.
+        /// </summary>
+        public static string Articles {
+            get {
+                return ResourceManager.GetString("Articles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Бестселлеры.
         /// </summary>
         public static string BestSeller {
@@ -84,6 +93,24 @@ namespace Bionet4.Properties {
         public static string CallUs {
             get {
                 return ResourceManager.GetString("CallUs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Корзина.
+        /// </summary>
+        public static string Cart {
+            get {
+                return ResourceManager.GetString("Cart", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Корзина пуста.
+        /// </summary>
+        public static string CartIsEmpty {
+            get {
+                return ResourceManager.GetString("CartIsEmpty", resourceCulture);
             }
         }
         
@@ -241,6 +268,33 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Оформить заказ.
+        /// </summary>
+        public static string ProceedToCheckout {
+            get {
+                return ResourceManager.GetString("ProceedToCheckout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Название.
+        /// </summary>
+        public static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Количество.
+        /// </summary>
+        public static string Qty {
+            get {
+                return ResourceManager.GetString("Qty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Еще.
         /// </summary>
         public static string ReadMore {
@@ -264,6 +318,33 @@ namespace Bionet4.Properties {
         public static string reserved {
             get {
                 return ResourceManager.GetString("reserved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Сумма.
+        /// </summary>
+        public static string Subtotal {
+            get {
+                return ResourceManager.GetString("Subtotal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Цена за штуку.
+        /// </summary>
+        public static string UnitPrice {
+            get {
+                return ResourceManager.GetString("UnitPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Обновить список.
+        /// </summary>
+        public static string UpdateShoppingCart {
+            get {
+                return ResourceManager.GetString("UpdateShoppingCart", resourceCulture);
             }
         }
         

@@ -45,80 +45,87 @@ namespace Bionet4.Helpers
 
         private static void ProcessItem(ISiteMapNode item, StringBuilder sb)
         {
-            if (!item.Attributes.ContainsKey("authorized") || HttpContext.Current.User.IsInRole("agent"))
+            if (item.Action == "Cart")
+                return;
+
+            if (item.Attributes.ContainsKey("authorized") && !HttpContext.Current.User.IsInRole("agent"))
+                return;
+
+            if (item.ChildNodes != null && item.ChildNodes.Count > 0)
             {
-                if (item.ChildNodes != null && item.ChildNodes.Count > 0)
+                string url = item.Url;
+                if (item.Controller == "Articles" && item.Action == "Article")
                 {
-                    string url = item.Url;
-                    if (item.Controller == "Articles" && item.Action == "Article")
-                    {
-                        url = "/Articles/Article/" + item.Key;
-                    }
+                    url = "/Articles/Article/" + item.Key;
+                }
 
-                    sb.Append("<li>");
+                sb.Append("<li>");
 
-                    int level = item.GetNodeLevel();
-                    if (level < 2)
-                    {
-                        sb.AppendFormat("<a href=\"{0}\" class=\"sf-with-ul\">{1}<span class=\"sf-sub-indicator\"><i class=\"fa fa-angle-down\"></i></span></a>", url, item.Title);
-                    }
-                    else
-                    {
-                        sb.AppendFormat("<a href=\"{0}\" class=\"sf-with-ul\">{1}<span class=\"sf-sub-indicator pull-right\"><i class=\"fa fa-angle-right\"></i></span></a>", url, item.Title);
-                    }
-
-                    sb.Append("<ul>");
-                    foreach (ISiteMapNode childItem in item.ChildNodes)
-                    {
-                        ProcessItem(childItem, sb);
-                    }
-                    sb.Append("</ul>");
-
-                    sb.Append("</li>");
+                int level = item.GetNodeLevel();
+                if (level < 2)
+                {
+                    sb.AppendFormat("<a href=\"{0}\" class=\"sf-with-ul\">{1}<span class=\"sf-sub-indicator\"><i class=\"fa fa-angle-down\"></i></span></a>", url, item.Title);
                 }
                 else
                 {
-                    string url = item.Url;
-                    if (item.Controller == "Articles" && item.Action == "Article")
-                    {
-                        url = "/Articles/Article/" + item.Key;
-                    }
-
-                    sb.AppendFormat("<li><a href=\"{0}\" class=\"sf-with-ul\">{1}</a></li>", url, item.Title);
+                    sb.AppendFormat("<a href=\"{0}\" class=\"sf-with-ul\">{1}<span class=\"sf-sub-indicator pull-right\"><i class=\"fa fa-angle-right\"></i></span></a>", url, item.Title);
                 }
+
+                sb.Append("<ul>");
+                foreach (ISiteMapNode childItem in item.ChildNodes)
+                {
+                    ProcessItem(childItem, sb);
+                }
+                sb.Append("</ul>");
+
+                sb.Append("</li>");
+            }
+            else
+            {
+                string url = item.Url;
+                if (item.Controller == "Articles" && item.Action == "Article")
+                {
+                    url = "/Articles/Article/" + item.Key;
+                }
+
+                sb.AppendFormat("<li><a href=\"{0}\" class=\"sf-with-ul\">{1}</a></li>", url, item.Title);
             }
         }
 
         private static void ProcessItemFooter(ISiteMapNode item, StringBuilder sb)
         {
-            if (!item.Attributes.ContainsKey("authorized") || HttpContext.Current.User.IsInRole("agent"))
+            if (item.Action == "Cart")
+                return;
+
+            if (item.Attributes.ContainsKey("authorized") && !HttpContext.Current.User.IsInRole("agent"))
+                return;
+
+            if (item.ChildNodes != null && item.ChildNodes.Count > 0)
             {
-                if (item.ChildNodes != null && item.ChildNodes.Count > 0)
+                string url = item.Url;
+                if (item.Controller == "Articles" && item.Action == "Article")
                 {
-                    string url = item.Url;
-                    if (item.Controller == "Articles" && item.Action == "Article")
-                    {
-                        url = "/Articles/Article/" + item.Key;
-                    }
-
-                    sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
-
-                    foreach (ISiteMapNode childItem in item.ChildNodes)
-                    {
-                        ProcessItemFooter(childItem, sb);
-                    }
+                    url = "/Articles/Article/" + item.Key;
                 }
-                else
-                {
-                    string url = item.Url;
-                    if (item.Controller == "Articles" && item.Action == "Article")
-                    {
-                        url = "/Articles/Article/" + item.Key;
-                    }
 
-                    sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
+                sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
+
+                foreach (ISiteMapNode childItem in item.ChildNodes)
+                {
+                    ProcessItemFooter(childItem, sb);
                 }
             }
+            else
+            {
+                string url = item.Url;
+                if (item.Controller == "Articles" && item.Action == "Article")
+                {
+                    url = "/Articles/Article/" + item.Key;
+                }
+
+                sb.AppendFormat("<a href=\"{0}\">{1}</a> ", url, item.Title);
+            }
+
         }
 
         private static List<ISiteMapNode> GetBreadcrumbs(ISiteMapNode current)

@@ -20,17 +20,9 @@ namespace Bionet4.Controllers
             return View(model);
         }
 
-        public ActionResult All()
+        public ActionResult Index()
         {
-            ArticlesViewModel model = new ArticlesViewModel();
-
-            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.ArticlesAllIntro);
-            model.Articles = articlesRepository.GetList().OrderByDescending(x => x.PublishDate).ToList();
-            if (model.Intro == null)
-                model.Intro = model.Articles.FirstOrDefault();
-
-            return View(model);
+            return View();
         }
 
         public ActionResult Business()
@@ -38,10 +30,7 @@ namespace Bionet4.Controllers
             ArticlesViewModel model = new ArticlesViewModel();
 
             ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.ArticlesBusinessIntro);
             model.Articles = articlesRepository.GetListByType(ArticleType.Business).OrderByDescending(x => x.PublishDate).ToList();
-            if (model.Intro == null)
-                model.Intro = model.Articles.FirstOrDefault();
 
             return View(model);
         }
@@ -51,10 +40,7 @@ namespace Bionet4.Controllers
             ArticlesViewModel model = new ArticlesViewModel();
 
             ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.ArticlesProductsIntro);
             model.Articles = articlesRepository.GetListByType(ArticleType.Products).OrderByDescending(x => x.PublishDate).ToList();
-            if (model.Intro == null)
-                model.Intro = model.Articles.FirstOrDefault();
 
             return View(model);
         }

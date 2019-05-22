@@ -1,0 +1,90 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+@model OrderViewModel
+@{
+    ViewBag.Title = Resources.Cart;
+}
+
+<section id="main">
+    <!-- header -->
+    @Html.Partial("_HeaderPartial")
+    <!-- / header -->
+    <!-- Main Content -->
+    <div class="content margin-top60 margin-bottom60">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+
+                    @if (Model.OrderItems != null)
+                    {
+                    <div class="table-box">
+
+                        <h3>@Resources.Subtotal : </h3>
+
+                        <!-- shopping-cart-table -->
+                        <table class="shopping-cart-table responsive-table table table-bordered table-striped" id="shopping-cart-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th class="td-name">@Resources.ProductName</th>
+                                    <th class="td-price">@Resources.UnitPrice</th>
+                                    <th class="td-qty">@Resources.Qty</th>
+                                    <th class="td-total">@Resources.Subtotal</th>
+                                    <th class="td-remove"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach (OrderItemViewModel item in Model.OrderItems)
+                                {
+                                <tr>
+                                    <td class="td-images">
+                                        <a class="product-image" href="/Products/Product/@item.Product.Id">
+                                            <img width="70" title="@item.Product.Name" alt="" src="/Images/Image/@item.Product.ImageID?width=70">
+                                        </a>
+                                    </td>
+                                    <td class="td-name">
+                                        <a href="/Products/Product/@item.Product.Id">@item.Product.Name</a>
+                                    </td>
+                                    <td class="td-price">
+                                        <div class="price">@(item.Product.PriceNew ?? item.Product.Price) @Resources.Currency</div>
+                                    </td>
+                                    <td class="td-qty">
+                                        <input type="text" value="@item.Count" class="form-control">
+                                    </td>
+                                    <td class="td-total">
+                                        <div class="price">@((item.Product.PriceNew ?? item.Product.Price) * item.Count) @Resources.Currency</div>
+                                    </td>
+                                    <td class="td-remove">
+                                        <i class="fa fa-trash-o"></i>
+                                    </td>
+                                </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <!-- /shopping-cart-table -->
+                    </div>
+                    <table class="shopping-cart-table shopping-cart-table-button table">
+                        <tbody>
+                            <tr>
+                                <td class="action no-border">
+                                    <a class="btn btn-color" href="checkout.html">@Resources.ProceedToCheckout</a><br>
+                                </td>
+                                <td class="action no-border">
+                                    <a class="update btn btn-color pull-right" href="#"><i class="fa fa-rotate-right"></i> @Resources.UpdateShoppingCart</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    }
+                    else {
+                    <h3>@Resources.CartIsEmpty</h3>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Main Content -->
+</section>

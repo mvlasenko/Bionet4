@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
-using Bionet4.Data.Repository;
 using Bionet4.ViewModels;
 
 namespace Bionet4.Controllers
@@ -11,18 +11,26 @@ namespace Bionet4.Controllers
     public class OrdersController : Controller
     {
         [HttpGet, ValidateInput(false)]
-        public virtual ActionResult Create()
+        public virtual ActionResult Cart()
         {
             OrderViewModel model = new OrderViewModel();
 
-            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.OrderIntro);
+            HttpCookie cookieCart = Request.Cookies["Cart"];
+            if (cookieCart != null)
+            {
+                //string[] items = cookieCart.Values
 
-            IProductsForOrderRepository repository = DependencyResolver.Current.GetService<IProductsForOrderRepository>();
-            model.ProductsForOrder = repository.GetList().ToList();
 
-            return View("Create", model);
+            }
+
+            //IProductsForOrderRepository repository = DependencyResolver.Current.GetService<IProductsForOrderRepository>();
+            //model.ProductsForOrder = repository.GetList().ToList();
+
+            return View("Cart", model);
         }
+
+
+
 
         [HttpPost, ValidateInput(false)]
         public virtual ActionResult Create(OrderViewModel model)
@@ -31,7 +39,7 @@ namespace Bionet4.Controllers
             {
                 try
                 {
-                    if (model.ProductsForOrder.Any(x => x.Point != null && x.Point > 0))
+                    if (model.OrderItems.Any())
                     {
                         //insert order
                         IOrdersRepository ordersRepository = DependencyResolver.Current.GetService<IOrdersRepository>();
@@ -40,11 +48,11 @@ namespace Bionet4.Controllers
                         //todo: add user
                         Order order = ordersRepository.Insert(new Order { CreatedDateTime = DateTime.Now });
 
-                        foreach (ProductForOrder product in model.ProductsForOrder)
+                        foreach (OrderItemViewModel orderItem in model.OrderItems)
                         {
-                            if (product.Point != null && product.Point > 0)
+                            if (orderItem.Count > 0)
                             {
-                                orderItemsRepository.Insert(new OrderItem { OrderId = order.Id, ProductForOrderId = product.Id, ProductCount = (int)product.Point });
+                                orderItemsRepository.Insert(new OrderItem { OrderId = order.Id, ProductId = orderItem.Product.Id, ProductCount = orderItem.Count });
                             }
                         }
 
@@ -53,7 +61,6 @@ namespace Bionet4.Controllers
                 }
                 catch (Exception ex)
                 {
-                    //SiteLogger.Error("Exception occurred in {2}: {0}\r\n{1}", LoggingCategory.General, ex.Message, ex.StackTrace, this.GetType().Name);
                     throw;
                 }
             }
