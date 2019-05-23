@@ -1,0 +1,65 @@
+﻿@using Bionet4.Properties
+@using Bionet4.Data.Models
+@using Bionet4.Admin.Helpers
+@model ICollection<Article>
+
+<!-- Main Content -->
+<div class="content margin-top60 margin-bottom60">
+    <div class="container">
+
+        @for (int row = 0; row < Model.Count / 2 + 1; row++) {
+
+        <!-- Star -->
+        <div class="star">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="star-divider">
+                            <div class="star-divider-icon">
+                                <i class=" fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 2 Column Testimonials -->
+        <div class="row">
+
+            @for (int i = 0; i < 2; i++) {
+
+                int index = row * 2 + i;
+                if (index < Model.Count) {
+
+                Article article = ((List<Article>)Model)[index];
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="testimonial item">
+                    <p>
+                        @article.Description.StripTags()
+                    </p>
+                    
+                    <div class="testimonials-arrow">
+                    </div>
+                    @if(!string.IsNullOrEmpty(article.Author))
+                    {
+                    <div class="author">
+                        <div class="testimonial-image "><img alt="@article.Author" src="/Images/Image/@article.ImageID?width=200&height=200"></div>
+                        <div class="testimonial-author-info">
+                            <a href="#"><span class="color">@article.Author</span></a>
+                        </div>
+                    </div>
+                    }
+
+                </div>
+            </div>
+
+                }
+            }
+
+        </div>
+        }
+
+    </div>
+</div>
+<!-- /Main Content -->

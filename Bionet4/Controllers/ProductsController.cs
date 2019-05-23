@@ -14,9 +14,6 @@ namespace Bionet4.Controllers
         {
             ProductsViewModel model = new ProductsViewModel();
 
-            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.ProductsIntro);
-
             IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
             List<Product> products = productsRepository.GetList().ToList();
 

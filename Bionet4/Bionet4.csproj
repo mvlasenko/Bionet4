@@ -999,10 +999,13 @@
     <Content Include="Views\Articles\Article.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
     <Content Include="Views\Articles\Index.cshtml" />
-    <Content Include="Views\Shared\_ArticlesPartial.cshtml" />
+    <Content Include="Views\Shared\_PostsPartial.cshtml" />
     <Content Include="Views\Articles\Business.cshtml" />
     <Content Include="Views\Articles\Products.cshtml" />
     <Content Include="Views\Orders\Cart.cshtml" />
+    <Content Include="Views\Articles\Post.cshtml" />
+    <Content Include="Views\Shared\_PostPartial.cshtml" />
+    <Content Include="Views\Shared\_ReferencesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

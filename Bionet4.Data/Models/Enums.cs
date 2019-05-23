@@ -26,12 +26,6 @@
         About = 5,
         Quality = 6,
         Opportunities = 7,
-        IngredientsIntro = 8,
-        FaqIntro = 9,
-        EventsIntro = 10,
-        ProductsIntro = 11,
-        OrderIntro = 12,
-        AlbumsIntro = 13,
         Business = 17,
         Products = 18
     }

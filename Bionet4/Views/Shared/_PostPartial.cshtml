@@ -1,0 +1,48 @@
+﻿@using Bionet4.Properties
+@using Bionet4.Data.Models
+@model Article
+
+<!-- Main Content -->
+<div class="content margin-top60 margin-bottom60">
+    <div class="container">
+        <div class="row">
+            <div class="posts-block col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <article class="post hentry">
+                    <header class="post-header">
+                        <h2>@Model.Name</h2>
+                        <div class="blog-entry-meta">
+                            <div class="blog-entry-meta-date">
+                                <i class="fa fa-clock-o"></i>
+                                <span class="blog-entry-meta-date-day">@((Model.PublishDate ?? Model.CreatedDateTime).Day)</span>
+                                <span class="blog-entry-meta-date-month">@((Model.PublishDate ?? Model.CreatedDateTime).ToString("MMM"))</span>
+                                <span class="blog-entry-meta-date-year">@((Model.PublishDate ?? Model.CreatedDateTime).Year)</span>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Author))
+                            {
+                                <div class="blog-entry-meta-author">
+                                    <i class="fa fa-user"></i>
+                                    <a href="#" class="blog-entry-meta-author">@Model.Author</a>
+                                </div>
+                            }
+                        </div>
+                    </header>
+                    <div class="post-content">
+                        @Html.Raw(Model.Description)
+                    </div>
+                </article>
+                <div class="star">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="star-divider">
+                                <div class="star-divider-icon">
+                                    <i class=" fa fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Main Content -->

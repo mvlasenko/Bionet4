@@ -286,6 +286,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Товары.
+        /// </summary>
+        public static string Products {
+            get {
+                return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Количество.
         /// </summary>
         public static string Qty {

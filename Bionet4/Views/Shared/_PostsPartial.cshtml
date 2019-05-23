@@ -12,6 +12,7 @@
 
                 @foreach (Article article in Model)
                 {
+
                 <article class="post hentry">
                     <header class="post-header">
                         <h2>@article.Name</h2>
@@ -22,17 +23,20 @@
                                 <span class="blog-entry-meta-date-month">@((article.PublishDate ?? article.CreatedDateTime).ToString("MMM"))</span>
                                 <span class="blog-entry-meta-date-year">@((article.PublishDate ?? article.CreatedDateTime).Year)</span>
                             </div>
+                            @if (!string.IsNullOrEmpty(article.Author))
+                            {
                             <div class="blog-entry-meta-author">
                                 <i class="fa fa-user"></i>
                                 <a href="#" class="blog-entry-meta-author">@article.Author</a>
                             </div>
+                            }
                         </div>
                     </header>
                     <div class="post-content">
                         @Html.Raw(article.Description)
                     </div>
                     <footer class="post-footer">
-                        <a href="/Articles/Article/@article.Id" class="btn btn-color">@Resources.ReadMore</a>
+                        <a href="/Articles/Post/@article.Id" class="btn btn-color">@Resources.ReadMore</a>
                     </footer>
                 </article>
                 <div class="star">

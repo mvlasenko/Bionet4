@@ -1,8 +1,7 @@
 ﻿@using Bionet4.ViewModels
 @model IngredientsViewModel
 @{
-    ViewBag.Title = Model.Intro.Name;
-    ViewBag.Description = Model.Intro.Description;
+    ViewBag.Title = "Ingredients";
 }
 
 <section id="main">
@@ -10,7 +9,6 @@
     @Html.Partial("_HeaderPartial")
     <!-- / header -->
     <!-- Main Content -->
-    @Html.Partial("_IntroPartial", Model.Intro)
     @Html.Partial("_IngredientsPartial", Model.Ingredients)
     <!-- /Main Content -->
 </section>

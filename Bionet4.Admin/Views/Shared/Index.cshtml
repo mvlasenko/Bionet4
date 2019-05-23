@@ -276,7 +276,7 @@
 
                 $.each(col_data, function (idx, item) {
 
-                    var text = type == "DateTime" ? (new Date(parseInt(item.substr(6)))).toLocaleString() : item;
+                    var text = type == "DateTime" && item != null ? (new Date(parseInt(item.substr(6)))).toLocaleString() : item;
                     $("#" + id).append($("<option></option>")
                         .attr("value", item)
                         .text(text));

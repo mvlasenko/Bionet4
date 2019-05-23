@@ -13,9 +13,6 @@ namespace Bionet4.Controllers
         {
             AlbumsViewModel model = new AlbumsViewModel();
 
-            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
-            model.Intro = articlesRepository.GetByType(ArticleType.AlbumsIntro);
-
             AlbumsRepository albumsRepository = (AlbumsRepository)DependencyResolver.Current.GetService<IAlbumsRepository>();
             model.Albums = albumsRepository.GetListWithIncludes();
             foreach (Album album in model.Albums)

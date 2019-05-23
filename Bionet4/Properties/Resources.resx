@@ -216,4 +216,7 @@
   <data name="Articles" xml:space="preserve">
     <value>статьи</value>
   </data>
+  <data name="Products" xml:space="preserve">
+    <value>Товары</value>
+  </data>
 </root>
