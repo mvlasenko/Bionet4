@@ -1,0 +1,22 @@
+﻿@using Bionet4.Properties
+
+<!-- Cart Modal -->
+<div class="modal cart fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="cartModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="form-signin-heading modal-title" id="myModalLabel">@Resources.AddToCartQ</h2>
+            </div>
+            <form method="post" id="cart">
+                <div class="modal-body" id="cartModal-content">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@Resources.ContinueShopping</button>
+                    <button type="button" class="btn btn-color">@Resources.GoToCart</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- /Cart Modal -->

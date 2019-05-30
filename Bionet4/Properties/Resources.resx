@@ -219,4 +219,13 @@
   <data name="Products" xml:space="preserve">
     <value>Товары</value>
   </data>
+  <data name="AddToCartQ" xml:space="preserve">
+    <value>Добавить в корзину?</value>
+  </data>
+  <data name="ContinueShopping" xml:space="preserve">
+    <value>Продолжить покупки</value>
+  </data>
+  <data name="GoToCart" xml:space="preserve">
+    <value>Перейти в корзину</value>
+  </data>
 </root>

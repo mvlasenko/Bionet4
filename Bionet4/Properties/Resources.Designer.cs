@@ -70,6 +70,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Добавить в корзину?.
+        /// </summary>
+        public static string AddToCartQ {
+            get {
+                return ResourceManager.GetString("AddToCartQ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to статьи.
         /// </summary>
         public static string Articles {
@@ -187,11 +196,29 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Продолжить покупки.
+        /// </summary>
+        public static string ContinueShopping {
+            get {
+                return ResourceManager.GetString("ContinueShopping", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to грн..
         /// </summary>
         public static string Currency {
             get {
                 return ResourceManager.GetString("Currency", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Перейти в корзину.
+        /// </summary>
+        public static string GoToCart {
+            get {
+                return ResourceManager.GetString("GoToCart", resourceCulture);
             }
         }
         

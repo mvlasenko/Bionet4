@@ -24,7 +24,7 @@ namespace Bionet4.Controllers
 
             if (id != null && id > 1)
             {
-                model.Products = products.Skip((int)id * 15).Take(15).ToList();
+                model.Products = products.Skip((int)id * 15 - 15).Take(15).ToList();
             }
             else
             {
@@ -34,7 +34,7 @@ namespace Bionet4.Controllers
             //todo: aggregete count
             model.ProductsBest = products.Where(x => x.Bestseller == true).ToList();
 
-            model.IndexMax = products.Count;
+            model.IndexMax = products.Count / 15 + 1;
             model.IndexCurrent = id != null && id > 1 ? id.Value : 1;
 
             ICategoriesRepository categoriesRepository = DependencyResolver.Current.GetService<ICategoriesRepository>();
@@ -54,6 +54,14 @@ namespace Bionet4.Controllers
             model.Product = productsRepository.GetById(id);
 
             return View("Details", model);
+        }
+
+        public ActionResult AddCart(int id)
+        {
+            IProductsRepository productsRepository = DependencyResolver.Current.GetService<IProductsRepository>();
+            Product product = productsRepository.GetById(id);
+
+            return PartialView("_AddCartPartial", product);
         }
 
     }

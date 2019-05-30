@@ -24,9 +24,6 @@ namespace Bionet4
                 "~/css/bootstrap.css",
                 "~/css/style.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/product").Include(
-                "~/js/product.js"));
-
         }
     }
 }

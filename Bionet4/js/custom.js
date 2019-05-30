@@ -732,7 +732,12 @@ jQuery(document).ready(function () {
     jQuery('.btn-shopping-cart').click(function () {
 
         var product_id = jQuery(this).data("id");
-        alert(product_id);
+
+        var url = "/Products/AddCart/" + product_id;
+        $.get(url, function (data) {
+            $('#cartModal-content').html(data);
+            jQuery('#cartModal').modal('show');
+        });
     });
 
 });

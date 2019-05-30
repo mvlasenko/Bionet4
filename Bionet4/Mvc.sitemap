@@ -5,9 +5,15 @@
     
     <mvcSiteMapNode title="Главная" controller="Home" action="Index"/>
     <mvcSiteMapNode title="О нас" controller="Home" action="About"/>
+    
     <mvcSiteMapNode title="Продукция" controller="Products" action="Index">
       <mvcSiteMapNode title="Диетические добавки" url="/Products/Index?category=1" />
+      <mvcSiteMapNode title="Фитонапитки" url="/Products/Index?category=38" />
+      <mvcSiteMapNode title="Растительные настойки и сиропы" url="/Products/Index?category=39" />
+      <mvcSiteMapNode title="Косметика" url="/Products/Index?category=40" />
+      <mvcSiteMapNode title="Магнитотерапия" url="/Products/Index?category=41" />
       <mvcSiteMapNode title="Приборы" url="/Products/Index?category=42" />
+      <mvcSiteMapNode title="Бытовая химия" url="/Products/Index?category=43" />
     </mvcSiteMapNode>
     
     <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1" />

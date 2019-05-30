@@ -3,6 +3,10 @@
 @using Bionet4.ViewModels
 @model ProductsViewModel
 
+@{
+    var currentCategory = this.Request["category"];
+}
+
 <div class="content margin-top60 margin-bottom60">
     <div class="container">
         <div class="row">
@@ -168,7 +172,6 @@
                                                         </div>
                                                         <div class="action">
                                                             <div class="cart">
-                                                                <!-- <input type="button" value="" onclick="addToCart('');" class="product-icon fa fa-shopping-cart shopping-cart" /> -->
                                                                 <button class="btn btn-shopping-cart" data-id="@product.Id">
                                                                     <span class="fa fa-shopping-cart product-icon hidden-sm">&nbsp;</span>
                                                                     <span>@Resources.AddToCart</span>
@@ -202,21 +205,25 @@
                     </div>
                 </div>
                 <!-- .product-grid End-->
-                @if (Model.Products.Count >= 15)
-                {
+
                 <div class="row">
                     <div class="pagination-centered padding-bottom30">
                         <ul class="pagination">
 
-                            @if (Model.IndexCurrent > 5)
+                            @if (Model.IndexCurrent == 1)
                             {
-                                <li><a href="/Products">«</a></li>
-                            }
-                            else {
                                 <li class="disabled"><a href="#">«</a></li>
                             }
+                            else if (Model.IndexCurrent == 2)
+                            {
+                                <li><a href="/Products/Index@(string.IsNullOrEmpty(currentCategory) ? "" : "?category=" + currentCategory)">«</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/Products/Index/@(Model.IndexCurrent - 1)@(string.IsNullOrEmpty(currentCategory) ? "" : "?category=" + currentCategory)">«</a></li>
+                            }
 
-                            @for (int i = 1; i <= Model.IndexMax / 15; i++)
+                            @for (int i = 1; i <= Model.IndexMax; i++)
                             {
                                 if (i == Model.IndexCurrent)
                                 {
@@ -224,25 +231,26 @@
                                 }
                                 else if (i == 1)
                                 {
-                                    <li><a href="/Products">@i</a></li>
+                                    <li><a href="/Products/Index@(string.IsNullOrEmpty(currentCategory) ? "" : "?category=" + currentCategory)">@i</a></li>
                                 }
-                                else {
-                                    <li><a href="/Products/Index/@i">@i</a></li>
+                                else
+                                {
+                                    <li><a href="/Products/Index/@i@(string.IsNullOrEmpty(currentCategory) ? "" : "?category=" + currentCategory)">@i</a></li>
                                 }
                             }
 
-                            @if (Model.IndexCurrent < Model.IndexMax)
+                            @if (Model.IndexCurrent == Model.IndexMax)
                             {
-                                <li><a href="/Products/Index/@Model.IndexMax">»</a></li>
-                            }
-                            else {
                                 <li class="disabled"><a href="#">»</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="/Products/Index/@(Model.IndexCurrent + 1)@(string.IsNullOrEmpty(currentCategory) ? "" : "?category=" + currentCategory)">»</a></li>
                             }
 
                         </ul>
                     </div>
                 </div>
-                }
 
             </div>
             <!-- /Products End -->

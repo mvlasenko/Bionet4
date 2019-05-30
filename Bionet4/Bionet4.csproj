@@ -830,7 +830,6 @@
     <Content Include="js\modernizr.custom.04022.js" />
     <Content Include="js\npm.js" />
     <Content Include="js\portfolio.js" />
-    <Content Include="js\product.js" />
     <Content Include="js\respond.js" />
     <Content Include="js\respond.min.js" />
     <Content Include="js\revolution-slider\assets\arrowleft.png" />
@@ -1006,6 +1005,10 @@
     <Content Include="Views\Articles\Post.cshtml" />
     <Content Include="Views\Shared\_PostPartial.cshtml" />
     <Content Include="Views\Shared\_ReferencesPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginModalPartial.cshtml" />
+    <Content Include="Views\Shared\_RegistrationModalPartial.cshtml" />
+    <Content Include="Views\Shared\_CartModalPartial.cshtml" />
+    <Content Include="Views\Products\_AddCartPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

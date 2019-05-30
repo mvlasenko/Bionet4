@@ -369,7 +369,7 @@
                     }
                     else if(prop.TypeName == "DateTime")
                     {
-                        @Html.Raw("row += '<td>' + ((new Date(parseInt(item." + prop.Name + ".substr(6)))).toLocaleString()) + '</td>';\n");
+                        @Html.Raw("row += '<td>' + (item." + prop.Name + " != null ? (new Date(parseInt(item." + prop.Name + ".substr(6)))).toLocaleString() : '') + '</td>';\n");
                     }
                     else
                     {
