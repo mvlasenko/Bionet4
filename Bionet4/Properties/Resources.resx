@@ -220,7 +220,7 @@
     <value>Товары</value>
   </data>
   <data name="AddToCartQ" xml:space="preserve">
-    <value>Добавить в корзину?</value>
+    <value>Товар добавлен в корзину</value>
   </data>
   <data name="ContinueShopping" xml:space="preserve">
     <value>Продолжить покупки</value>

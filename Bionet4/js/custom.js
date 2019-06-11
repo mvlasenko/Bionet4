@@ -733,11 +733,35 @@ jQuery(document).ready(function () {
 
         var product_id = jQuery(this).data("id");
 
+        //add to cookies
+        var cart = getCookie('Cart');
+        setCookie('Cart', cart + '_' + product_id, 7);
+
+        console.log(cart);
+
         var url = "/Products/AddCart/" + product_id;
         $.get(url, function (data) {
             $('#cartModal-content').html(data);
             jQuery('#cartModal').modal('show');
         });
+    });
+
+    jQuery('.btn-update-cart').click(function () {
+
+        var total = 0;
+        jQuery('.order-item').each(function () {
+
+            var price = jQuery(this).find('.item-price').text();
+            var count = jQuery(this).find('.item-count').val();
+            var subtotal = price * count;
+
+            jQuery(this).find('.item-subtotal').text(subtotal.toFixed(2));
+
+            total = total + subtotal;
+        });
+
+        jQuery('.cart-total').text(total.toFixed(2));
+
     });
 
 });

@@ -18,19 +18,16 @@ namespace Bionet4.Controllers
             HttpCookie cookieCart = Request.Cookies["Cart"];
             if (cookieCart != null)
             {
-                //string[] items = cookieCart.Values
+                string[] ids = cookieCart.Value.Trim('_').Split('_').Distinct().ToArray();
 
-
+                IProductsRepository repository = DependencyResolver.Current.GetService<IProductsRepository>();
+                var products = repository.GetList().Where(x => ids.Contains(x.Id.ToString())).ToList();
+                model.OrderItems = products.Select(x => new OrderItemViewModel { Count = 1, Product = x }).ToList();
+                model.Total = model.OrderItems.Select(item => ((item.Product.PriceNew ?? item.Product.Price) * item.Count)).Sum();
             }
-
-            //IProductsForOrderRepository repository = DependencyResolver.Current.GetService<IProductsForOrderRepository>();
-            //model.ProductsForOrder = repository.GetList().ToList();
 
             return View("Cart", model);
         }
-
-
-
 
         [HttpPost, ValidateInput(false)]
         public virtual ActionResult Create(OrderViewModel model)

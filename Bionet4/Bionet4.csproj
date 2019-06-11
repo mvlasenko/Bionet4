@@ -800,6 +800,7 @@
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\coming-soon.js" />
+    <Content Include="js\Cookies.js" />
     <Content Include="js\custom.js" />
     <Content Include="js\fappear.js" />
     <Content Include="js\imagesloaded.pkgd.min.js" />

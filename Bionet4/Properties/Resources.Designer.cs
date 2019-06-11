@@ -70,7 +70,7 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Добавить в корзину?.
+        ///   Looks up a localized string similar to Товар добавлен в корзину.
         /// </summary>
         public static string AddToCartQ {
             get {
