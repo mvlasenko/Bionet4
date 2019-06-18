@@ -228,4 +228,67 @@
   <data name="GoToCart" xml:space="preserve">
     <value>Перейти в корзину</value>
   </data>
+  <data name="Close" xml:space="preserve">
+    <value>закрыть</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>пароль</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердите Пароль</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Реєстрація</value>
+  </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>Apartment</value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>BirthDate</value>
+  </data>
+  <data name="City" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CreateAccount" xml:space="preserve">
+    <value>Create Account</value>
+  </data>
+  <data name="Gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="HouseNumber" xml:space="preserve">
+    <value>HouseNumber</value>
+  </data>
+  <data name="HouseNumberAddition" xml:space="preserve">
+    <value>HouseNumberAddition</value>
+  </data>
+  <data name="PhoneHome" xml:space="preserve">
+    <value>PhoneHome</value>
+  </data>
+  <data name="PhoneMobile" xml:space="preserve">
+    <value>PhoneMobile</value>
+  </data>
+  <data name="Rajon" xml:space="preserve">
+    <value>Rajon</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Street</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Отзывы</value>
+  </data>
 </root>

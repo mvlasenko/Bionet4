@@ -45,6 +45,16 @@ namespace Bionet4.Controllers
             return View(model);
         }
 
+        public ActionResult Feedback()
+        {
+            ArticlesViewModel model = new ArticlesViewModel();
+
+            ArticleRepository articlesRepository = (ArticleRepository)DependencyResolver.Current.GetService<IArticleRepository>();
+            model.Articles = articlesRepository.GetListByType(ArticleType.Feedback).OrderByDescending(x => x.PublishDate).ToList();
+
+            return View(model);
+        }
+
         public ActionResult Post(int id)
         {
             ArticleViewModel model = new ArticleViewModel();

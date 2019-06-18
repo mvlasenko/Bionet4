@@ -1010,6 +1010,7 @@
     <Content Include="Views\Shared\_RegistrationModalPartial.cshtml" />
     <Content Include="Views\Shared\_CartModalPartial.cshtml" />
     <Content Include="Views\Products\_AddCartPartial.cshtml" />
+    <Content Include="Views\Articles\Feedback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

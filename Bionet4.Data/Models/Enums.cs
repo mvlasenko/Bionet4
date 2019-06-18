@@ -27,7 +27,8 @@
         Quality = 6,
         Opportunities = 7,
         Business = 17,
-        Products = 18
+        Products = 18,
+        Feedback = 19
     }
 
     public enum MailType

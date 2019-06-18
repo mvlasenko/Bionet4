@@ -86,6 +86,23 @@ namespace Bionet4.Controllers
             }
         }
 
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> LoginPartial(LoginViewModel model)
+        {
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
+            switch (result)
+            {
+                case SignInStatus.Success:
+                    return Json(new { success = "true" });
+                case SignInStatus.LockedOut:
+                    return View("Lockout");
+                default:
+                    ModelState.AddModelError("", "Invalid login attempt.");
+                    return View(model);
+            }
+        }
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -174,6 +191,48 @@ namespace Bionet4.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> RegisterPartial(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //fill applications table
+                IApplicationsRepository applicationsRepository = DependencyResolver.Current.GetService<IApplicationsRepository>();
+                Application application = applicationsRepository.Insert(new Application
+                {
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    MiddleName = model.MiddleName,
+                    Gender = model.Gender,
+                    BirthDate = model.BirthDate,
+                    CountryId = model.CountryId,
+                    RegionId = model.RegionId,
+                    RajonId = model.RajonId,
+                    CityType = 0,
+                    City = model.City,
+                    Street = model.Street,
+                    HouseNumber = model.HouseNumber,
+                    HouseNumberAddition = model.HouseNumberAddition,
+                    Apartment = model.Apartment,
+                    PhoneHome = model.PhoneHome,
+                    PhoneMobile = model.PhoneMobile
+                });
+
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneMobile, ApplicationId = application.Id };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return PartialView(model);
         }
 
         //

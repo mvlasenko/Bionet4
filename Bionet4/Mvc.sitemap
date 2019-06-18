@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <mvcSiteMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  
+
   <mvcSiteMapNode title="Главная" controller="Home" action="Index">
-    
+
     <mvcSiteMapNode title="Главная" controller="Home" action="Index"/>
     <mvcSiteMapNode title="О нас" controller="Home" action="About"/>
-    
+
     <mvcSiteMapNode title="Продукция" controller="Products" action="Index">
       <mvcSiteMapNode title="Диетические добавки" url="/Products/Index?category=1" />
       <mvcSiteMapNode title="Фитонапитки" url="/Products/Index?category=38" />
@@ -15,14 +15,14 @@
       <mvcSiteMapNode title="Приборы" url="/Products/Index?category=42" />
       <mvcSiteMapNode title="Бытовая химия" url="/Products/Index?category=43" />
     </mvcSiteMapNode>
-    
-    <mvcSiteMapNode title="Отзывы" controller="Articles" action="Article" key="1" />
-    
+
+    <mvcSiteMapNode title="Отзывы" controller="Articles" action="Feedback" />
+
     <mvcSiteMapNode title="Статьи" controller="Articles" action="Index">
       <mvcSiteMapNode title="О Бизнесе" controller="Articles" action="Business" />
       <mvcSiteMapNode title="О Продукции " controller="Articles" action="Products" />
     </mvcSiteMapNode>
-     
+
     <mvcSiteMapNode title="Мой кабинет" controller="Manage" action="Index" authorized="true">
       <mvcSiteMapNode title="Мои заказы" controller="Orders" action="Index" authorized="true"/>
       <mvcSiteMapNode title="Список желаний" controller="Wishes" action="Index" authorized="true"/>
