@@ -6,6 +6,10 @@ namespace Bionet4.ViewModels
     public class RegisterViewModel
     {
         [Required]
+        [Display(Name = "Registration Number")]
+        public string Code { get; set; }
+
+        [Required]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
@@ -16,7 +20,6 @@ namespace Bionet4.ViewModels
         [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
 
-        [Required]
         [UIHint("_Gender")]
         public int Gender { get; set; }
 
@@ -25,7 +28,6 @@ namespace Bionet4.ViewModels
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
         [Display(Name = "Phone Mobile")]
         public string PhoneMobile { get; set; }
 

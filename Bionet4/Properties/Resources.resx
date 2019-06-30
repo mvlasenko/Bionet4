@@ -291,4 +291,10 @@
   <data name="Feedback" xml:space="preserve">
     <value>Отзывы</value>
   </data>
+  <data name="Code" xml:space="preserve">
+    <value>Регистрационный номер</value>
+  </data>
+  <data name="Checkout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
 </root>

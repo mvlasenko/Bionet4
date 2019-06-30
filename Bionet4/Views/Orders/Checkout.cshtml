@@ -1,0 +1,311 @@
+﻿@using Bionet4.Properties
+@using Bionet4.ViewModels
+
+@{
+    ViewBag.Title = Resources.Checkout;
+}
+
+<!-- Main Section -->
+<section id="main">
+    <div class="breadcrumb-wrapper">
+        <div class="pattern-overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <h2 class="title">Checkout</h2>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                        <div class="breadcrumbs pull-right">
+                            <ul>
+                                <li>You are Now on:</li>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="shop.html">Shop</a></li>
+                                <li>Checkout</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="content margin-top60 margin-bottom60">
+        <div class="container">
+            <div class="row">
+                <!-- Content -->
+                <div class="content col-sm-9 col-md-9">
+                    <!-- check out steps -->
+                    <ul id="checkoutsteps" class="clearfix panel-group">
+                        <!-- Panel 1 -->
+                        <li class="panel">
+                            <a href="#step-1" class="step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">1</div>
+                                <h6>Checkout Method</h6>
+                            </a>
+                            <div id="step-1" class="collapse in">
+                                <div class="step-content">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 bottom-padding-mobile">
+                                            <h3 class="title">Checkout as a Guest or Register</h3>
+                                            <p>Register with us for future convenience:</p>
+                                            <div class="register-radio">
+                                                <label class="radio"><input type="radio" name="register"> Checkout as Guest</label>
+                                                <label class="radio"><input type="radio" name="register"> Register</label>
+                                            </div>
+                                            <p>Register and save time!<br> Register with us for future convenience:</p>
+                                            <div class="buttons-box clearfix">
+                                                <button type="button" class="btn btn-color ">Continue</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <h3 class="title">Login</h3>
+                                            <p>If you have an account with us, please log in.</p>
+                                            <form class="checkout-login">
+                                                <input class="form-control" placeholder="Email Adress" type="email">
+                                                <input class="last form-control" placeholder="Password" type="password">
+                                                <label class="checkbox">
+                                                    <input type="checkbox"> Remember password
+                                                </label>
+                                            </form>
+                                            <!-- /checkout-login -->
+                                            <div class="clearfix"></div>
+                                            <div class="buttons-box clearfix">
+                                                <button type="button" class="btn btn-color">Login</button>
+                                                <a href="#" class="forgot">Forgot Your Password?</a>
+                                                <span class="required"><b>*</b> All Fields Required</span>
+                                            </div>
+                                            <!-- /buttons-box -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 1 -->
+                        <!-- Panel 2 -->
+                        <li class="panel">
+                            <a href="#step-2" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">2</div>
+                                <h6>Billing Information</h6>
+                            </a>
+                            <div id="step-2" class="collapse">
+                                <div class="step-content">
+                                    <form class="row no-margin">
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="First Name" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Last Name" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Company" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Email Address" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Address" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="City" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Telephone" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Fax" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Password" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Confirm Password" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-12 buttons-box text-right">
+                                            <button type="button" class="btn btn-color">Continue</button>
+                                            <span class="required"><b>*</b> All Fields Required</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 2 -->
+                        <!-- Panel 3 -->
+                        <li class="panel">
+                            <a href="#step-3" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">3</div>
+                                <h6>Shipping Information</h6>
+                            </a>
+                            <div id="step-3" class="collapse">
+                                <div class="step-content">
+                                    <form class="row no-margin">
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="First Name" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Last Name" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Company" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Telephone" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Address" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="City" type="text">
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <input class="form-control" placeholder="Zip/Postal code" type="text">
+                                        </div>
+                                        <div class="col-sm-6 col-md-6">
+                                            <select class="form-control">
+                                                <option>USA</option>
+                                                <option>Bangladesh</option>
+                                                <option>UK</option>
+                                                <option>Canada</option>
+                                                <option>China</option>
+                                                <option>Japan</option>
+                                                <option>France</option>
+                                            </select>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="col-sm-12 buttons-box text-right">
+                                            <button type="button" class="btn btn-color">Continue</button>
+                                            <span class="required"><b>*</b> Required Field</span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 3 -->
+                        <!-- Panel 4 -->
+                        <li class="panel">
+                            <a href="#step-4" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">4</div>
+                                <h6>Shipping Method</h6>
+                            </a>
+                            <div id="step-4" class="collapse">
+                                <div class="step-content">
+                                    <form class="no-margin">
+                                        <h5>Flat Rate</h5>
+                                        <div class="radio">
+                                            <label>
+                                                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                                                Fixed <strong>$5.00</strong>
+                                            </label>
+                                        </div>
+                                        <button type="button" class="btn btn-color">Continue</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 4 -->
+                        <!-- Panel 5 -->
+                        <li class="panel">
+                            <a href="#step-5" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">5</div>
+                                <h6>Payment Information</h6>
+                            </a>
+                            <div id="step-5" class="collapse">
+                                <div class="step-content">
+                                    <form>
+                                        <div>
+                                            <label class="radio"><input type="radio" name="register"> Checkout as Guest</label>
+                                            <label class="radio"><input type="radio" name="register"> Register</label>
+                                        </div>
+                                    </form>
+                                    <div class="buttons-box text-right">
+                                        <button type="button" class="btn btn-color">Continue</button>
+                                        <span class="required"><b>*</b> Required Field</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 5 -->
+                        <!-- Panel 6 -->
+                        <li class="panel">
+                            <a href="#step-6" class="collapsed step-title" data-parent="#checkoutsteps" data-toggle="collapse">
+                                <div class="number">6</div>
+                                <h6>Order Review</h6>
+                            </a>
+                            <div id="step-6" class="collapse">
+                                <div class="step-content">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>Product Name</th>
+                                                    <th>Price</th>
+                                                    <th>Qty</th>
+                                                    <th>Subtotal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Asus Laptop</td>
+                                                    <td>$500</td>
+                                                    <td>1</td>
+                                                    <td>$500.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Walton Tv</td>
+                                                    <td>$500.00</td>
+                                                    <td>1</td>
+                                                    <td>$500.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">Subtotal</td>
+                                                    <td>$1000.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">Shipping & Handling (Flat Rate - Fixed)</td>
+                                                    <td>$5.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">Grand Total</td>
+                                                    <td>$1005.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <button type="button" class="btn btn-color">Place Order</button>
+                                </div>
+                            </div>
+                        </li>
+                        <!-- /Panel 6 -->
+                    </ul>
+                    <!-- /check out steps -->
+                </div>
+                <!-- /content -->
+                <!-- sidebar -->
+                <div id="sidebar" class="col-sm-3 col-md-3 sidebar checkout-progress">
+                    <aside class="widget">
+                        <header>
+                            <h3 class="title">Your Checkout Progress</h3>
+                        </header>
+                        <ul class="progress-list">
+                            <li class="active"><a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>Checkout Method</li>
+                            <li><a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>Billing Address</li>
+                            <li><a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>Shipping Address</li>
+                            <li><a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>Shipping Method</li>
+                            <li><a href="#" class="edit"><i class="fa fa-pencil"></i> Edit</a>Payment Method</li>
+                        </ul>
+                    </aside>
+                </div>
+                <!-- /sidebar -->
+            </div>
+        </div>
+    </div>
+    <!-- /Main Content -->
+</section>
+<!-- /Main Section -->

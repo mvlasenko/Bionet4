@@ -33,7 +33,7 @@ namespace Bionet4.Data.Models
         [Display(Name = "Birth Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [UIHint("_DatePicker")]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         [Display(Name = "Country")]
         [UIHint("_Country")]
@@ -102,7 +102,7 @@ namespace Bionet4.Data.Models
         public virtual Rajon Rajon { get; set; }
 
         [ScaffoldColumn(false)]
-        public int CityType { get; set; }
+        public int? CityType { get; set; }
 
         [IncludeList()]
         public string City { get; set; }
@@ -136,9 +136,5 @@ namespace Bionet4.Data.Models
         [IncludeList("Created")]
         [HiddenInput(DisplayValue = false)]
         public DateTime CreatedDateTime { get; set; }
-
-        [ScaffoldColumn(false)]
-        public string CreatedByUserID { get; set; }
-
     }
 }

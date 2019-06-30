@@ -205,7 +205,6 @@
     <Compile Include="Controllers\RajonsController.cs" />
     <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\VariablesController.cs" />
-    <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -231,7 +230,6 @@
     <Compile Include="ModelBinding\RajonsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\RegionsFilterModelBinder.cs" />
     <Compile Include="ModelBinding\VariablesFilterModelBinder.cs" />
-    <Compile Include="ModelBinding\VideosFilterModelBinder.cs" />
     <Compile Include="Models\LoginUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FieldInfo.cs" />
@@ -517,6 +515,7 @@
     <Content Include="Views\Shared\Edit.cshtml" />
     <Content Include="Views\Shared\New.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\_ParagraphType.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

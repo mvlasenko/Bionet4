@@ -30,7 +30,6 @@ namespace Bionet4.Admin
             container.RegisterType<IRegionsRepository, RegionsRepository>();
             container.RegisterType<ICountriesRepository, CountriesRepository>();
             container.RegisterType<IVariablesRepository, VariablesRepository>();
-            container.RegisterType<IVideosRepository, VideosRepository>();
             container.RegisterType<IImagesRepository, ImagesRepository>();
 
         }

@@ -8,13 +8,13 @@
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "POST",
-            UpdateTargetId = "loginModal",
+            UpdateTargetId = "modal-content-login",
             OnSuccess = "document.location.reload(true);"
         },
         new { @id = "frmModalLogin" }))
         {
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content-login">
                 <div class="modal-header">
                     <h2 class="form-signin-heading modal-title" id="myModalLabel">@Resources.Login</h2>
                 </div>

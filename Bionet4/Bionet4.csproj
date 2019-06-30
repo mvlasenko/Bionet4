@@ -223,7 +223,6 @@
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\ImagesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -900,6 +899,8 @@
     <Content Include="js\tytabs.js" />
     <Content Include="js\waypoints.min.js" />
     <Content Include="js\wow.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1011,6 +1012,7 @@
     <Content Include="Views\Shared\_CartModalPartial.cshtml" />
     <Content Include="Views\Products\_AddCartPartial.cshtml" />
     <Content Include="Views\Articles\Feedback.cshtml" />
+    <Content Include="Views\Orders\Checkout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bionet4.Data\Bionet4.Data.csproj">

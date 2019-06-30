@@ -50,6 +50,9 @@ namespace Bionet4.Data.Models
         [UIHint("_FaIcon")]
         public string FaIcon { get; set; }
 
+        [Display(Name = "Video URL")]
+        public string VideoUrl { get; set; }
+
         [IncludeList()]
         public string Author { get; set; }
 

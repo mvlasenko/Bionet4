@@ -124,12 +124,6 @@ namespace Bionet4.Admin.Helpers
             return repository.GetList().ToList();
         }
 
-        public static List<Video> GetVideos()
-        {
-            IVideosRepository repository = DependencyResolver.Current.GetService<IVideosRepository>();
-            return repository.GetList().ToList();
-        }
-
         public static List<Image> GetImages()
         {
             IImagesRepository repository = DependencyResolver.Current.GetService<IImagesRepository>();

@@ -32,7 +32,6 @@ namespace Bionet4.Data.Models
             modelBuilder.Configurations.Add(new RegionMap());
             modelBuilder.Configurations.Add(new CountryMap());
             modelBuilder.Configurations.Add(new VariableMap());
-            modelBuilder.Configurations.Add(new VideoMap());
             modelBuilder.Configurations.Add(new ImageMap());
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

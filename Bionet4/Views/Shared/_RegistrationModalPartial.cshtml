@@ -9,13 +9,13 @@
         {
             InsertionMode = InsertionMode.Replace,
             HttpMethod = "POST",
-            UpdateTargetId = "registrationModal",
+            UpdateTargetId = "modal-content-registration",
             OnSuccess = "document.location.reload(true);"
         },
-        new { @id = "frmModalLogin" }))
+        new { @id = "frmModalRegistration" }))
         {
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" id="modal-content-registration">
                 <div class="modal-header">
                     <h2 class="form-signin-heading modal-title" id="registrationModalLabel">@Resources.CreateAccount</h2>
                 </div>
@@ -44,14 +44,6 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    @Html.EditorFor(m => m.Gender, new { @class = "form-control", @placeholder = Resources.Gender })
-                                    @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
                                     @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @type = "email", @placeholder = "Email", @required = "required" })
                                     @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                 </div>
@@ -60,84 +52,8 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="col-md-12">
-                                    @Html.TextBoxFor(m => m.PhoneMobile, new { @class = "form-control", @placeholder = Resources.PhoneMobile })
-                                    @Html.ValidationMessageFor(m => m.PhoneMobile, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.EditorFor(m => m.BirthDate, new { @class = "form-control", @placeholder = Resources.BirthDate })
-                                    @Html.ValidationMessageFor(m => m.BirthDate, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.EditorFor(m => m.CountryId, new { @class = "form-control", @placeholder = Resources.Country })
-                                    @Html.ValidationMessageFor(m => m.CountryId, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.EditorFor(m => m.RegionId, new { @class = "form-control", @placeholder = Resources.Region })
-                                    @Html.ValidationMessageFor(m => m.RegionId, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.EditorFor(m => m.RajonId, new { @class = "form-control", @placeholder = Resources.Rajon })
-                                    @Html.ValidationMessageFor(m => m.RajonId, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.TextBoxFor(m => m.City, new { @class = "form-control", @placeholder = Resources.City })
-                                    @Html.ValidationMessageFor(m => m.City, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.TextBoxFor(m => m.Street, new { @class = "form-control", @placeholder = Resources.Street })
-                                    @Html.ValidationMessageFor(m => m.Street, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-6">
-                                    @Html.TextBoxFor(m => m.HouseNumber, new { @class = "form-control", @placeholder = Resources.HouseNumber })
-                                    @Html.ValidationMessageFor(m => m.HouseNumber, "", new { @class = "text-danger" })
-                                </div>
-                                <div class="col-md-6">
-                                    @Html.TextBoxFor(m => m.HouseNumberAddition, new { @class = "form-control", @placeholder = Resources.HouseNumberAddition })
-                                    @Html.ValidationMessageFor(m => m.HouseNumberAddition, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.TextBoxFor(m => m.Apartment, new { @class = "form-control", @placeholder = Resources.Apartment })
-                                    @Html.ValidationMessageFor(m => m.Apartment, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    @Html.TextBoxFor(m => m.PhoneHome, new { @class = "form-control", @placeholder = Resources.PhoneHome })
-                                    @Html.ValidationMessageFor(m => m.PhoneHome, "", new { @class = "text-danger" })
+                                    @Html.TextBoxFor(m => m.Code, new { @class = "form-control", @placeholder = Resources.Code })
+                                    @Html.ValidationMessageFor(m => m.Code, "", new { @class = "text-danger" })
                                 </div>
                             </div>
                         </div>

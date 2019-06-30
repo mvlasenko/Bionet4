@@ -29,7 +29,6 @@ namespace Bionet4.Admin
             binders[typeof(IFilter<Region, int>)] = new RegionsFilterModelBinder();
             binders[typeof(IFilter<Country, int>)] = new CountriesFilterModelBinder();
             binders[typeof(IFilter<Variable, int>)] = new VariablesFilterModelBinder();
-            binders[typeof(IFilter<Video, Guid>)] = new VideosFilterModelBinder();
             binders[typeof(IFilter<Image, Guid>)] = new ImagesFilterModelBinder();
         }
     }

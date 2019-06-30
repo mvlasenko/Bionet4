@@ -21,6 +21,8 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.FaIcon).HasMaxLength(20);
 
+            this.Property(t => t.VideoUrl).HasMaxLength(255);
+
             this.Property(t => t.Author).HasMaxLength(255);
 
             this.Property(t => t.PublishDate);
@@ -40,6 +42,7 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Description).HasColumnName("Description");
             this.Property(t => t.ImageID).HasColumnName("ImageID");
             this.Property(t => t.FaIcon).HasColumnName("FaIcon");
+            this.Property(t => t.VideoUrl).HasColumnName("VideoUrl");
             this.Property(t => t.Author).HasColumnName("Author");
             this.Property(t => t.PublishDate).HasColumnName("PublishDate");
             this.Property(t => t.ExternalURL).HasColumnName("ExternalURL");

@@ -19,7 +19,7 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.Gender).IsRequired();
 
-            this.Property(t => t.BirthDate).IsRequired();
+            this.Property(t => t.BirthDate);
 
             this.Property(t => t.CountryId);
 
@@ -27,13 +27,13 @@ namespace Bionet4.Data.Models.Mapping
 
             this.Property(t => t.RajonId);
 
-            this.Property(t => t.CityType).IsRequired();
+            this.Property(t => t.CityType);
 
-            this.Property(t => t.City).IsRequired().HasMaxLength(50);
+            this.Property(t => t.City).HasMaxLength(50);
 
-            this.Property(t => t.Street).IsRequired().HasMaxLength(255);
+            this.Property(t => t.Street).HasMaxLength(255);
 
-            this.Property(t => t.HouseNumber).IsRequired().HasMaxLength(10);
+            this.Property(t => t.HouseNumber).HasMaxLength(10);
 
             this.Property(t => t.HouseNumberAddition).HasMaxLength(10);
 
@@ -50,8 +50,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.Number).HasMaxLength(50);
 
             this.Property(t => t.CreatedDateTime).IsRequired();
-
-            this.Property(t => t.CreatedByUserID);
 
             // Table & Column Mappings
 
@@ -77,7 +75,6 @@ namespace Bionet4.Data.Models.Mapping
             this.Property(t => t.EnterpreneurCode).HasColumnName("EnterpreneurCode");
             this.Property(t => t.Number).HasColumnName("Number");
             this.Property(t => t.CreatedDateTime).HasColumnName("CreatedDateTime");
-            this.Property(t => t.CreatedByUserID).HasColumnName("CreatedByUserID");
 
             // Relationships
             this.HasRequired(t => t.Country)

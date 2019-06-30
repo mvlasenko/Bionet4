@@ -32,7 +32,6 @@ namespace Bionet4
             container.RegisterType<IRegionsRepository, RegionsRepository>();
             container.RegisterType<ICountriesRepository, CountriesRepository>();
             container.RegisterType<IVariablesRepository, VariablesRepository>();
-            container.RegisterType<IVideosRepository, VideosRepository>();
             container.RegisterType<IImagesRepository, ImagesRepository>();
 
             container.RegisterType<AccountController>(new InjectionConstructor());

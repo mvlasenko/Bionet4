@@ -9,6 +9,8 @@ using Bionet4.Models;
 using Bionet4.ViewModels;
 using Bionet4.Data.Contracts;
 using Bionet4.Data.Models;
+using System.Linq;
+using System;
 
 namespace Bionet4.Controllers
 {
@@ -156,6 +158,7 @@ namespace Bionet4.Controllers
                 IApplicationsRepository applicationsRepository = DependencyResolver.Current.GetService<IApplicationsRepository>();
                 Application application = applicationsRepository.Insert(new Application
                 {
+                    EnterpreneurCode = model.Code,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
@@ -197,42 +200,35 @@ namespace Bionet4.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> RegisterPartial(RegisterViewModel model)
         {
+            string errors = "";
             if (ModelState.IsValid)
             {
                 //fill applications table
                 IApplicationsRepository applicationsRepository = DependencyResolver.Current.GetService<IApplicationsRepository>();
                 Application application = applicationsRepository.Insert(new Application
                 {
+                    EnterpreneurCode = model.Code,
                     Email = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     MiddleName = model.MiddleName,
-                    Gender = model.Gender,
-                    BirthDate = model.BirthDate,
-                    CountryId = model.CountryId,
-                    RegionId = model.RegionId,
-                    RajonId = model.RajonId,
                     CityType = 0,
-                    City = model.City,
-                    Street = model.Street,
-                    HouseNumber = model.HouseNumber,
-                    HouseNumberAddition = model.HouseNumberAddition,
-                    Apartment = model.Apartment,
-                    PhoneHome = model.PhoneHome,
-                    PhoneMobile = model.PhoneMobile
+                    CountryId = 1,
+                    BirthDate = null,
+                    CreatedDateTime = DateTime.Now
                 });
 
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, PhoneNumber = model.PhoneMobile, ApplicationId = application.Id };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return Json(new { success = "true" });
                 }
-                AddErrors(result);
+
+                errors = string.Join(", ", result.Errors);
             }
 
-            // If we got this far, something failed, redisplay form
-            return PartialView(model);
+            return Json(new { success = "false", errors });
         }
 
         //

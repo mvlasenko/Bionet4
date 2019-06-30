@@ -64,32 +64,32 @@
                             <div class="pull-left">
                                 <ul class="social pull-left">
                                     @if (!string.IsNullOrEmpty(Resources.contact_facebook))
-                                    {
+                                {
                                     <li class="facebook"><a href="@Resources.contact_facebook"><i class="fa fa-facebook"></i></a></li>
-                                    }
+                            }
                                     @if (!string.IsNullOrEmpty(Resources.contact_twitter))
-                                    {
+                                {
                                     <li class="twitter"><a href="@Resources.contact_twitter"><i class="fa fa-twitter"></i></a></li>
-                                    }
+                            }
                                     @if (!string.IsNullOrEmpty(Resources.contact_dribbble))
-                                    {
+                                {
                                     <li class="dribbble"><a href="@Resources.contact_dribbble"><i class="fa fa-dribbble"></i></a></li>
-                                    }
+                            }
                                     @if (!string.IsNullOrEmpty(Resources.contact_linkedin))
-                                    {
+                                {
                                     <li class="linkedin"><a href="@Resources.contact_linkedin"><i class="fa fa-linkedin"></i></a></li>
-                                    }
+                            }
                                     @if (!string.IsNullOrEmpty(Resources.contact_rss))
-                                    {
+                                {
                                     <li class="rss"><a href="@Resources.contact_rss"><i class="fa fa-rss"></i></a></li>
-                                    }
+                            }
                                 </ul>
                             </div>
                             <div class="phone-login pull-right">
                                 @if (!string.IsNullOrEmpty(Resources.CallUs))
-                                {
+                            {
                                 <a><i class="fa fa-phone"></i> @Resources.CallUs</a>
-                                }
+                        }
                                 @Html.Partial("_LoginPartial")
                             </div>
                         </div>
@@ -163,25 +163,25 @@
                                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
                                     <ul class="social social-icons-footer-bottom">
                                         @if (!string.IsNullOrEmpty(Resources.contact_facebook))
-                                        {
+                                    {
                                         <li class="facebook"><a href="@Resources.contact_facebook" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                        }
+                                }
                                         @if (!string.IsNullOrEmpty(Resources.contact_twitter))
-                                        {
+                                    {
                                         <li class="twitter"><a href="@Resources.contact_twitter" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                        }
+                                }
                                         @if (!string.IsNullOrEmpty(Resources.contact_dribbble))
-                                        {
+                                    {
                                         <li class="dribbble"><a href="@Resources.contact_dribbble" data-toggle="tooltip" title="Dribble"><i class="fa fa-dribbble"></i></a></li>
-                                        }
+                                }
                                         @if (!string.IsNullOrEmpty(Resources.contact_linkedin))
-                                        {
+                                    {
                                         <li class="linkedin"><a href="@Resources.contact_linkedin" data-toggle="tooltip" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                        }
+                                }
                                         @if (!string.IsNullOrEmpty(Resources.contact_rss))
-                                        {
+                                    {
                                         <li class="rss"><a href="@Resources.contact_rss" data-toggle="tooltip" title="Rss"><i class="fa fa-rss"></i></a></li>
-                                        }
+                                }
                                     </ul>
                                 </div>
                             </div>
@@ -205,6 +205,10 @@
         <!-- /Wrap -->
         <!-- The Scripts -->
         <script src="/js/jquery.min.js"></script>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryval")
+
         <script src="/js/jquery-migrate-1.0.0.js"></script>
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/bootstrap.js"></script>
@@ -229,9 +233,6 @@
         <script src="/js/jquery.fitvids.js"></script>
         <script src="/js/Cookies.js"></script>
         <script src="/js/custom.js"></script>
-
-        @*@Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")*@
 
         @RenderSection("scripts", required: false)
 

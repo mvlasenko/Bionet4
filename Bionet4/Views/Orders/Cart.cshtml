@@ -15,7 +15,11 @@
             <div class="row">
                 <div class="col-sm-12 col-md-12">
 
-                    @if (Model.OrderItems != null)
+                @using (Html.BeginForm("Checkout", "Orders", FormMethod.Post, new { role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    if (Model.OrderItems != null)
                     {
                     <div class="table-box">
 
@@ -35,6 +39,9 @@
                             </thead>
                             <tbody>
 
+                                @{
+                                    int i = 0;
+                                }
                                 @foreach (OrderItemViewModel item in Model.OrderItems)
                                 {
                                 <tr class="order-item">
@@ -50,7 +57,7 @@
                                         <div class="price"><span class="item-price">@(item.Product.PriceNew ?? item.Product.Price)</span> @Resources.Currency</div>
                                     </td>
                                     <td class="td-qty">
-                                        <input type="text" value="@item.Count" class="form-control item-count">
+                                        @Html.EditorFor(model => model.OrderItems[i].Count, new { htmlAttributes = new { @class = "form-control item-count" } })
                                     </td>
                                     <td class="td-total">
                                         <div class="price"><span class="item-subtotal">@((item.Product.PriceNew ?? item.Product.Price) * item.Count)</span> @Resources.Currency</div>
@@ -59,6 +66,9 @@
                                         <i class="fa fa-trash-o"></i>
                                     </td>
                                 </tr>
+                                @Html.HiddenFor(model => model.OrderItems[i].Product.Id)
+
+                                    i++;
                                 }
 
                             </tbody>
@@ -69,7 +79,7 @@
                         <tbody>
                             <tr>
                                 <td class="action no-border">
-                                    <a class="btn btn-color" href="checkout.html">@Resources.ProceedToCheckout</a><br>
+                                    <button type="submit" class="btn btn-color">@Resources.ProceedToCheckout</button>
                                 </td>
                                 <td class="action no-border">
                                     <a class="update btn btn-color pull-right btn-update-cart" href="#"><i class="fa fa-rotate-right"></i> @Resources.UpdateShoppingCart</a>
@@ -81,7 +91,7 @@
                     else {
                     <h3>@Resources.CartIsEmpty</h3>
                     }
-
+                }
                 </div>
             </div>
         </div>

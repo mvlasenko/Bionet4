@@ -24,6 +24,10 @@ namespace Bionet4.Data.Models
         [IncludeList()]
         public string Name { get; set; }
 
+        [IncludeList("Type")]
+        [UIHint("_Enum")]
+        public virtual ParagraphType ParagraphType { get; set; }
+
         [UIHint("MultilineText")]
         [Column(TypeName = "ntext")]
         public string Description { get; set; }
@@ -36,6 +40,9 @@ namespace Bionet4.Data.Models
         [Display(Name = "FA Icon")]
         [UIHint("_FaIcon")]
         public string FaIcon { get; set; }
+
+        [Display(Name = "Video URL")]
+        public string VideoUrl { get; set; }
 
         [IncludeList("")]
         [HiddenInput(DisplayValue = false)]

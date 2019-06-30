@@ -151,6 +151,15 @@ namespace Bionet4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Checkout.
+        /// </summary>
+        public static string Checkout {
+            get {
+                return ResourceManager.GetString("Checkout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to City.
         /// </summary>
         public static string City {
@@ -165,6 +174,15 @@ namespace Bionet4.Properties {
         public static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Регистрационный номер.
+        /// </summary>
+        public static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
             }
         }
         

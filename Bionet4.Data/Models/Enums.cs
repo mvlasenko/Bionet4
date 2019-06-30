@@ -31,6 +31,13 @@
         Feedback = 19
     }
 
+    public enum ParagraphType
+    {
+        Text = 0,
+        Image = 1,
+        Video = 2
+    }
+
     public enum MailType
     {
         ConfirmEmail = 1

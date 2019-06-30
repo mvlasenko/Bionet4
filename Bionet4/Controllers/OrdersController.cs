@@ -30,39 +30,50 @@ namespace Bionet4.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public virtual ActionResult Create(OrderViewModel model)
+        public virtual ActionResult Checkout(OrderViewModel model)
         {
-            if (ModelState.IsValid)
+            if (model.OrderItems.Any())
             {
-                try
-                {
-                    if (model.OrderItems.Any())
-                    {
-                        //insert order
-                        IOrdersRepository ordersRepository = DependencyResolver.Current.GetService<IOrdersRepository>();
-                        IOrderItemsRepository orderItemsRepository = DependencyResolver.Current.GetService<IOrderItemsRepository>();
+                model.Total = model.OrderItems.Select(item => ((item.Product.PriceNew ?? item.Product.Price) * item.Count)).Sum();
 
-                        //todo: add user
-                        Order order = ordersRepository.Insert(new Order { CreatedDateTime = DateTime.Now });
 
-                        foreach (OrderItemViewModel orderItem in model.OrderItems)
-                        {
-                            if (orderItem.Count > 0)
-                            {
-                                orderItemsRepository.Insert(new OrderItem { OrderId = order.Id, ProductId = orderItem.Product.Id, ProductCount = orderItem.Count });
-                            }
-                        }
 
-                        return View("CreateSuccess", model);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
             }
 
-            return View("Create", model);
+
+
+
+            //if (ModelState.IsValid)
+            //{
+            //    try
+            //    {
+            //        if (model.OrderItems.Any())
+            //        {
+            //            //insert order
+            //            IOrdersRepository ordersRepository = DependencyResolver.Current.GetService<IOrdersRepository>();
+            //            IOrderItemsRepository orderItemsRepository = DependencyResolver.Current.GetService<IOrderItemsRepository>();
+
+            //            //todo: add user
+            //            Order order = ordersRepository.Insert(new Order { CreatedDateTime = DateTime.Now });
+
+            //            foreach (OrderItemViewModel orderItem in model.OrderItems)
+            //            {
+            //                if (orderItem.Count > 0)
+            //                {
+            //                    orderItemsRepository.Insert(new OrderItem { OrderId = order.Id, ProductId = orderItem.Product.Id, ProductCount = orderItem.Count });
+            //                }
+            //            }
+
+            //            return View("CreateSuccess", model);
+            //        }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        throw;
+            //    }
+            //}
+
+            return View("Checkout");
         }
     }
 }
